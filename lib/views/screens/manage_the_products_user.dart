@@ -8,6 +8,7 @@ import '../../controllers/home_controller.dart';
 import '../../core/constant/appcolors.dart';
 import '../widgets/manage_the_products/add_products.dart';
 import '../widgets/manage_the_products/manage_options.dart';
+import '../widgets/manage_the_products/show_my_orders.dart';
 
 class ManageTheProductsByTheUser extends StatelessWidget {
   const ManageTheProductsByTheUser({super.key});
@@ -170,7 +171,42 @@ class ManageTheProductsByTheUser extends StatelessWidget {
               )),
           Padding(
               padding: EdgeInsets.only(
-                  top: screenHeight * 0.62,
+                top: screenHeight * 0.56,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        homeController.showTheMyOrdersByUSers.value = true;
+                      },
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            "${ImagesPath.iconOrder}",
+                            width: screenWidth * 0.2,
+                          ),
+                          Text(
+                            "طلبيات منتجاتي".tr,
+                            style: TextStyle(
+                              fontFamily: 'Cairo',
+                              color: AppColors.balckgray,
+                              fontSize: screenWidth * 0.045,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+          Padding(
+              padding: EdgeInsets.only(
+                  top: screenHeight * 0.72,
                   left: screenWidth * 0.03,
                   right: screenWidth * 0.03),
               child: Align(
@@ -219,6 +255,7 @@ class ManageTheProductsByTheUser extends StatelessWidget {
               )),
           AddTheProducts(),
           ManageOptions(),
+          ShowMyOrdersUserd()
         ],
       )),
     );

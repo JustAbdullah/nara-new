@@ -12,6 +12,7 @@ import '../widgets/types_products_widget/substype_widget.dart';
 import '../widgets/types_products_widget/type_products_widget.dart';
 import '../widgets/home_widgets/view_widget_products_home/details_products_widget.dart';
 import '../widgets/types_products_widget/type_products_widget_searching.dart';
+import '../widgets/types_products_widget/users_products.dart';
 
 class TheTypes extends StatelessWidget {
   const TheTypes({super.key});
@@ -68,10 +69,26 @@ class TheTypes extends StatelessWidget {
                           SystemChrome.setEnabledSystemUIMode(
                               SystemUiMode.manual,
                               overlays: []);
+
                           controller.TheNameProductsToSearching.value =
                               val.toString();
                           controller.isTheUserIsWantSearhingProducts.value =
                               true;
+                          controller.showTheProductUsers.value = false;
+                          controller.showTheProductTypeOneClothes.value = false;
+                          controller.showTheProductTypeTwoShoes.value = false;
+                          controller.showTheProductTypeThreeSports.value =
+                              false;
+                          controller.showTheProductTypeFourPerfumes.value =
+                              false;
+
+                          controller.subTypeProductOne.value = false;
+                          controller.subTypeProductTwo.value = false;
+                          controller.subTypeProductThree.value = false;
+                          controller.subTypeProductFour.value = false;
+
+                          controller.subTypeProductFive.value = false;
+                          controller.subTypeProductSix.value = false;
 
                           return null;
                         },
@@ -133,6 +150,8 @@ class TheTypes extends StatelessWidget {
                                     children: [
                                       InkWell(
                                         onTap: () {
+                                          controller.showTheProductUsers.value =
+                                              false;
                                           controller
                                               .showTheProductTypeOneClothes
                                               .value = false;
@@ -203,6 +222,8 @@ class TheTypes extends StatelessWidget {
                                       ),
                                       InkWell(
                                         onTap: () {
+                                          controller.showTheProductUsers.value =
+                                              false;
                                           controller.showTheProductTypeTwoShoes
                                               .value = false;
                                           controller
@@ -260,6 +281,8 @@ class TheTypes extends StatelessWidget {
                                       ),
                                       InkWell(
                                         onTap: () {
+                                          controller.showTheProductUsers.value =
+                                              false;
                                           controller
                                               .showTheProductTypeOneClothes
                                               .value = false;
@@ -317,6 +340,8 @@ class TheTypes extends StatelessWidget {
                                       ),
                                       InkWell(
                                         onTap: () {
+                                          controller.showTheProductUsers.value =
+                                              false;
                                           controller
                                               .showTheProductTypeOneClothes
                                               .value = false;
@@ -374,6 +399,8 @@ class TheTypes extends StatelessWidget {
                                       ),
                                       InkWell(
                                         onTap: () {
+                                          controller.showTheProductUsers.value =
+                                              false;
                                           controller
                                               .showTheProductTypeOneClothes
                                               .value = false;
@@ -450,6 +477,8 @@ class TheTypes extends StatelessWidget {
                                             children: [
                                               InkWell(
                                                 onTap: () {
+                                                  controller.showTheProductUsers
+                                                      .value = false;
                                                   controller.subTypeProductOne
                                                       .value = true;
                                                   controller.subTypeProductTwo
@@ -508,6 +537,8 @@ class TheTypes extends StatelessWidget {
                                             children: [
                                               InkWell(
                                                 onTap: () {
+                                                  controller.showTheProductUsers
+                                                      .value = false;
                                                   controller.subTypeProductOne
                                                       .value = false;
                                                   controller.subTypeProductTwo
@@ -566,6 +597,8 @@ class TheTypes extends StatelessWidget {
                                             children: [
                                               InkWell(
                                                 onTap: () {
+                                                  controller.showTheProductUsers
+                                                      .value = false;
                                                   controller.subTypeProductOne
                                                       .value = false;
                                                   controller.subTypeProductTwo
@@ -624,6 +657,8 @@ class TheTypes extends StatelessWidget {
                                             children: [
                                               InkWell(
                                                 onTap: () {
+                                                  controller.showTheProductUsers
+                                                      .value = false;
                                                   controller.subTypeProductOne
                                                       .value = false;
                                                   controller.subTypeProductTwo
@@ -683,6 +718,8 @@ class TheTypes extends StatelessWidget {
                                             children: [
                                               InkWell(
                                                 onTap: () {
+                                                  controller.showTheProductUsers
+                                                      .value = false;
                                                   controller.subTypeProductOne
                                                       .value = false;
                                                   controller.subTypeProductTwo
@@ -734,8 +771,84 @@ class TheTypes extends StatelessWidget {
                                     ])
                                   ]))))),
               Padding(
+                  padding: EdgeInsets.only(top: screenHeight * 0.375),
+                  child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                          width: screenWidth,
+                          height: screenHeight / 22,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: screenWidth * 0.04),
+                            child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: [
+                                  Row(
+                                    children: [
+                                      InkWell(
+                                        onTap: () {
+                                          controller.showTheProductUsers.value =
+                                              true;
+                                          controller
+                                              .showTheProductTypeOneClothes
+                                              .value = false;
+                                          controller.showTheProductTypeTwoShoes
+                                              .value = false;
+                                          controller
+                                              .showTheProductTypeThreeSports
+                                              .value = false;
+                                          controller
+                                              .showTheProductTypeFourPerfumes
+                                              .value = false;
+
+                                          controller.subTypeProductOne.value =
+                                              false;
+                                          controller.subTypeProductTwo.value =
+                                              false;
+                                          controller.subTypeProductThree.value =
+                                              false;
+                                          controller.subTypeProductFour.value =
+                                              false;
+
+                                          controller.subTypeProductFive.value =
+                                              false;
+                                          controller.subTypeProductSix.value =
+                                              false;
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(seconds: 1),
+                                          decoration: BoxDecoration(
+                                              color: controller
+                                                          .showTheProductUsers
+                                                          .value ==
+                                                      true
+                                                  ? AppColors.WelcomeRed
+                                                  : Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          child: Padding(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: screenWidth * 0.04),
+                                            child: Text(
+                                              "منتجات المستخدمين".tr,
+                                              style: TextStyle(
+                                                  height: screenHeight * 0.003,
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.white,
+                                                  fontSize: screenWidth * 0.045,
+                                                  fontWeight: FontWeight.w500),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ]),
+                          )))),
+              Padding(
                   padding: EdgeInsets.only(
-                      top: screenHeight * 0.38, bottom: screenHeight * 0.12),
+                      top: screenHeight * 0.44, bottom: screenHeight * 0.12),
                   child: Align(
                     alignment: Alignment.center,
                     child: controller.subTypeProductOne.value == true ||
@@ -746,7 +859,9 @@ class TheTypes extends StatelessWidget {
                         ? SubStypesProducts()
                         : controller.isTheUserIsWantSearhingProducts.value ==
                                 false
-                            ? ViewTheProductsTypes()
+                            ? controller.showTheProductUsers.value == true
+                                ? ViewTheProductsUsers()
+                                : ViewTheProductsTypes()
                             : TypeTheProductsWidgetSearching(),
                   )),
               IconTheManageWidget(),

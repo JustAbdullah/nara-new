@@ -214,6 +214,10 @@ class HomeController extends GetxController {
   RxBool subTypeProductFive = false.obs;
   RxBool subTypeProductSix = false.obs;
 
+  RxBool showTheProductUsers = false.obs;
+
+  RxBool emptyshowTheProductUsers = false.obs;
+
 /////////////// The PageView Top Screen Home /////////////////
   ///
   ///
@@ -240,8 +244,11 @@ class HomeController extends GetxController {
 
   RxBool showTheAddPage = false.obs;
   RxBool showTheEditPage = false.obs;
+  RxBool showTheMyOrdersByUSers = false.obs;
 
   RxBool ManageThePageProductsUers = false.obs;
+  RxBool emtpyTheOrdersUsers = false.obs;
+
   RxBool TheOptionsOfTheProduct = false.obs;
 
   GlobalKey<FormState> addProducts = GlobalKey<FormState>();
@@ -1215,5 +1222,29 @@ class HomeController extends GetxController {
   logout() {
     appServices.sharedPreferences.clear();
     Get.offAll(Welcome());
+  }
+
+  getOrdersProductsTheUsers() async {
+    var response =
+        await crud.postRequest(AppLinksApi.getTheOrdersusersTOmyProducts, {
+      'id_order_shopping_cart': IDUserFromDataBase.value.toString(),
+    });
+    if (response['status'] == "success") {
+      emtpyTheOrdersUsers.value = true;
+    } else {
+      emtpyTheOrdersUsers.value = false;
+    }
+    return response;
+  }
+
+  getProductsUsers() async {
+    var response = await crud.postRequest(AppLinksApi.usersProducts, {});
+    if (response['status'] == "success") {
+      emptyshowTheProductUsers.value = true;
+    } else {
+      emptyshowTheProductUsers.value = false;
+    }
+
+    return response;
   }
 }

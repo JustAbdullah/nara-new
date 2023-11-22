@@ -110,4 +110,10 @@ class AppLinksApi {
   static const getConis = "https://larra.xyz/php_nara/get_coins.php";
 
   static const uploadimage = "https://larra.xyz/uploadimagetest.php";
+
+  static const getTheOrdersusersTOmyProducts =
+      "https://larra.xyz/php_nara/get_orders_products_user_products.php";
+
+  static const usersProducts =
+      "https://larra.xyz/php_nara/get_prdocuts_users.php";
 }

@@ -445,7 +445,7 @@ class DetailsProducts extends StatelessWidget {
                   Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
-                        padding: EdgeInsets.only(bottom: screenHeight * 0.18),
+                        padding: EdgeInsets.only(bottom: screenHeight * 0.13),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -1754,6 +1754,129 @@ class DetailsProducts extends StatelessWidget {
                           ]),
                         ),
                       )),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShoppingWaiting.value,
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.05),
+                              child: Container(
+                                  width: screenWidth,
+                                  height: screenHeight / 1.7,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(25),
+                                      color: Colors.black45))))),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShoppingWaiting.value,
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.05),
+                              child: Container(
+                                  width: screenWidth,
+                                  height: screenHeight / 1.7,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(25),
+                                      color: Colors.black45))))),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShoppingWaiting.value,
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                              padding:
+                                  EdgeInsets.only(bottom: screenHeight * 0.05),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Lottie.asset("${ImagesPath.loadingWait}",
+                                      width: screenWidth * 0.3),
+                                  SizedBox(
+                                    height: screenWidth * 0.015,
+                                  ),
+                                  Text(
+                                    "108".tr,
+                                    style: TextStyle(
+                                        fontFamily: 'Cairo',
+                                        color: Colors.white,
+                                        fontSize: screenWidth * 0.045,
+                                        fontWeight: FontWeight.w700),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              )))),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShopping.value,
+                      child: Container(
+                        width: screenWidth,
+                        height: screenHeight,
+                        color: Colors.black45,
+                      )),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShopping.value,
+                      child: Container(
+                        width: screenWidth,
+                        height: screenHeight,
+                        color: Colors.black45,
+                      )),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShopping.value,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: screenHeight * 0.4),
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Lottie.asset("${ImagesPath.successfully}",
+                                    width: screenWidth * 0.3),
+                                SizedBox(
+                                  height: screenHeight * 0.01,
+                                ),
+                                Text(
+                                  "109".tr,
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: Colors.white,
+                                      fontSize: screenWidth * 0.045,
+                                      fontWeight: FontWeight.w900),
+                                  textAlign: TextAlign.center,
+                                ),
+                                SizedBox(
+                                  height: screenHeight * 0.1,
+                                ),
+                              ]),
+                        ),
+                      )),
+                  Visibility(
+                      visible: controller.isAddIntoTheCartShopping.value,
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                              padding:
+                                  EdgeInsets.only(bottom: screenHeight * 0.07),
+                              child: InkWell(
+                                onTap: () {
+                                  controller.isAddIntoTheCartShopping.value =
+                                      false;
+                                },
+                                child: Container(
+                                  width: screenWidth * 0.54,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.yellow,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Text(
+                                    "110".tr,
+                                    style: TextStyle(
+                                        fontFamily: 'Cairo',
+                                        color: Colors.black,
+                                        fontSize: screenWidth * 0.050,
+                                        fontWeight: FontWeight.w500),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              )))),
                 ]))));
   }
 }

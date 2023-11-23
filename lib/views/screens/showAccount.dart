@@ -505,15 +505,15 @@ class _showMyAccountState extends State<showMyAccount> {
                                             fontFamily: 'Cairo',
                                             color: AppColors
                                                 .blackNumberFourBlackMode,
-                                            fontSize: screenWidth * 0.050,
+                                            fontSize: screenWidth * 0.047,
                                             fontWeight: FontWeight.w500),
                                         textAlign: TextAlign.center,
                                       ),
                                     ),
                                     SizedBox(
                                       width: change.isChange.value == true
-                                          ? screenWidth * 0.075
-                                          : screenWidth * 0.29,
+                                          ? screenWidth * 0.06
+                                          : screenWidth * 0.25,
                                     ),
                                     InkWell(
                                       onTap: () {
@@ -525,7 +525,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                             fontFamily: 'Cairo',
                                             color: AppColors
                                                 .blackNumberFourBlackMode,
-                                            fontSize: screenWidth * 0.050,
+                                            fontSize: screenWidth * 0.040,
                                             fontWeight: FontWeight.w500),
                                         textAlign: TextAlign.center,
                                       ),
@@ -596,14 +596,14 @@ class _showMyAccountState extends State<showMyAccount> {
                                               fontFamily: 'Cairo',
                                               color: AppColors
                                                   .blackNumberFourBlackMode,
-                                              fontSize: screenWidth * 0.050,
+                                              fontSize: screenWidth * 0.047,
                                               fontWeight: FontWeight.w500),
                                           textAlign: TextAlign.center,
                                         ),
                                         SizedBox(
                                           width: change.isChange.value == true
-                                              ? screenWidth * 0.23
-                                              : screenWidth * 0.35,
+                                              ? screenWidth * 0.18
+                                              : screenWidth * 0.30,
                                         ),
                                         Image.asset(
                                           controller.whatIsChoesAboutTheCountry
@@ -694,14 +694,14 @@ class _showMyAccountState extends State<showMyAccount> {
                                             fontFamily: 'Cairo',
                                             color: AppColors
                                                 .blackNumberFourBlackMode,
-                                            fontSize: screenWidth * 0.050,
+                                            fontSize: screenWidth * 0.047,
                                             fontWeight: FontWeight.w500),
                                         textAlign: TextAlign.center,
                                       ),
                                       SizedBox(
                                           width: change.isChange.value == true
-                                              ? screenWidth * 0.2
-                                              : screenWidth * 0.25),
+                                              ? screenWidth * 0.21
+                                              : screenWidth * 0.27),
                                       InkWell(
                                         onTap: () {
                                           controller.theListOFCoins.value =
@@ -713,7 +713,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                               fontFamily: 'Cairo',
                                               color: AppColors
                                                   .blackNumberFourBlackMode,
-                                              fontSize: screenWidth * 0.050,
+                                              fontSize: screenWidth * 0.040,
                                               fontWeight: FontWeight.w500),
                                           textAlign: TextAlign.center,
                                         ),
@@ -791,15 +791,15 @@ class _showMyAccountState extends State<showMyAccount> {
                                               fontFamily: 'Cairo',
                                               color: AppColors
                                                   .blackNumberFourBlackMode,
-                                              fontSize: screenWidth * 0.050,
+                                              fontSize: screenWidth * 0.047,
                                               fontWeight: FontWeight.w500),
                                           textAlign: TextAlign.center,
                                         ),
                                       ),
                                       SizedBox(
                                           width: change.isChange.value == true
-                                              ? screenWidth * 0.17
-                                              : screenWidth * 0.19),
+                                              ? screenWidth * 0.16
+                                              : screenWidth * 0.17),
                                       InkWell(
                                         onTap: () {
                                           if (controller
@@ -892,15 +892,15 @@ class _showMyAccountState extends State<showMyAccount> {
                                               fontFamily: 'Cairo',
                                               color: AppColors
                                                   .blackNumberFourBlackMode,
-                                              fontSize: screenWidth * 0.050,
+                                              fontSize: screenWidth * 0.047,
                                               fontWeight: FontWeight.w500),
                                           textAlign: TextAlign.center,
                                         ),
                                       ),
                                       SizedBox(
                                           width: change.isChange.value == true
-                                              ? screenWidth * 0.45
-                                              : screenWidth * 0.39),
+                                              ? screenWidth * 0.42
+                                              : screenWidth * 0.36),
                                       InkWell(
                                           onTap: () {
                                             if (controller

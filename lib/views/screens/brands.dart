@@ -127,7 +127,6 @@ class Brands extends StatelessWidget {
                             ? ThrBrandsList()
                             : ThebrandsSearching()),
                   ),
-                  IconTheManageWidget(),
                   BrandsTheDetailsWidget(),
                   Menu()
                 ],

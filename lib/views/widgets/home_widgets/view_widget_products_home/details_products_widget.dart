@@ -361,24 +361,24 @@ class DetailsProducts extends StatelessWidget {
                                           ? Text(
                                               "${controller.product.bodyPro}",
                                               style: TextStyle(
-                                                  height: screenHeight * 0.0022,
+                                                  height: screenHeight * 0.0018,
                                                   fontFamily: 'Cairo',
                                                   color: Colors.black,
                                                   fontSize: screenWidth * 0.041,
                                                   fontWeight: FontWeight.w500),
                                               textAlign: TextAlign.center,
-                                              maxLines: 10,
+                                              maxLines: 4,
                                             )
                                           : Text(
                                               "${controller.product.bodyProEn}",
                                               style: TextStyle(
-                                                  height: screenHeight * 0.0022,
+                                                  height: screenHeight * 0.0018,
                                                   fontFamily: 'Cairo',
                                                   color: Colors.black,
                                                   fontSize: screenWidth * 0.041,
                                                   fontWeight: FontWeight.w500),
                                               textAlign: TextAlign.center,
-                                              maxLines: 10,
+                                              maxLines: 4,
                                             )),
                             ),
                           ),
@@ -504,7 +504,7 @@ class DetailsProducts extends StatelessWidget {
                   Align(
                       alignment: Alignment.bottomCenter,
                       child: Padding(
-                          padding: EdgeInsets.only(bottom: screenHeight * 0.07),
+                          padding: EdgeInsets.only(bottom: screenHeight * 0.03),
                           child: InkWell(
                             onTap: () {
                               controller.priceSm = int.parse(
@@ -1682,7 +1682,7 @@ class DetailsProducts extends StatelessWidget {
                               )))),
 
                   Visibility(
-                      visible: !controller
+                      visible: controller
                           .isnothaveTheaccessRigthtoAddIntoShoppingCart.value,
                       child: Align(
                         alignment: Alignment.center,

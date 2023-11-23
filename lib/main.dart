@@ -10,7 +10,6 @@ import 'core/constant/color_primary.dart';
 import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
 import 'views/screens/forget_password.dart';
-import 'views/screens/ss.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

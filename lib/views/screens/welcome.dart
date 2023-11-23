@@ -91,22 +91,9 @@ class Welcome extends StatelessWidget {
                   ],
                 )))),
         Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-                padding: EdgeInsets.only(bottom: screenHeight * 0.05),
-                child: Text(
-                  "8".tr,
-                  style: TextStyle(
-                      fontFamily: 'Cairo',
-                      color: AppColors.balckgray,
-                      fontSize: screenWidth * 0.045,
-                      fontWeight: FontWeight.w500),
-                  textAlign: TextAlign.center,
-                ))),
-        Align(
           alignment: Alignment.center,
           child: Padding(
-            padding: EdgeInsets.only(top: screenHeight * 0.73),
+            padding: EdgeInsets.only(top: screenHeight * 0.75),
             child: InkWell(
               onTap: () {
                 homeController.LogInAuth.value = true;

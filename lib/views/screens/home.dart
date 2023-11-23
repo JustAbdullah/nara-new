@@ -161,7 +161,7 @@ class Home extends StatelessWidget {
 ////////////////////////
 
             ////////////
-            Menu(), IconTheManageWidget(),
+            Menu(),
             ////////////////////////////////////////////////NavDown/////////
 
             DetailsProducts(),

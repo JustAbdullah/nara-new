@@ -463,7 +463,7 @@ class TheTypes extends StatelessWidget {
                       alignment: Alignment.topCenter,
                       child: Container(
                           width: screenWidth,
-                          height: screenHeight / 8,
+                          height: screenHeight / 5,
                           child: Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: screenWidth * 0.04),
@@ -493,7 +493,7 @@ class TheTypes extends StatelessWidget {
                                                       .value = false;
                                                 },
                                                 child: Container(
-                                                  height: screenHeight / 12,
+                                                  height: screenHeight / 14,
                                                   decoration: BoxDecoration(
                                                       color: controller
                                                                   .subTypeProductOne
@@ -553,7 +553,7 @@ class TheTypes extends StatelessWidget {
                                                       .value = false;
                                                 },
                                                 child: Container(
-                                                  height: screenHeight / 12,
+                                                  height: screenHeight / 14,
                                                   decoration: BoxDecoration(
                                                       color: controller
                                                                   .subTypeProductTwo
@@ -613,7 +613,7 @@ class TheTypes extends StatelessWidget {
                                                       .value = false;
                                                 },
                                                 child: Container(
-                                                  height: screenHeight / 12,
+                                                  height: screenHeight / 14,
                                                   decoration: BoxDecoration(
                                                       color: controller
                                                                   .subTypeProductThree
@@ -674,7 +674,7 @@ class TheTypes extends StatelessWidget {
                                                       .value = false;
                                                 },
                                                 child: Container(
-                                                  height: screenHeight / 12,
+                                                  height: screenHeight / 14,
                                                   decoration: BoxDecoration(
                                                       color: controller
                                                                   .subTypeProductFour
@@ -735,7 +735,7 @@ class TheTypes extends StatelessWidget {
                                                       .value = true;
                                                 },
                                                 child: Container(
-                                                  height: screenHeight / 12,
+                                                  height: screenHeight / 14,
                                                   decoration: BoxDecoration(
                                                       color: controller
                                                                   .subTypeProductSix
@@ -830,7 +830,7 @@ class TheTypes extends StatelessWidget {
                                             padding: EdgeInsets.symmetric(
                                                 horizontal: screenWidth * 0.04),
                                             child: Text(
-                                              "منتجات المستخدمين".tr,
+                                              "299".tr,
                                               style: TextStyle(
                                                   height: screenHeight * 0.003,
                                                   fontFamily: 'Cairo',
@@ -864,7 +864,6 @@ class TheTypes extends StatelessWidget {
                                 : ViewTheProductsTypes()
                             : TypeTheProductsWidgetSearching(),
                   )),
-              IconTheManageWidget(),
               Menu(),
               DetailsProducts(),
             ],

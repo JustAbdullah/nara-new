@@ -126,7 +126,6 @@ class Celebrities extends StatelessWidget {
                                   : viewTheCelebSearching(),
                         ),
                       ),
-                      IconTheManageWidget(),
                       Menu(),
                     ])),
               ),

@@ -357,6 +357,8 @@ class AppTranslation extends Translations {
           /////////////
           "298":
               "لاتمتلك حساب لذلك لاتستطيع إضافة المنتج إلى قائمة سلة المشتريات",
+
+          "299": "منتجات المستخدمين",
         },
 
         "en": {
@@ -719,7 +721,8 @@ class AppTranslation extends Translations {
           "296": "We take pride in delivering your order wherever you are.",
           "297": "Enjoy the highest possible quality",
           "298":
-              "You do not have an account, so you cannot add the product to your shopping cart list"
+              "You do not have an account, so you cannot add the product to your shopping cart list",
+          "299": "User Products",
         }
       };
 }

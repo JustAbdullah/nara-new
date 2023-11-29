@@ -770,7 +770,7 @@ class TheTypes extends StatelessWidget {
                                       ),
                                     ])
                                   ]))))),
-              Padding(
+              /*   Padding(
                   padding: EdgeInsets.only(top: screenHeight * 0.375),
                   child: Align(
                       alignment: Alignment.topCenter,
@@ -845,7 +845,7 @@ class TheTypes extends StatelessWidget {
                                     ],
                                   ),
                                 ]),
-                          )))),
+                          )))),*/
               Padding(
                   padding: EdgeInsets.only(
                       top: screenHeight * 0.44, bottom: screenHeight * 0.12),

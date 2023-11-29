@@ -251,6 +251,8 @@ class HomeController extends GetxController {
 
   RxBool TheOptionsOfTheProduct = false.obs;
 
+  RxBool isHaveUsersProducts = false.obs;
+
   GlobalKey<FormState> addProducts = GlobalKey<FormState>();
   TextEditingController? id_type;
   TextEditingController? id_subtype;
@@ -990,6 +992,11 @@ class HomeController extends GetxController {
     var responses = await crud.postRequest(AppLinksApi.getProductsFromUser, {
       'id_add_by': IDUserFromDataBase.value.toString(),
     });
+    if (responses['status'] == "success") {
+      isHaveUsersProducts.value = true;
+    } else {
+      isHaveUsersProducts.value = false;
+    }
 
     return responses;
   }

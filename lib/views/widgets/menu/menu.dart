@@ -42,7 +42,7 @@ class Menu extends StatelessWidget {
                       children: [
                         Image.asset(
                           "${ImagesPath.homeIcon}",
-                          width: screenWidth * 0.075,
+                          width: screenWidth * 0.07,
                         ),
                         Text(
                           "47".tr,
@@ -56,7 +56,7 @@ class Menu extends StatelessWidget {
                       ],
                     )),
                 SizedBox(
-                  width: screenWidth * 0.07,
+                  width: screenWidth * 0.06,
                 ),
                 InkWell(
                   onTap: () {
@@ -67,7 +67,7 @@ class Menu extends StatelessWidget {
                     children: [
                       Image.asset(
                         "${ImagesPath.TheCelebsIcon}",
-                        width: screenWidth * 0.075,
+                        width: screenWidth * 0.07,
                       ),
                       Text(
                         "46".tr,
@@ -82,7 +82,7 @@ class Menu extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: screenWidth * 0.07,
+                  width: screenWidth * 0.06,
                 ),
                 InkWell(
                     onTap: () {
@@ -93,7 +93,7 @@ class Menu extends StatelessWidget {
                       children: [
                         Image.asset(
                           "${ImagesPath.TheBransIcon}",
-                          width: screenWidth * 0.075,
+                          width: screenWidth * 0.07,
                         ),
                         Text(
                           "45".tr,
@@ -107,7 +107,7 @@ class Menu extends StatelessWidget {
                       ],
                     )),
                 SizedBox(
-                  width: screenWidth * 0.07,
+                  width: screenWidth * 0.06,
                 ),
                 InkWell(
                   onTap: () {
@@ -118,7 +118,7 @@ class Menu extends StatelessWidget {
                     children: [
                       Image.asset(
                         "${ImagesPath.TheTypeIcon}",
-                        width: screenWidth * 0.075,
+                        width: screenWidth * 0.07,
                       ),
                       Text(
                         "44".tr,
@@ -133,7 +133,7 @@ class Menu extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: screenWidth * 0.07,
+                  width: screenWidth * 0.06,
                 ),
                 InkWell(
                   onTap: () {
@@ -144,7 +144,7 @@ class Menu extends StatelessWidget {
                       children: [
                         Image.asset(
                           "${ImagesPath.TheCartIcon}",
-                          width: screenWidth * 0.075,
+                          width: screenWidth * 0.07,
                         ),
                         Text(
                           "43".tr,

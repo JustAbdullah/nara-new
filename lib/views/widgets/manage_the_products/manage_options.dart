@@ -37,6 +37,7 @@ class ManageOptions extends StatelessWidget {
                               onTap: () {
                                 controller.ManageThePageProductsUers.value =
                                     false;
+                                controller.isHaveUsersProducts.value = false;
                               },
                               child: GetX<ChangeLanguageToLocale>(
                                 builder: (scontroller) =>
@@ -68,6 +69,7 @@ class ManageOptions extends StatelessWidget {
                               onTap: () {
                                 controller.ManageThePageProductsUers.value =
                                     false;
+                                controller.isHaveUsersProducts.value = false;
                               },
                               child: Text(
                                 "185".tr,

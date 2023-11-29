@@ -189,7 +189,7 @@ class CelebritiesDetails extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: Container(
               width: screenWidth,
-              height: screenHeight / 3,
+              height: screenHeight,
               child: FutureBuilder(
                   future: homeController.getDataCollections(
                       homeController.celebs.idCele.toString()),
@@ -583,7 +583,7 @@ class CelebritiesDetails extends StatelessWidget {
                                                         child: Container(
                                                             width:
                                                                 screenHeight *
-                                                                    0.08,
+                                                                    0.17,
                                                             decoration:
                                                                 BoxDecoration(
                                                               color: AppColors

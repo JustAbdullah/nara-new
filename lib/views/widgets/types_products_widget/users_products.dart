@@ -46,6 +46,8 @@ class ViewTheProductsUsers extends StatelessWidget {
                       itemCount: snapshot.data['data'].length,
                       itemBuilder: (context, i) {
                         homeController.ind = snapshot.data['data'].length;
+                        homeController.product.imagePro =
+                            snapshot.data['data'][i]['image_product'];
 
                         controller.theOldNPrice = int.parse(
                             (snapshot.data['data'][i]['old_price'].toString()));
@@ -72,6 +74,9 @@ class ViewTheProductsUsers extends StatelessWidget {
 
                                   homeController.product.nameProEn = snapshot
                                       .data['data'][i]['name_product_en'];
+                                  homeController.product.imagePro = snapshot
+                                      .data['data'][i]['image_product']
+                                      .toString();
 
                                   homeController.product.imagePro =
                                       snapshot.data['data'][i]['image_product'];

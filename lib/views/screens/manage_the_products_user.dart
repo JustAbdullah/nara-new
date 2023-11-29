@@ -214,7 +214,7 @@ class ManageTheProductsByTheUser extends StatelessWidget {
                 child: Text(
                   "155".tr,
                   style: TextStyle(
-                    height: screenHeight * 0.002,
+                    height: screenHeight * 0.0017,
                     fontFamily: 'Cairo',
                     color: AppColors.WelcomeRed,
                     fontSize: screenWidth * 0.037,
@@ -224,7 +224,7 @@ class ManageTheProductsByTheUser extends StatelessWidget {
               )),
           Padding(
               padding: EdgeInsets.only(
-                bottom: screenHeight * 0.12,
+                bottom: screenHeight * 0.02,
               ),
               child: Align(
                 alignment: Alignment.bottomCenter,

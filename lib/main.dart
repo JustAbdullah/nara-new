@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:nara_test/core/services/appservices.dart';
-import 'package:nara_test/tes.dart';
-import 'package:nara_test/upload_image.dart';
 import 'package:nara_test/views/screens/loading.dart';
 
 import 'core/constant/color_primary.dart';
+import 'core/constant/stripe_keys.dart';
 import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
-import 'views/screens/forget_password.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Stripe.publishableKey = ApiKeysStripe.Publishablekey;
+  Stripe.publishableKey = ApiKeysStripe.Publishablekey;
 
   await initialServices();
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: const MyApp()));

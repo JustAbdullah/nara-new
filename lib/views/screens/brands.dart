@@ -9,7 +9,6 @@ import '../../core/constant/images_path.dart';
 import '../widgets/brands_widget/brands_details_widget.dart';
 import '../widgets/brands_widget/brands_list.dart';
 import '../widgets/brands_widget/brands_search.dart';
-import '../widgets/icon_manage_widget/icon_manage_widget.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
 
 class Brands extends StatelessWidget {

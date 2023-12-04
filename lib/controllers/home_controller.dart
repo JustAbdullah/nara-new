@@ -2,13 +2,15 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:nara_test/core/data/model/celeb.dart';
 import 'package:nara_test/views/screens/welcome.dart';
 
 import '../core/class/class/crud.dart';
+import '../core/constant/stripe_keys.dart';
 import '../core/data/model/brands.dart';
 import '../core/data/model/cart_shop.dart';
 import '../core/data/model/order.dart';
@@ -1254,4 +1256,48 @@ class HomeController extends GetxController {
 
     return response;
   }
+
+  ////////////////////////////////////////////////////////
+
+/////////////////////ApiKeys Stripe////////////////
+
+  Future<void> paymentByStripe(int amount, String currency) async {
+    try {
+      String clientSecret =
+          await _getClientSecret((amount * 100).toString(), currency);
+      await _initializePaymentSheet(clientSecret);
+      await Stripe.instance.presentPaymentSheet();
+    } catch (error) {
+      throw Exception(error.toString());
+    }
+  }
+
+  Future<void> _initializePaymentSheet(String clientSecret) async {
+    await Stripe.instance.initPaymentSheet(
+      paymentSheetParameters: SetupPaymentSheetParameters(
+        paymentIntentClientSecret: clientSecret,
+        merchantDisplayName: "testing-id of order number is : 12344556}",
+      ),
+    );
+  }
+
+  static Future<String> _getClientSecret(String amount, String currency) async {
+    Dio dio = Dio();
+    var response = await dio.post(
+      'https://api.stripe.com/v1/payment_intents',
+      options: Options(
+        headers: {
+          'Authorization': 'Bearer ${ApiKeysStripe.secretkey}',
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      ),
+      data: {
+        'amount': amount,
+        'currency': currency,
+      },
+    );
+    return response.data["client_secret"];
+  }
+
+////////////////////////////////////////////////////
 }

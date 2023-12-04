@@ -8,7 +8,6 @@ import 'package:nara_test/views/screens/the_types.dart';
 import '../../controllers/home_controller.dart';
 import '../widgets/home_widgets/view_widget_brands_home/view_brands_home.dart';
 import '../widgets/home_widgets/view_widget_products_home/details_products_widget.dart';
-import '../widgets/icon_manage_widget/icon_manage_widget.dart';
 import '../widgets/menu/menu.dart';
 import '../widgets/home_widgets/pageview_home/pageview_home.dart';
 import '../widgets/home_widgets/topheader/topheader.dart';

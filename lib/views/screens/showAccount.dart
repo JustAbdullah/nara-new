@@ -13,6 +13,7 @@ import '../../core/localization/changelanguage.dart';
 import '../widgets/home_widgets/account/change_country.dart';
 import '../widgets/menu/menu.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
+import 'package:flutter_paypal_checkout/flutter_paypal_checkout.dart';
 
 class showMyAccount extends StatefulWidget {
   const showMyAccount({super.key});
@@ -4314,6 +4315,10 @@ class _showMyAccountState extends State<showMyAccount> {
                                       alignment: Alignment.centerRight,
                                       child: InkWell(
                                         onTap: () {
+                                          controller.paymentByStripe(
+                                              int.parse(controller.totalAdd
+                                                  .toString()),
+                                              "SAR");
                                           controller.howtoPay.value = 1;
                                         },
                                         child: AnimatedContainer(
@@ -4329,7 +4334,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                               borderRadius:
                                                   BorderRadius.circular(5)),
                                           child: Text(
-                                            "256".tr,
+                                            "Stripe".tr,
                                             style: TextStyle(
                                                 fontFamily: 'Cairo',
                                                 color: Colors.white,
@@ -4350,6 +4355,77 @@ class _showMyAccountState extends State<showMyAccount> {
                                       alignment: Alignment.centerLeft,
                                       child: InkWell(
                                         onTap: () {
+                                          Navigator.of(context)
+                                              .push(MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                PaypalCheckout(
+                                              sandboxMode: true,
+                                              clientId:
+                                                  "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
+                                              secretKey:
+                                                  "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
+                                              returnURL:
+                                                  "success.snippetcoder.com",
+                                              cancelURL:
+                                                  "cancel.snippetcoder.com",
+                                              transactions: [
+                                                {
+                                                  "amount": {
+                                                    "total":
+                                                        '${int.parse(controller.totalAdd.toString())}',
+                                                    "currency": "USD",
+                                                    "details": {
+                                                      "subtotal":
+                                                          '${int.parse(controller.totalAdd.toString())}',
+                                                      "shipping": '0',
+                                                      "shipping_discount": 0
+                                                    }
+                                                  },
+                                                  "description":
+                                                      "the number of order is 887987987 ",
+                                                  // "payment_options": {
+                                                  //   "allowed_payment_method":
+                                                  //       "INSTANT_FUNDING_SOURCE"
+                                                  // },
+                                                  /*  "item_list": {
+                                                  "items": [
+                                                    {
+                                                      "name": "Apple",
+                                                      "quantity": 4,
+                                                      "price":
+                                                          '${int.parse(controller.total.value)}',
+                                                      "currency": "USD"
+                                                    },
+                                                  ],
+
+                                                  // shipping address is not required though
+                                                  //   "shipping_address": {
+                                                  //     "recipient_name": "Raman Singh",
+                                                  //     "line1": "Delhi",
+                                                  //     "line2": "",
+                                                  //     "city": "Delhi",
+                                                  //     "country_code": "IN",
+                                                  //     "postal_code": "11001",
+                                                  //     "phone": "+00000000",
+                                                  //     "state": "Texas"
+                                                  //  },
+                                                }*/
+                                                }
+                                              ],
+                                              note:
+                                                  "Contact us for any questions on your order.",
+                                              onSuccess: (Map params) async {
+                                                print("onSuccess: $params");
+                                              },
+                                              onError: (error) {
+                                                print("onError: $error");
+                                                Navigator.pop(context);
+                                              },
+                                              onCancel: () {
+                                                print('cancelled:');
+                                              },
+                                            ),
+                                          ));
                                           controller.howtoPay.value = 2;
                                         },
                                         child: AnimatedContainer(
@@ -4366,6 +4442,42 @@ class _showMyAccountState extends State<showMyAccount> {
                                                   BorderRadius.circular(5)),
                                           child: Text(
                                             "257".tr,
+                                            style: TextStyle(
+                                                fontFamily: 'Cairo',
+                                                color: Colors.white,
+                                                fontSize: screenWidth * 0.040,
+                                                fontWeight: FontWeight.w500),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      )),
+                                )),
+                            Visibility(
+                                visible: controller.OrderProcess.value,
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      left: screenWidth * 0.00,
+                                      top: screenHeight * 0.17),
+                                  child: Align(
+                                      alignment: Alignment.center,
+                                      child: InkWell(
+                                        onTap: () {
+                                          controller.howtoPay.value = 3;
+                                        },
+                                        child: AnimatedContainer(
+                                          duration: Duration(seconds: 1),
+                                          width: controller.howtoPay.value == 3
+                                              ? screenWidth * 0.3
+                                              : screenWidth * 0.27,
+                                          decoration: BoxDecoration(
+                                              color:
+                                                  controller.howtoPay.value == 3
+                                                      ? Colors.amber
+                                                      : Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          child: Text(
+                                            "256".tr,
                                             style: TextStyle(
                                                 fontFamily: 'Cairo',
                                                 color: Colors.white,

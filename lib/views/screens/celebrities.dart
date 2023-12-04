@@ -7,7 +7,6 @@ import '../../../../core/constant/appcolors.dart';
 import '../../controllers/home_controller.dart';
 import '../../core/constant/images_path.dart';
 import '../widgets/celebrities/view_celeb_searching.dart';
-import '../widgets/icon_manage_widget/icon_manage_widget.dart';
 import '../widgets/menu/menu.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
 

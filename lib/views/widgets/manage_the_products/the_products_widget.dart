@@ -3,7 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shimmer_animation/shimmer_animation.dart';
 import '../../../controllers/home_controller.dart';
 import '../../../core/constant/appcolors.dart';
 import '../../../core/constant/images_path.dart';

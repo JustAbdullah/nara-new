@@ -9,6 +9,7 @@ import '../../core/constant/images_path.dart';
 import '../widgets/celebrities/view_celeb_searching.dart';
 import '../widgets/menu/menu.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
+import '../widgets/home_widgets/view_widget_products_home/details_products_widget.dart';
 
 class Celebrities extends StatelessWidget {
   const Celebrities({super.key});
@@ -125,6 +126,7 @@ class Celebrities extends StatelessWidget {
                                   : viewTheCelebSearching(),
                         ),
                       ),
+                      DetailsProducts(),
                       Menu(),
                     ])),
               ),

@@ -9,6 +9,7 @@ import '../../../core/constant/appcolors.dart';
 import '../../../core/constant/images_path.dart';
 import '../../../core/localization/changelanguage.dart';
 import '../../screens/celebrities.dart';
+import '../home_widgets/view_widget_products_home/details_products_widget.dart';
 
 class CelebritiesDetails extends StatelessWidget {
   const CelebritiesDetails({Key? key}) : super(key: key);
@@ -649,7 +650,8 @@ class CelebritiesDetails extends StatelessWidget {
                   }),
             ),
           ),
-        )
+        ),
+        DetailsProducts(),
       ])),
     );
   }

@@ -9,6 +9,7 @@ import '../../core/constant/images_path.dart';
 import '../widgets/brands_widget/brands_details_widget.dart';
 import '../widgets/brands_widget/brands_list.dart';
 import '../widgets/brands_widget/brands_search.dart';
+import '../widgets/home_widgets/view_widget_products_home/details_products_widget.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
 
 class Brands extends StatelessWidget {
@@ -127,7 +128,8 @@ class Brands extends StatelessWidget {
                             : ThebrandsSearching()),
                   ),
                   BrandsTheDetailsWidget(),
-                  Menu()
+                  Menu(),
+                  DetailsProducts(),
                 ],
               )),
             ));

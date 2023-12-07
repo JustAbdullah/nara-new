@@ -632,7 +632,7 @@ class TheProductsWidgetUser extends StatelessWidget {
                                                   },
                                                   child: Container(
                                                       width:
-                                                          screenHeight * 0.08,
+                                                          screenHeight * 0.12,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             AppColors.balckgray,
@@ -669,7 +669,7 @@ class TheProductsWidgetUser extends StatelessWidget {
                     },
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       childAspectRatio: MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 1.5),
+                          (MediaQuery.of(context).size.height / 1.3),
                       crossAxisCount: 2,
                       mainAxisSpacing: 0.0,
                       crossAxisSpacing: 0.0,

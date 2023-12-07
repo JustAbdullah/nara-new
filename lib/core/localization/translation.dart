@@ -453,9 +453,8 @@ class AppTranslation extends Translations {
           "69": "Title added",
           "70": "unavailable",
           "71": "address status:",
-          "71.1"
-              "address"
-              "71.2": "Wait a moment, the address is being added now.",
+          "71.1": "address",
+          "71.2": "Wait a moment, the address is being added now.",
           "71.3": "Address has been added",
           "72": "The address has not been entered yet. Enter your address.",
           "73": "There is an error. You did not enter any value.",

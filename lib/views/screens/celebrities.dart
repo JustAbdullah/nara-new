@@ -6,6 +6,7 @@ import 'package:nara_test/views/widgets/celebrities/view_the_celeb.dart';
 import '../../../../core/constant/appcolors.dart';
 import '../../controllers/home_controller.dart';
 import '../../core/constant/images_path.dart';
+import '../widgets/celebrities/celebrities.details.dart';
 import '../widgets/celebrities/view_celeb_searching.dart';
 import '../widgets/menu/menu.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
@@ -126,7 +127,6 @@ class Celebrities extends StatelessWidget {
                                   : viewTheCelebSearching(),
                         ),
                       ),
-                      DetailsProducts(),
                       Menu(),
                     ])),
               ),

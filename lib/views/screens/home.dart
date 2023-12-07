@@ -109,9 +109,11 @@ class Home extends StatelessWidget {
                   SizedBox(
                     height: screenHeight * 0.02,
                   ),
-                  SizedBox(height: screenHeight * 0.99, child: ViewTheWidget()),
                   SizedBox(
-                    height: screenHeight * 0.02,
+                      height: (screenHeight * 0.99) + (screenHeight * 0.14),
+                      child: ViewTheWidget()),
+                  SizedBox(
+                    height: screenHeight * 0.03,
                   ),
                   PageViewHome(),
                   SizedBox(

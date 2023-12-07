@@ -200,12 +200,12 @@ class ViewTheProductsTypes extends StatelessWidget {
                                       bottom: screenHeight * 0.02),
                                   child: Container(
                                     color: AppColors.theMainColor,
-                                    child: Stack(children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            top: screenHeight * 0.00),
-                                        child: Align(
-                                            alignment: Alignment.topCenter,
+                                    child: SingleChildScrollView(
+                                      physics: NeverScrollableScrollPhysics(),
+                                      child: Column(children: [
+                                        Padding(
+                                            padding: EdgeInsets.only(
+                                                top: screenHeight * 0.00),
                                             child: Container(
                                               width: screenWidth * 0.45,
                                               height: screenHeight * 0.17,
@@ -247,359 +247,300 @@ class ViewTheProductsTypes extends StatelessWidget {
                                                         Icon(Icons.error),
                                               ),
                                             )),
-                                      ),
 
-                                      ////////////////
+                                        ////////////////
 
-                                      ///////////////////
-                                      Align(
-                                          alignment: Alignment.center,
-                                          child: Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: screenHeight * 0.07,
-                                                  left: screenWidth * 0.0),
-                                              child: Container(
-                                                width: screenWidth * 0.30,
-                                                child: GetX<
-                                                    ChangeLanguageToLocale>(
-                                                  builder: (scontroller) =>
-                                                      scontroller.changeLangData ==
-                                                              1
-                                                          ? Text(
-                                                              ("${snapshot.data['data'][i]['name_product'].toString()}"),
-                                                              style: TextStyle(
-                                                                fontFamily:
-                                                                    'Cairo',
-                                                                color: AppColors
-                                                                    .balckgray,
-                                                                fontSize:
-                                                                    screenWidth *
-                                                                        0.050,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              maxLines: 1,
-                                                            )
-                                                          : Text(
-                                                              ("${snapshot.data['data'][i]['name_product_en'].toString()}"),
-                                                              style: TextStyle(
-                                                                fontFamily:
-                                                                    'Cairo',
-                                                                color: AppColors
-                                                                    .balckgray,
-                                                                fontSize:
-                                                                    screenWidth *
-                                                                        0.050,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                              maxLines: 1,
-                                                            ),
-                                                ),
-                                              ))),
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              top: screenHeight * 0.15,
-                                              right: screenWidth * 0.04,
-                                              left: screenWidth * 0.04),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "${controller.theNameOfCoins.value}",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Cairo',
-                                                      color:
-                                                          AppColors.WelcomeRed,
-                                                      fontSize:
-                                                          screenWidth * 0.050,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                                SizedBox(
-                                                  width: screenWidth * 0.01,
-                                                ),
-                                                Text(
-                                                  (controller.theCoins.value ==
-                                                          2
-                                                      ? "${controller.theOldPrice.toStringAsFixed(2)}"
-                                                      : "${snapshot.data['data'][i]['old_price'].toString()}"),
-                                                  style: TextStyle(
-                                                      fontFamily: 'Cairo',
-                                                      color:
-                                                          AppColors.WelcomeRed,
-                                                      fontSize:
-                                                          screenWidth * 0.050,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ],
-                                            ),
-                                          )),
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              top: screenHeight * 0.15,
-                                              right: screenWidth * 0.04,
-                                              left: screenWidth * 0.04),
-                                          child: Align(
+                                        ///////////////////
+                                        Container(
+                                          width: screenWidth * 0.30,
+                                          child: GetX<ChangeLanguageToLocale>(
+                                            builder: (scontroller) =>
+                                                scontroller.changeLangData == 1
+                                                    ? Text(
+                                                        ("${snapshot.data['data'][i]['name_product'].toString()}"),
+                                                        style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: AppColors
+                                                              .balckgray,
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.050,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        maxLines: 1,
+                                                      )
+                                                    : Text(
+                                                        ("${snapshot.data['data'][i]['name_product_en'].toString()}"),
+                                                        style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: AppColors
+                                                              .balckgray,
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.050,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        maxLines: 1,
+                                                      ),
+                                          ),
+                                        ),
+                                        Stack(
+                                          children: [
+                                            Align(
                                               alignment: Alignment.center,
                                               child: Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.start,
                                                 children: [
-                                                  Container(
+                                                  Text(
+                                                    "${controller.theNameOfCoins.value}",
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cairo',
+                                                        color: AppColors
+                                                            .WelcomeRed,
+                                                        fontSize:
+                                                            screenWidth * 0.050,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  SizedBox(
+                                                    width: screenWidth * 0.01,
+                                                  ),
+                                                  Text(
+                                                    (controller.theCoins
+                                                                .value ==
+                                                            2
+                                                        ? "${controller.theOldPrice.toStringAsFixed(2)}"
+                                                        : "${snapshot.data['data'][i]['old_price'].toString()}"),
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cairo',
+                                                        color: AppColors
+                                                            .WelcomeRed,
+                                                        fontSize:
+                                                            screenWidth * 0.050,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: screenHeight * 0.02),
+                                                  child: Container(
                                                     width: screenWidth / 5,
                                                     height:
                                                         screenHeight * 0.002,
                                                     color: AppColors.WelcomeRed,
                                                   ),
-                                                ],
-                                              ))),
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              top: screenHeight * 0.21,
-                                              right: screenWidth * 0.04,
-                                              left: screenWidth * 0.04),
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "${controller.theNameOfCoins.value}",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Cairo',
-                                                      color: AppColors
-                                                          .blackNumberFourBlackMode,
-                                                      fontSize:
-                                                          screenWidth * 0.050,
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                                SizedBox(
-                                                  width: screenWidth * 0.01,
-                                                ),
-                                                Text(
-                                                  (controller.theCoins.value ==
-                                                          2
-                                                      ? "${controller.thePrice.toStringAsFixed(2)}"
-                                                      : "${snapshot.data['data'][i]['price_product'].toString()}"),
-                                                  style: TextStyle(
-                                                      fontFamily: 'Cairo',
-                                                      color: AppColors
-                                                          .blackNumberFourBlackMode,
-                                                      fontSize:
-                                                          screenWidth * 0.050,
-                                                      fontWeight:
-                                                          FontWeight.w900),
-                                                  textAlign: TextAlign.center,
                                                 ),
                                               ],
+                                            )
+                                          ],
+                                        ),
+
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "${controller.theNameOfCoins.value}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.050,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
                                             ),
-                                          )),
+                                            SizedBox(
+                                              width: screenWidth * 0.01,
+                                            ),
+                                            Text(
+                                              (controller.theCoins.value == 2
+                                                  ? "${controller.thePrice.toStringAsFixed(2)}"
+                                                  : "${snapshot.data['data'][i]['price_product'].toString()}"),
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.050,
+                                                  fontWeight: FontWeight.w900),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
 
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                bottom: screenHeight * 0.0,
-                                                left: screenWidth * 0.02,
-                                                right: screenWidth * 0.02),
-                                            child: Align(
-                                                alignment:
-                                                    Alignment.bottomCenter,
-                                                child: InkWell(
-                                                    onTap: () {
-                                                      homeController
-                                                              .product.idPro =
-                                                          snapshot.data['data']
-                                                              [i]['id_product'];
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            InkWell(
+                                              onTap: () {
+                                                homeController.product.idPro =
+                                                    snapshot.data['data'][i]
+                                                        ['id_product'];
 
-                                                      homeController
-                                                              .product.namePro =
-                                                          snapshot.data['data']
-                                                                  [i]
-                                                              ['name_product'];
+                                                homeController.product.namePro =
+                                                    snapshot.data['data'][i]
+                                                        ['name_product'];
 
-                                                      homeController.product
-                                                          .nameProEn = snapshot
-                                                              .data['data'][i]
-                                                          ['name_product_en'];
+                                                homeController
+                                                        .product.nameProEn =
+                                                    snapshot.data['data'][i]
+                                                        ['name_product_en'];
 
-                                                      homeController.product
-                                                          .imagePro = snapshot
-                                                              .data['data'][i]
-                                                          ['image_product'];
+                                                homeController
+                                                        .product.imagePro =
+                                                    snapshot.data['data'][i]
+                                                        ['image_product'];
 
-                                                      homeController.product
-                                                              .quantityTheProduct =
-                                                          snapshot.data['data']
-                                                              [i]['quantity'];
-                                                      homeController.product
-                                                          .pricePro = snapshot
-                                                              .data['data'][i]
-                                                          ['price_product'];
+                                                homeController.product
+                                                        .quantityTheProduct =
+                                                    snapshot.data['data'][i]
+                                                        ['quantity'];
+                                                homeController
+                                                        .product.pricePro =
+                                                    snapshot.data['data'][i]
+                                                        ['price_product'];
 
-                                                      homeController.product
-                                                              .oldPrice =
-                                                          snapshot.data['data']
-                                                              [i]['old_price'];
-                                                      homeController
-                                                              .product.bodyPro =
-                                                          snapshot.data['data']
-                                                                  [i]
-                                                              ['body_product'];
-                                                      homeController.product
-                                                          .bodyProEn = snapshot
-                                                              .data['data'][i]
-                                                          ['body_product_en'];
+                                                homeController
+                                                        .product.oldPrice =
+                                                    snapshot.data['data'][i]
+                                                        ['old_price'];
+                                                homeController.product.bodyPro =
+                                                    snapshot.data['data'][i]
+                                                        ['body_product'];
+                                                homeController
+                                                        .product.bodyProEn =
+                                                    snapshot.data['data'][i]
+                                                        ['body_product_en'];
 
-                                                      homeController.product
-                                                          .imageProtwo = snapshot
-                                                              .data['data'][i]
-                                                          ['image_product_two'];
+                                                homeController
+                                                        .product.imageProtwo =
+                                                    snapshot.data['data'][i]
+                                                        ['image_product_two'];
 
-                                                      homeController.product
-                                                          .imageProthree = snapshot
-                                                              .data['data'][i][
-                                                          'image_product_three'];
-                                                      homeController.product
-                                                          .imageProfour = snapshot
-                                                              .data['data'][i][
-                                                          'image_product_four'];
+                                                homeController
+                                                        .product.imageProthree =
+                                                    snapshot.data['data'][i]
+                                                        ['image_product_three'];
+                                                homeController
+                                                        .product.imageProfour =
+                                                    snapshot.data['data'][i]
+                                                        ['image_product_four'];
 
-                                                      ///
+                                                ///
 
-                                                      ///
+                                                ///
 
-                                                      homeController.product
-                                                          .pricePro = snapshot
-                                                              .data['data'][i]
-                                                          ['price_product'];
-                                                      homeController.product
-                                                              .quantityTheProduct =
-                                                          snapshot.data['data']
-                                                              [i]['quantity'];
+                                                homeController
+                                                        .product.pricePro =
+                                                    snapshot.data['data'][i]
+                                                        ['price_product'];
+                                                homeController.product
+                                                        .quantityTheProduct =
+                                                    snapshot.data['data'][i]
+                                                        ['quantity'];
 
-                                                      homeController.product
-                                                              .nameBrandAr =
-                                                          snapshot.data['data']
-                                                                  [i]
-                                                              ['name_brand_ar'];
-                                                      homeController.product
-                                                              .nameBrandEn =
-                                                          snapshot.data['data']
-                                                                  [i]
-                                                              ['name_brand_en'];
-                                                      homeController
-                                                          .getColorsTheProducts(
-                                                              homeController
-                                                                      .product
-                                                                      .idPro =
-                                                                  snapshot.data[
-                                                                          'data']
-                                                                          [i][
-                                                                          'id_product']
-                                                                      .toString());
-                                                      homeController
-                                                              .idTheProduct =
-                                                          snapshot.data['data']
-                                                                  [i]
-                                                                  ['id_product']
-                                                              .toString();
+                                                homeController
+                                                        .product.nameBrandAr =
+                                                    snapshot.data['data'][i]
+                                                        ['name_brand_ar'];
+                                                homeController
+                                                        .product.nameBrandEn =
+                                                    snapshot.data['data'][i]
+                                                        ['name_brand_en'];
+                                                homeController
+                                                    .getColorsTheProducts(
+                                                        homeController
+                                                                .product.idPro =
+                                                            snapshot
+                                                                .data['data'][i]
+                                                                    [
+                                                                    'id_product']
+                                                                .toString());
+                                                homeController.idTheProduct =
+                                                    snapshot.data['data'][i]
+                                                            ['id_product']
+                                                        .toString();
 
-                                                      controller.theOldNPrice =
-                                                          int.parse((snapshot
-                                                              .data['data'][i]
-                                                                  ['old_price']
-                                                              .toString()));
+                                                controller.theOldNPrice =
+                                                    int.parse((snapshot
+                                                        .data['data'][i]
+                                                            ['old_price']
+                                                        .toString()));
 
-                                                      controller.theNPrice =
-                                                          int.parse((snapshot
-                                                                          .data[
-                                                                      'data'][i]
-                                                                  [
-                                                                  'price_product'])
-                                                              .toString());
+                                                controller.theNPrice =
+                                                    int.parse((snapshot
+                                                                .data['data'][i]
+                                                            ['price_product'])
+                                                        .toString());
 
-                                                      controller.theOldPrice =
-                                                          controller
-                                                                  .theOldNPrice /
-                                                              12.1581.floor();
-                                                      controller.thePrice =
-                                                          controller.theNPrice /
-                                                              12.1581.floor();
-                                                      controller.product
-                                                              .KoldPrice =
-                                                          controller.theOldPrice
-                                                              .toString();
-                                                      controller.product
-                                                              .KpricePro =
-                                                          controller.thePrice
-                                                              .toString();
-                                                      homeController
-                                                          .viewTheDetilas
-                                                          .value = true;
-                                                    },
-                                                    child: Container(
-                                                        width:
-                                                            screenHeight * 0.08,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: AppColors
-                                                              .balckgray,
+                                                controller.theOldPrice =
+                                                    controller.theOldNPrice /
+                                                        12.1581.floor();
+                                                controller.thePrice =
+                                                    controller.theNPrice /
+                                                        12.1581.floor();
+                                                controller.product.KoldPrice =
+                                                    controller.theOldPrice
+                                                        .toString();
+                                                controller.product.KpricePro =
+                                                    controller.thePrice
+                                                        .toString();
+                                                homeController.viewTheDetilas
+                                                    .value = true;
+                                              },
+                                              child: Container(
+                                                  width: screenHeight * 0.16,
+                                                  decoration: BoxDecoration(
+                                                    color: AppColors.balckgray,
+                                                  ),
+                                                  child: Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal:
+                                                                  screenWidth *
+                                                                      0.015),
+                                                      child: Text(
+                                                        ("95".tr),
+                                                        style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color:
+                                                              AppColors.white,
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.035,
+                                                          fontWeight:
+                                                              FontWeight.w400,
                                                         ),
-                                                        child: Padding(
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        screenWidth *
-                                                                            0.015),
-                                                            child: Text(
-                                                              ("95".tr),
-                                                              style: TextStyle(
-                                                                fontFamily:
-                                                                    'Cairo',
-                                                                color: AppColors
-                                                                    .white,
-                                                                fontSize:
-                                                                    screenWidth *
-                                                                        0.035,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w400,
-                                                              ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
-                                                            ))))),
-                                          ),
-                                        ],
-                                      ),
-                                    ]),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ))),
+                                            ),
+                                          ],
+                                        ),
+                                      ]),
+                                    ),
                                   ),
                                 )));
                       },
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: MediaQuery.of(context).size.width /
-                            (MediaQuery.of(context).size.height / 1.5),
+                            (MediaQuery.of(context).size.height / 1.3),
                         crossAxisCount: 2,
                         mainAxisSpacing: 0.0,
                         crossAxisSpacing: 0.0,

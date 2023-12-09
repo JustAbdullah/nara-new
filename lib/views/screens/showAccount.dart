@@ -2053,7 +2053,7 @@ class _showMyAccountState extends State<showMyAccount> {
                         ),
                         Container(
                           width: screenWidth,
-                          height: screenHeight * 0.70,
+                          height: screenHeight * 0.60,
                           color: Colors.white,
                           child: FutureBuilder(
                             future: controller.getDataShoppingCart(
@@ -2340,6 +2340,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                     )),
                                                 SingleChildScrollView(
                                                   child: Column(children: [
+                                                    SizedBox(height: screenHeight*0.02,),
                                                     Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -3824,7 +3825,84 @@ class _showMyAccountState extends State<showMyAccount> {
                                             alignment: Alignment.bottomCenter,
                                             child: InkWell(
                                               onTap: () {
+                                              
                                                 //////////////////////////////////////////////////////////////////THERE PAY BY PAYPALLLLLLLLLLLLLL////////////////////////////////////////////////////////////////
+                                              Navigator.of(context)
+                                                      .push(MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        PaypalCheckout(
+                                                      sandboxMode: true,
+                                                      clientId:
+                                                          "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
+                                                      secretKey:
+                                                          "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
+                                                      returnURL:
+                                                          "success.snippetcoder.com",
+                                                      cancelURL:
+                                                          "cancel.snippetcoder.com",
+                                                      transactions: [
+                                                        {
+                                                          "amount": {
+                                                            "total":
+                                                                '${int.parse(controller.totalAdd.toString())}',
+                                                            "currency": "USD",
+                                                            "details": {
+                                                              "subtotal":
+                                                                  '${int.parse(controller.totalAdd.toString())}',
+                                                              "shipping": '0',
+                                                              "shipping_discount":
+                                                                  0
+                                                            }
+                                                          },
+                                                          "description":
+                                                              "the number of order is 887987987 ",
+                                                          // "payment_options": {
+                                                          //   "allowed_payment_method":
+                                                          //       "INSTANT_FUNDING_SOURCE"
+                                                          // },
+                                                          /*  "item_list": {
+                                                    "items": [
+                                                      {
+                                                        "name": "Apple",
+                                                        "quantity": 4,
+                                                        "price":
+                                                            '${int.parse(controller.total.value)}',
+                                                        "currency": "USD"
+                                                      },
+                                                    ],
+                  
+                                                    // shipping address is not required though
+                                                    //   "shipping_address": {
+                                                    //     "recipient_name": "Raman Singh",
+                                                    //     "line1": "Delhi",
+                                                    //     "line2": "",
+                                                    //     "city": "Delhi",
+                                                    //     "country_code": "IN",
+                                                    //     "postal_code": "11001",
+                                                    //     "phone": "+00000000",
+                                                    //     "state": "Texas"
+                                                    //  },
+                                                  }*/
+                                                        }
+                                                      ],
+                                                      note:
+                                                          "Contact us for any questions on your order.",
+                                                      onSuccess:
+                                                          (Map params) async {
+                                                        print(
+                                                            "onSuccess: $params");
+                                                      },
+                                                      onError: (error) {
+                                                        print(
+                                                            "onError: $error");
+                                                        Navigator.pop(context);
+                                                      },
+                                                      onCancel: () {
+                                                        print('cancelled:');
+                                                      },
+                                                    ),
+                                                  ));
                                               },
                                               child: Container(
                                                 width: screenWidth * 0.4,
@@ -4299,8 +4377,86 @@ class _showMyAccountState extends State<showMyAccount> {
                                                         Alignment.bottomCenter,
                                                     child: InkWell(
                                                       onTap: () {
+
                                                         //////////////////////////////////////////////////////////////////THERE PAY BY PAYPALLLLLLLLLLLLLL////////////////////////////////////////////////////////////////
+                                                    Navigator.of(context)
+                                                      .push(MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        PaypalCheckout(
+                                                      sandboxMode: true,
+                                                      clientId:
+                                                          "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
+                                                      secretKey:
+                                                          "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
+                                                      returnURL:
+                                                          "success.snippetcoder.com",
+                                                      cancelURL:
+                                                          "cancel.snippetcoder.com",
+                                                      transactions: [
+                                                        {
+                                                          "amount": {
+                                                            "total":
+                                                                '${int.parse(controller.totalAdd.toString())}',
+                                                            "currency": "USD",
+                                                            "details": {
+                                                              "subtotal":
+                                                                  '${int.parse(controller.totalAdd.toString())}',
+                                                              "shipping": '0',
+                                                              "shipping_discount":
+                                                                  0
+                                                            }
+                                                          },
+                                                          "description":
+                                                              "the number of order is 887987987 ",
+                                                          // "payment_options": {
+                                                          //   "allowed_payment_method":
+                                                          //       "INSTANT_FUNDING_SOURCE"
+                                                          // },
+                                                          /*  "item_list": {
+                                                    "items": [
+                                                      {
+                                                        "name": "Apple",
+                                                        "quantity": 4,
+                                                        "price":
+                                                            '${int.parse(controller.total.value)}',
+                                                        "currency": "USD"
                                                       },
+                                                    ],
+                  
+                                                    // shipping address is not required though
+                                                    //   "shipping_address": {
+                                                    //     "recipient_name": "Raman Singh",
+                                                    //     "line1": "Delhi",
+                                                    //     "line2": "",
+                                                    //     "city": "Delhi",
+                                                    //     "country_code": "IN",
+                                                    //     "postal_code": "11001",
+                                                    //     "phone": "+00000000",
+                                                    //     "state": "Texas"
+                                                    //  },
+                                                  }*/
+                                                        }
+                                                      ],
+                                                      note:
+                                                          "Contact us for any questions on your order.",
+                                                      onSuccess:
+                                                          (Map params) async {
+                                                        print(
+                                                            "onSuccess: $params");
+                                                      },
+                                                      onError: (error) {
+                                                        print(
+                                                            "onError: $error");
+                                                        Navigator.pop(context);
+                                                      },
+                                                      onCancel: () {
+                                                        print('cancelled:');
+                                                      },
+                                                    ),
+                                                  ));
+                                                  
+                                                     },
                                                       child: Container(
                                                         width:
                                                             screenWidth * 0.4,

@@ -3849,6 +3849,493 @@ class _showMyAccountState extends State<showMyAccount> {
                                           )),
                                     ),
                                   ])))),
+                      /////////////////////Step Two///////////////////////////////
+
+                      Visibility(
+                          visible: controller.OrderCompleteOrdersProcess.value,
+                          child: Container(
+                            width: screenWidth,
+                            height: screenHeight,
+                            color: Colors.black12,
+                          )),
+                      Visibility(
+                          visible: controller.OrderCompleteOrdersProcess.value,
+                          child: Container(
+                            width: screenWidth,
+                            height: screenHeight,
+                            color: Colors.black12,
+                          )),
+                      Visibility(
+                          visible: controller.OrderCompleteOrdersProcess.value,
+                          child: Align(
+                              alignment: Alignment.center,
+                              child: Container(
+                                  width: screenWidth * 0.85,
+                                  height: screenHeight * 0.70,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Stack(children: [
+                                    SingleChildScrollView(
+                                      child: Container(
+                                        width: screenWidth * 0.85,
+                                        height: screenHeight * 0.70,
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: screenHeight * 0.02,
+                                                    right: screenWidth * 0.02,
+                                                    left: screenWidth * 0.02),
+                                                child: Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      InkWell(
+                                                          onTap: () {
+                                                            controller
+                                                                .OrderCompleteOrdersProcess
+                                                                .value = false;
+                                                          },
+                                                          child: GetX<
+                                                              ChangeLanguageToLocale>(
+                                                            builder: (scontroller) =>
+                                                                scontroller.changeLangData ==
+                                                                        1
+                                                                    ? Image
+                                                                        .asset(
+                                                                        "${ImagesPath.arrowIconRight}",
+                                                                        width: screenWidth *
+                                                                            0.09,
+                                                                      )
+                                                                    : Image
+                                                                        .asset(
+                                                                        "${ImagesPath.arrowIconLeft}",
+                                                                        width: screenWidth *
+                                                                            0.09,
+                                                                      ),
+                                                          )),
+                                                      InkWell(
+                                                        onTap: () {
+                                                          controller
+                                                              .OrderDetails
+                                                              .value = false;
+                                                        },
+                                                        child: Text(
+                                                          "233".tr,
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Cairo',
+                                                              color: const Color
+                                                                  .fromARGB(255,
+                                                                  47, 47, 47),
+                                                              fontSize:
+                                                                  screenWidth *
+                                                                      0.052,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+                                            Text(
+                                              "234".tr,
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: const Color.fromARGB(
+                                                      255, 47, 47, 47),
+                                                  fontSize: screenWidth * 0.043,
+                                                  fontWeight: FontWeight.w500),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: screenWidth * 0.04,
+                                                    right: screenWidth * 0.04,
+                                                    left: screenWidth * 0.04),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "235".tr,
+                                                      style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 47, 47, 47),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.046,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                    SizedBox(
+                                                      width: screenWidth * 0.01,
+                                                    ),
+                                                    Text(
+                                                      "${controller.CompleteProcessIdOfOrder.value}",
+                                                      style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 47, 47, 47),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.049,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ],
+                                                )),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: screenHeight * 0.01,
+                                                    right: screenWidth * 0.04,
+                                                    left: screenWidth * 0.04),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "236".tr,
+                                                      style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 47, 47, 47),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.046,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                    SizedBox(
+                                                      width: screenWidth * 0.01,
+                                                    ),
+                                                    Text(
+                                                      "SAR",
+                                                      style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 54, 157, 57),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.049,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                    SizedBox(
+                                                      width: screenWidth * 0.01,
+                                                    ),
+                                                    Text(
+                                                      "${controller.CompleteProcessTotal.value}",
+                                                      style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 54, 157, 57),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.049,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ],
+                                                )),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: screenHeight * 0.02,
+                                                    right: screenWidth * 0.04,
+                                                    left: screenWidth * 0.04),
+                                                child: Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        "237".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: const Color
+                                                                .fromARGB(255,
+                                                                47, 47, 47),
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.046,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
+                                                      ),
+                                                      Text(
+                                                        controller.CompleteProcessHowToPay
+                                                                    .value ==
+                                                                1
+                                                            ? "238".tr
+                                                            : "239".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: AppColors
+                                                                .yellow,
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.049,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: screenHeight * 0.02,
+                                                    right: screenWidth * 0.04,
+                                                    left: screenWidth * 0.04),
+                                                child: Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        "240".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: const Color
+                                                                .fromARGB(255,
+                                                                47, 47, 47),
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.046,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
+                                                      ),
+                                                      Text(
+                                                        controller.CompleteProcessPaymentProcess
+                                                                    .value ==
+                                                                0
+                                                            ? "241".tr
+                                                            : "242".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: const Color
+                                                                .fromARGB(255,
+                                                                47, 47, 47),
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.049,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: screenHeight * 0.02,
+                                                    right: screenWidth * 0.04,
+                                                    left: screenWidth * 0.04),
+                                                child: Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        "243".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: const Color
+                                                                .fromARGB(255,
+                                                                47, 47, 47),
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.046,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
+                                                      ),
+                                                      Text(
+                                                        controller.CompleteProcessDateOfArrival
+                                                                    .value ==
+                                                                "n"
+                                                            ? "244".tr
+                                                            : "${controller.CompleteProcessDateOfArrival.value}",
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: const Color
+                                                                .fromARGB(255,
+                                                                47, 47, 47),
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.049,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: screenHeight * 0.02,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      Alignment.bottomCenter,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      controller.OrderDetails
+                                                          .value = false;
+                                                    },
+                                                    child: Text(
+                                                      "245".tr,
+                                                      style: TextStyle(
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 47, 47, 47),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.052,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ),
+                                                )),
+                                            Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: screenHeight * 0.02,
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      Alignment.bottomCenter,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      controller.OrderDetails
+                                                          .value = false;
+                                                    },
+                                                    child: Text(
+                                                      controller.CompleteProcessHowToPay
+                                                                  .value ==
+                                                              1
+                                                          ? "246".tr
+                                                          : "247".tr,
+                                                      style: TextStyle(
+                                                          height: screenHeight *
+                                                              0.002,
+                                                          fontFamily: 'Cairo',
+                                                          color: const Color
+                                                              .fromARGB(
+                                                              255, 47, 47, 47),
+                                                          fontSize:
+                                                              screenWidth *
+                                                                  0.042,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ),
+                                                )),
+                                            Visibility(
+                                              visible: controller
+                                                      .CompleteProcessHowToPay
+                                                      .value ==
+                                                  2,
+                                              child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                    top: screenHeight * 0.02,
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        Alignment.bottomCenter,
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        //////////////////////////////////////////////////////////////////THERE PAY BY PAYPALLLLLLLLLLLLLL////////////////////////////////////////////////////////////////
+                                                      },
+                                                      child: Container(
+                                                        width:
+                                                            screenWidth * 0.4,
+                                                        decoration: BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        5)),
+                                                        child: Text(
+                                                          "248".tr,
+                                                          style: TextStyle(
+                                                              fontFamily:
+                                                                  'Cairo',
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize:
+                                                                  screenWidth *
+                                                                      0.042,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ])))),
+                      ///////////////////Step One ///////////////////////////////
                       ///////////////////Step One ///////////////////////////////
                       Visibility(
                           visible: controller.OrderDetails.value,
@@ -3875,296 +4362,240 @@ class _showMyAccountState extends State<showMyAccount> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10)),
                             child: Stack(children: [
-                              Container(
-                                width: screenWidth * 0.80,
-                                height: screenHeight * 0.7,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              top: screenHeight * 0.02,
-                                              right: screenWidth * 0.02,
-                                              left: screenWidth * 0.02),
-                                          child: Align(
-                                              alignment: Alignment.topRight,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  InkWell(
-                                                      onTap: () {
-                                                        controller.OrderDetails
-                                                            .value = false;
-                                                      },
-                                                      child: GetX<
-                                                          ChangeLanguageToLocale>(
-                                                        builder: (scontroller) =>
-                                                            scontroller.changeLangData ==
-                                                                    1
-                                                                ? Image.asset(
-                                                                    "${ImagesPath.arrowIconRight}",
-                                                                    width:
-                                                                        screenWidth *
-                                                                            0.09,
-                                                                  )
-                                                                : Image.asset(
-                                                                    "${ImagesPath.arrowIconLeft}",
-                                                                    width:
-                                                                        screenWidth *
-                                                                            0.09,
-                                                                  ),
-                                                      )),
-                                                  InkWell(
+                              Align(
+                                alignment: Alignment.topCenter,
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: screenHeight * 0.12,
+                                        right: screenWidth * 0.02,
+                                        left: screenWidth * 0.02),
+                                    child: ListView(
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Align(
+                                                  alignment:
+                                                      Alignment.topCenter,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      controller.OrderInfo
+                                                          .value = true;
+                                                      controller.OrderAddress
+                                                          .value = false;
+                                                      controller.OrderProcess
+                                                          .value = false;
+                                                    },
+                                                    child: AnimatedContainer(
+                                                      duration:
+                                                          Duration(seconds: 1),
+                                                      width: controller
+                                                              .OrderInfo.value
+                                                          ? screenWidth * 0.33
+                                                          : screenWidth * 0.3,
+                                                      decoration: BoxDecoration(
+                                                          color: controller
+                                                                  .OrderInfo
+                                                                  .value
+                                                              ? Colors
+                                                                  .green[300]
+                                                              : Colors.black,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(2)),
+                                                      child: Text(
+                                                        "251".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: Colors.white,
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.043,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ),
+                                                  )),
+                                              SizedBox(
+                                                width: screenWidth * 0.03,
+                                              ),
+                                              Align(
+                                                  alignment:
+                                                      Alignment.topCenter,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      controller.OrderInfo
+                                                          .value = false;
+                                                      controller.OrderAddress
+                                                          .value = true;
+                                                      controller.OrderProcess
+                                                          .value = false;
+                                                    },
+                                                    child: AnimatedContainer(
+                                                      duration:
+                                                          Duration(seconds: 1),
+                                                      width: controller
+                                                              .OrderAddress
+                                                              .value
+                                                          ? screenWidth * 0.33
+                                                          : screenWidth * 0.3,
+                                                      decoration: BoxDecoration(
+                                                          color: controller
+                                                                  .OrderAddress
+                                                                  .value
+                                                              ? Colors
+                                                                  .green[300]
+                                                              : Colors.black,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(2)),
+                                                      child: Text(
+                                                        "252".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: Colors.white,
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.043,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ),
+                                                  )),
+                                              SizedBox(
+                                                width: screenWidth * 0.03,
+                                              ),
+                                              Align(
+                                                  alignment:
+                                                      Alignment.topCenter,
+                                                  child: InkWell(
+                                                    onTap: () {
+                                                      controller.OrderInfo
+                                                          .value = false;
+                                                      controller.OrderAddress
+                                                          .value = false;
+                                                      controller.OrderProcess
+                                                          .value = true;
+                                                    },
+                                                    child: AnimatedContainer(
+                                                      duration:
+                                                          Duration(seconds: 1),
+                                                      width: controller
+                                                              .OrderProcess
+                                                              .value
+                                                          ? screenWidth * 0.33
+                                                          : screenWidth * 0.3,
+                                                      decoration: BoxDecoration(
+                                                          color: controller
+                                                                  .OrderProcess
+                                                                  .value
+                                                              ? Colors
+                                                                  .green[300]
+                                                              : Colors.black,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(2)),
+                                                      child: Text(
+                                                        "253".tr,
+                                                        style: TextStyle(
+                                                            fontFamily: 'Cairo',
+                                                            color: Colors.white,
+                                                            fontSize:
+                                                                screenWidth *
+                                                                    0.043,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w500),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                      ),
+                                                    ),
+                                                  )),
+                                              SizedBox(
+                                                width: screenWidth * 0.03,
+                                              )
+                                            ],
+                                          ),
+                                        ])),
+                              ),
+                              SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Padding(
+                                        padding: EdgeInsets.only(
+                                            top: screenHeight * 0.02,
+                                            right: screenWidth * 0.02,
+                                            left: screenWidth * 0.02),
+                                        child: Align(
+                                            alignment: Alignment.topRight,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                InkWell(
                                                     onTap: () {
                                                       controller.OrderDetails
                                                           .value = false;
                                                     },
-                                                    child: Text(
-                                                      "249".tr,
-                                                      style: TextStyle(
-                                                          fontFamily: 'Cairo',
-                                                          color: const Color
-                                                              .fromARGB(
-                                                              255, 47, 47, 47),
-                                                          fontSize:
-                                                              screenWidth *
-                                                                  0.043,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                    ),
+                                                    child: GetX<
+                                                        ChangeLanguageToLocale>(
+                                                      builder: (scontroller) =>
+                                                          scontroller.changeLangData ==
+                                                                  1
+                                                              ? Image.asset(
+                                                                  "${ImagesPath.arrowIconRight}",
+                                                                  width:
+                                                                      screenWidth *
+                                                                          0.09,
+                                                                )
+                                                              : Image.asset(
+                                                                  "${ImagesPath.arrowIconLeft}",
+                                                                  width:
+                                                                      screenWidth *
+                                                                          0.09,
+                                                                ),
+                                                    )),
+                                                InkWell(
+                                                  onTap: () {
+                                                    controller.OrderDetails
+                                                        .value = false;
+                                                  },
+                                                  child: Text(
+                                                    "249".tr,
+                                                    style: TextStyle(
+                                                        fontFamily: 'Cairo',
+                                                        color: const Color
+                                                            .fromARGB(
+                                                            255, 47, 47, 47),
+                                                        fontSize:
+                                                            screenWidth * 0.043,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                    textAlign: TextAlign.center,
                                                   ),
-                                                ],
-                                              ))),
-                                      Text(
-                                        "250".tr,
-                                        style: TextStyle(
-                                            height: screenHeight * 0.002,
-                                            fontFamily: 'Cairo',
-                                            color: const Color.fromARGB(
-                                                255, 47, 47, 47),
-                                            fontSize: screenWidth * 0.047,
-                                            fontWeight: FontWeight.w700),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      SizedBox(
-                                        width: screenWidth,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(
-                                                top: screenHeight * 0.03,
-                                                right: screenWidth * 0.02,
-                                                left: screenWidth * 0.02),
-                                            child: ListView(
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Align(
-                                                          alignment: Alignment
-                                                              .topCenter,
-                                                          child: InkWell(
-                                                            onTap: () {
-                                                              controller
-                                                                  .OrderInfo
-                                                                  .value = true;
-                                                              controller
-                                                                  .OrderAddress
-                                                                  .value = false;
-                                                              controller
-                                                                  .OrderProcess
-                                                                  .value = false;
-                                                            },
-                                                            child:
-                                                                AnimatedContainer(
-                                                              duration:
-                                                                  Duration(
-                                                                      seconds:
-                                                                          1),
-                                                              width: controller
-                                                                      .OrderInfo
-                                                                      .value
-                                                                  ? screenWidth *
-                                                                      0.33
-                                                                  : screenWidth *
-                                                                      0.3,
-                                                              decoration: BoxDecoration(
-                                                                  color: controller
-                                                                          .OrderInfo
-                                                                          .value
-                                                                      ? Colors.green[
-                                                                          300]
-                                                                      : Colors
-                                                                          .black,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              2)),
-                                                              child: Text(
-                                                                "251".tr,
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Cairo',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        screenWidth *
-                                                                            0.043,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                              ),
-                                                            ),
-                                                          )),
-                                                      SizedBox(
-                                                        width:
-                                                            screenWidth * 0.03,
-                                                      ),
-                                                      Align(
-                                                          alignment: Alignment
-                                                              .topCenter,
-                                                          child: InkWell(
-                                                            onTap: () {
-                                                              controller
-                                                                      .OrderInfo
-                                                                      .value =
-                                                                  false;
-                                                              controller
-                                                                  .OrderAddress
-                                                                  .value = true;
-                                                              controller
-                                                                  .OrderProcess
-                                                                  .value = false;
-                                                            },
-                                                            child:
-                                                                AnimatedContainer(
-                                                              duration:
-                                                                  Duration(
-                                                                      seconds:
-                                                                          1),
-                                                              width: controller
-                                                                      .OrderAddress
-                                                                      .value
-                                                                  ? screenWidth *
-                                                                      0.33
-                                                                  : screenWidth *
-                                                                      0.3,
-                                                              decoration: BoxDecoration(
-                                                                  color: controller
-                                                                          .OrderAddress
-                                                                          .value
-                                                                      ? Colors.green[
-                                                                          300]
-                                                                      : Colors
-                                                                          .black,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              2)),
-                                                              child: Text(
-                                                                "252".tr,
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Cairo',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        screenWidth *
-                                                                            0.043,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                              ),
-                                                            ),
-                                                          )),
-                                                      SizedBox(
-                                                        width:
-                                                            screenWidth * 0.03,
-                                                      ),
-                                                      Align(
-                                                          alignment: Alignment
-                                                              .topCenter,
-                                                          child: InkWell(
-                                                            onTap: () {
-                                                              controller
-                                                                      .OrderInfo
-                                                                      .value =
-                                                                  false;
-                                                              controller
-                                                                  .OrderAddress
-                                                                  .value = false;
-                                                              controller
-                                                                  .OrderProcess
-                                                                  .value = true;
-                                                            },
-                                                            child:
-                                                                AnimatedContainer(
-                                                              duration:
-                                                                  Duration(
-                                                                      seconds:
-                                                                          1),
-                                                              width: controller
-                                                                      .OrderProcess
-                                                                      .value
-                                                                  ? screenWidth *
-                                                                      0.33
-                                                                  : screenWidth *
-                                                                      0.3,
-                                                              decoration: BoxDecoration(
-                                                                  color: controller
-                                                                          .OrderProcess
-                                                                          .value
-                                                                      ? Colors.green[
-                                                                          300]
-                                                                      : Colors
-                                                                          .black,
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              2)),
-                                                              child: Text(
-                                                                "253".tr,
-                                                                style: TextStyle(
-                                                                    fontFamily:
-                                                                        'Cairo',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    fontSize:
-                                                                        screenWidth *
-                                                                            0.043,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500),
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                              ),
-                                                            ),
-                                                          )),
-                                                      SizedBox(
-                                                        width:
-                                                            screenWidth * 0.03,
-                                                      )
-                                                    ],
-                                                  ),
-                                                ])),
-                                      )
-                                    ],
-                                  ),
+                                                ),
+                                              ],
+                                            ))),
+                                    Text(
+                                      "250".tr,
+                                      style: TextStyle(
+                                          height: screenHeight * 0.002,
+                                          fontFamily: 'Cairo',
+                                          color: const Color.fromARGB(
+                                              255, 47, 47, 47),
+                                          fontSize: screenWidth * 0.047,
+                                          fontWeight: FontWeight.w700),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ],
                                 ),
                               ),
 
@@ -4196,6 +4627,9 @@ class _showMyAccountState extends State<showMyAccount> {
                                                         FontWeight.w500),
                                                 textAlign: TextAlign.center,
                                               ),
+                                              SizedBox(
+                                                height: screenHeight * 0.00,
+                                              ),
                                               Text(
                                                 "255".tr,
                                                 style: TextStyle(
@@ -4208,47 +4642,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                         FontWeight.w500),
                                                 textAlign: TextAlign.center,
                                               ),
-                                              SizedBox(
-                                                  height: screenHeight * 0.02),
-                                              InkWell(
-                                                onTap: () {
-                                                  controller.paymentByStripe(
-                                                      int.parse(controller
-                                                          .totalAdd
-                                                          .toString()),
-                                                      "SAR");
-                                                  controller.howtoPay.value = 1;
-                                                },
-                                                child: AnimatedContainer(
-                                                  duration:
-                                                      Duration(seconds: 1),
-                                                  width: controller
-                                                              .howtoPay.value ==
-                                                          1
-                                                      ? screenWidth * 0.3
-                                                      : screenWidth * 0.27,
-                                                  decoration: BoxDecoration(
-                                                      color: controller.howtoPay
-                                                                  .value ==
-                                                              1
-                                                          ? Colors.amber
-                                                          : Colors.black,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5)),
-                                                  child: Text(
-                                                    "Stripe".tr,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Cairo',
-                                                        color: Colors.white,
-                                                        fontSize:
-                                                            screenWidth * 0.044,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                ),
-                                              ),
+                                             
                                               SizedBox(
                                                   height: screenHeight * 0.02),
                                               InkWell(
@@ -5161,7 +5555,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                                 padding: EdgeInsets.only(left: screenWidth * 0.01, right: screenWidth * 0.01),
                                                                                 child: CachedNetworkImage(
                                                                                   width: screenWidth * 0.17,
-                                                                                  height: screenHeight ,
+                                                                                  height: screenHeight,
                                                                                   fit: BoxFit.cover,
                                                                                   imageUrl: ("${controller.cartShop.imagePro}"),
                                                                                   imageBuilder: (context, imageProvider) => Container(

@@ -4,7 +4,6 @@ import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:nara_test/core/data/model/celeb.dart';
 import 'package:nara_test/views/screens/welcome.dart';
@@ -1261,7 +1260,7 @@ class HomeController extends GetxController {
 
 /////////////////////ApiKeys Stripe////////////////
 
-  Future<void> paymentByStripe(int amount, String currency) async {
+  /*Future<void> paymentByStripe(int amount, String currency) async {
     try {
       String clientSecret =
           await _getClientSecret((amount * 100).toString(), currency);
@@ -1271,8 +1270,8 @@ class HomeController extends GetxController {
       throw Exception(error.toString());
     }
   }
-
-  Future<void> _initializePaymentSheet(String clientSecret) async {
+*/
+  /* Future<void> _initializePaymentSheet(String clientSecret) async {
     await Stripe.instance.initPaymentSheet(
       paymentSheetParameters: SetupPaymentSheetParameters(
         paymentIntentClientSecret: clientSecret,
@@ -1298,6 +1297,6 @@ class HomeController extends GetxController {
     );
     return response.data["client_secret"];
   }
-
+*/
 ////////////////////////////////////////////////////
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:nara_test/core/services/appservices.dart';
 import 'package:nara_test/views/screens/loading.dart';
@@ -13,7 +12,7 @@ import 'core/localization/translation.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  Stripe.publishableKey = ApiKeysStripe.Publishablekey;
+ /* Stripe.publishableKey = ApiKeysStripe.Publishablekey;*/
 
   await initialServices();
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: const MyApp()));

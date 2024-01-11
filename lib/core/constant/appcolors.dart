@@ -11,7 +11,7 @@ class AppColors {
 
   ///F0EEED
   // static const Color theMainOfColor = Color(0xFFE21818);
-
+  static const Color Pink = Color(0xFFEA5A90);
   static const Color theMainOfColor = Color(0xFF241468);
   static const Color theMainOfColorTwo = Color(0xFF060047);
   static const Color WelcomeWhiteColor = Color(0xFFF0EFEF);

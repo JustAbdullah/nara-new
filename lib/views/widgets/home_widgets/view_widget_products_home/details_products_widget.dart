@@ -137,7 +137,7 @@ class DetailsProducts extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "${controller.theNameOfCoins.value}".tr,
+                                      "${controller.theNAmeOfCoun.value}",
                                       style: TextStyle(
                                           fontFamily: 'Cairo',
                                           color: AppColors.WelcomeRed,
@@ -149,9 +149,7 @@ class DetailsProducts extends StatelessWidget {
                                       width: screenWidth * 0.01,
                                     ),
                                     Text(
-                                      controller.theCoins.value == 2
-                                          ? "${controller.theOldPrice.toStringAsFixed(4)}"
-                                          : "${controller.product.oldPrice}",
+                                      "${controller.thePriceProductOld.toStringAsFixed(2)}",
                                       style: TextStyle(
                                           fontFamily: 'Cairo',
                                           color: AppColors.WelcomeRed,
@@ -159,24 +157,18 @@ class DetailsProducts extends StatelessWidget {
                                           fontWeight: FontWeight.w900),
                                       textAlign: TextAlign.center,
                                     ),
+                                    Text(
+                                      "318".tr,
+                                      style: TextStyle(
+                                          fontFamily: 'Cairo',
+                                          color: AppColors.balckgray,
+                                          fontSize: screenWidth * 0.030,
+                                          fontWeight: FontWeight.w400),
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ],
                                 ),
                               )),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                  padding: EdgeInsets.only(
-                                      top: screenHeight * 0.0,
-                                      right: screenWidth * 0.06,
-                                      left: screenWidth * 0.04),
-                                  child: Container(
-                                    width: screenWidth / 5,
-                                    height: screenHeight * 0.002,
-                                    color: AppColors.WelcomeRed,
-                                  )),
-                            ],
-                          ),
                           Padding(
                             padding: EdgeInsets.only(
                                 top: screenHeight * 0.00,
@@ -186,7 +178,7 @@ class DetailsProducts extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${controller.theNameOfCoins.value}".tr,
+                                  "${controller.theNAmeOfCoun.value}",
                                   style: TextStyle(
                                       fontFamily: 'Cairo',
                                       color: AppColors.blackNumberFourBlackMode,
@@ -198,9 +190,7 @@ class DetailsProducts extends StatelessWidget {
                                   width: screenWidth * 0.01,
                                 ),
                                 Text(
-                                  controller.theCoins.value == 2
-                                      ? "${controller.thePrice.toStringAsFixed(4)}"
-                                      : "${controller.product.pricePro}",
+                                  "${controller.thePriceProduct.toStringAsFixed(2)}",
                                   style: TextStyle(
                                       fontFamily: 'Cairo',
                                       color: AppColors.blackNumberFourBlackMode,
@@ -478,12 +468,19 @@ class DetailsProducts extends StatelessWidget {
                                       bottom: screenHeight * 0.03),
                                   child: InkWell(
                                     onTap: () {
+                                      controller.priceSm1 =
+                                          controller.thePriceProduct.value;
+
                                       controller.priceSm = int.parse(controller
                                           .product.pricePro
                                           .toString());
                                       controller.num = int.parse(controller
                                           .product.pricePro
                                           .toString());
+
+                                      controller.num1 =
+                                          controller.thePriceProduct.value;
+
                                       controller.openTheShoppingCart();
                                     },
                                     child: Container(
@@ -496,17 +493,22 @@ class DetailsProducts extends StatelessWidget {
                                               : AppColors.WelcomeRed,
                                           borderRadius:
                                               BorderRadius.circular(10)),
-                                      child: Text(
-                                        controller.waitToOpenAddTheShoppingCart
-                                                .value
-                                            ? "101".tr
-                                            : "102".tr,
-                                        style: TextStyle(
-                                            fontFamily: 'Cairo',
-                                            color: Colors.white,
-                                            fontSize: screenWidth * 0.050,
-                                            fontWeight: FontWeight.w500),
-                                        textAlign: TextAlign.center,
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: screenHeight * 0.006),
+                                        child: Text(
+                                          controller
+                                                  .waitToOpenAddTheShoppingCart
+                                                  .value
+                                              ? "101".tr
+                                              : "102".tr,
+                                          style: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              color: Colors.white,
+                                              fontSize: screenWidth * 0.050,
+                                              fontWeight: FontWeight.w500),
+                                          textAlign: TextAlign.center,
+                                        ),
                                       ),
                                     ),
                                   ))),
@@ -1100,7 +1102,7 @@ class DetailsProducts extends StatelessWidget {
                                                 "-",
                                                 style: TextStyle(
                                                     height:
-                                                        screenHeight * 0.0018,
+                                                        screenHeight * 0.0002,
                                                     fontFamily: 'Cairo',
                                                     color: Colors.white,
                                                     fontSize:
@@ -1145,7 +1147,7 @@ class DetailsProducts extends StatelessWidget {
                                                     "+",
                                                     style: TextStyle(
                                                         height: screenHeight *
-                                                            0.0018,
+                                                            0.0002,
                                                         fontFamily: 'Cairo',
                                                         color: Colors.white,
                                                         fontSize:
@@ -1177,15 +1179,32 @@ class DetailsProducts extends StatelessWidget {
                                         SizedBox(
                                           width: screenWidth * 0.015,
                                         ),
-                                        Text(
-                                          "${controller.product.pricePro}",
-                                          style: TextStyle(
-                                              fontFamily: 'Cairo',
-                                              color: AppColors
-                                                  .blackNumberFourBlackMode,
-                                              fontSize: screenWidth * 0.050,
-                                              fontWeight: FontWeight.w900),
-                                          textAlign: TextAlign.center,
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "${controller.theNAmeOfCoun}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.050,
+                                                  fontWeight: FontWeight.w900),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              "${controller.thePriceProduct.value.toStringAsFixed(2)}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.050,
+                                                  fontWeight: FontWeight.w900),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
@@ -1208,14 +1227,30 @@ class DetailsProducts extends StatelessWidget {
                                         SizedBox(
                                           width: screenWidth * 0.015,
                                         ),
-                                        Text(
-                                          "${controller.priceSm}",
-                                          style: TextStyle(
-                                              fontFamily: 'Cairo',
-                                              color: AppColors.WelcomeRed,
-                                              fontSize: screenWidth * 0.050,
-                                              fontWeight: FontWeight.w900),
-                                          textAlign: TextAlign.center,
+                                        Row(
+                                          children: [
+                                            Text(
+                                              "${controller.theNAmeOfCoun}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.WelcomeRed,
+                                                  fontSize: screenWidth * 0.050,
+                                                  fontWeight: FontWeight.w900),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            SizedBox(
+                                              width: 5,
+                                            ),
+                                            Text(
+                                              "${controller.priceSm1.toStringAsFixed(2)}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.WelcomeRed,
+                                                  fontSize: screenWidth * 0.050,
+                                                  fontWeight: FontWeight.w900),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),

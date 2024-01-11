@@ -48,10 +48,57 @@ class SubStypesProducts extends StatelessWidget {
                                 [i]['price_product'])
                             .toString());
 
-                        controller.theOldPrice =
+                        /*  controller.theOldPrice =
                             controller.theOldNPrice / 12.1581.floor();
                         controller.thePrice =
-                            controller.theNPrice / 12.1581.floor();
+                            controller.theNPrice / 12.1581.floor();*/
+
+                        if (homeController.theCoun.value == 1) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble();
+
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble();
+                        } else if (homeController.theCoun.value == 2) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice / 12.1581.floor();
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice / 12.1581.floor();
+                        } else if (homeController.theCoun.value == 3) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble() * 0.097;
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble() * 0.097;
+                        } else if (homeController.theCoun.value == 4) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble() *
+                                  homeController.theOfCOunValue.value;
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble() *
+                                  homeController.theOfCOunValue.value;
+                        } else if (homeController.theCoun.value == 5) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble() * 341.05;
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble() * 341.05;
+                        } else if (homeController.theCoun.value == 6) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble() * 0.95;
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble() * 0.95;
+                        } else if (homeController.theCoun.value == 7) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble() *
+                                  homeController.theOfCOunValue.value;
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble() *
+                                  homeController.theOfCOunValue.value;
+                        } else if (homeController.theCoun.value == 8) {
+                          homeController.thePriceProductOld.value =
+                              homeController.theOldNPrice.toDouble() * 0.1862;
+                          homeController.thePriceProduct.value =
+                              homeController.theNPrice.toDouble() * 0.1862;
+                        }
 
                         return Padding(
                             padding: EdgeInsets.symmetric(
@@ -117,11 +164,6 @@ class SubStypesProducts extends StatelessWidget {
                                   controller.theNPrice = int.parse((snapshot
                                           .data['data'][i]['price_product'])
                                       .toString());
-
-                                  controller.theOldPrice =
-                                      controller.theOldNPrice / 12.1581.floor();
-                                  controller.thePrice =
-                                      controller.theNPrice / 12.1581.floor();
 
                                   controller.product.KoldPrice =
                                       controller.theOldPrice.toString();
@@ -234,7 +276,7 @@ class SubStypesProducts extends StatelessWidget {
                                                     MainAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    "${controller.theNameOfCoins.value}",
+                                                    "${controller.theNAmeOfCoun.value}",
                                                     style: TextStyle(
                                                         fontFamily: 'Cairo',
                                                         color: AppColors
@@ -249,11 +291,7 @@ class SubStypesProducts extends StatelessWidget {
                                                     width: screenWidth * 0.01,
                                                   ),
                                                   Text(
-                                                    (controller.theCoins
-                                                                .value ==
-                                                            2
-                                                        ? "${controller.theOldPrice.toStringAsFixed(2)}"
-                                                        : "${snapshot.data['data'][i]['old_price'].toString()}"),
+                                                    "${controller.thePriceProductOld.toStringAsFixed(2)}",
                                                     style: TextStyle(
                                                         fontFamily: 'Cairo',
                                                         color: AppColors
@@ -291,7 +329,7 @@ class SubStypesProducts extends StatelessWidget {
                                               MainAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "${controller.theNameOfCoins.value}",
+                                              "${controller.theNAmeOfCoun.value}",
                                               style: TextStyle(
                                                   fontFamily: 'Cairo',
                                                   color: AppColors
@@ -304,9 +342,7 @@ class SubStypesProducts extends StatelessWidget {
                                               width: screenWidth * 0.01,
                                             ),
                                             Text(
-                                              (controller.theCoins.value == 2
-                                                  ? "${controller.thePrice.toStringAsFixed(2)}"
-                                                  : "${snapshot.data['data'][i]['price_product'].toString()}"),
+                                              "${controller.thePriceProduct.toStringAsFixed(2)}",
                                               style: TextStyle(
                                                   fontFamily: 'Cairo',
                                                   color: AppColors
@@ -424,12 +460,12 @@ class SubStypesProducts extends StatelessWidget {
                                                             ['price_product'])
                                                         .toString());
 
-                                                controller.theOldPrice =
+                                                /*   controller.theOldPrice =
                                                     controller.theOldNPrice /
                                                         12.1581.floor();
                                                 controller.thePrice =
                                                     controller.theNPrice /
-                                                        12.1581.floor();
+                                                        12.1581.floor();*/
                                                 controller.product.KoldPrice =
                                                     controller.theOldPrice
                                                         .toString();

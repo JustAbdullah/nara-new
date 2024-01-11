@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
@@ -104,19 +105,15 @@ class ViewTheProductsTypes extends StatelessWidget {
                   return GridView.builder(
                       itemCount: snapshot.data['data'].length,
                       itemBuilder: (context, i) {
-                        homeController.ind = snapshot.data['data'].length;
+                        /*  controller.thePriceProductOld.value = int.parse(
+                                (snapshot.data['data'][i]['old_price']
+                                    .toString())) *
+                            controller.theCountPrice.value;
 
-                        controller.theOldNPrice = int.parse(
-                            (snapshot.data['data'][i]['old_price'].toString()));
-
-                        controller.theNPrice = int.parse((snapshot.data['data']
-                                [i]['price_product'])
-                            .toString());
-
-                        controller.theOldPrice =
-                            controller.theOldNPrice / 12.1581.floor();
-                        controller.thePrice =
-                            controller.theNPrice / 12.1581.floor();
+                        controller.thePriceProduct.value = int.parse(
+                                (snapshot.data['data'][i]['price_product'])
+                                    .toString()) *
+                            controller.theCountPrice.value;*/
 
                         return Padding(
                             padding: EdgeInsets.symmetric(
@@ -183,15 +180,26 @@ class ViewTheProductsTypes extends StatelessWidget {
                                           .data['data'][i]['price_product'])
                                       .toString());
 
-                                  controller.theOldPrice =
+                                  /*       controller.theOldPrice =
                                       controller.theOldNPrice / 12.1581.floor();
                                   controller.thePrice =
-                                      controller.theNPrice / 12.1581.floor();
+                                      controller.theNPrice / 12.1581.floor();*/
 
                                   controller.product.KoldPrice =
                                       controller.theOldPrice.toString();
                                   controller.product.KpricePro =
                                       controller.thePrice.toString();
+                                  controller.thePriceProductOld.value =
+                                      int.parse((snapshot.data['data'][i]
+                                                  ['old_price']
+                                              .toString())) *
+                                          controller.theCountPrice.value;
+
+                                  controller.thePriceProduct.value = int.parse(
+                                          (snapshot.data['data'][i]
+                                                  ['price_product'])
+                                              .toString()) *
+                                      controller.theCountPrice.value;
                                   homeController.viewTheDetilas.value = true;
 /////////////////////
                                 },
@@ -299,7 +307,7 @@ class ViewTheProductsTypes extends StatelessWidget {
                                                     MainAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    "${controller.theNameOfCoins.value}",
+                                                    "${controller.theNAmeOfCoun.value}",
                                                     style: TextStyle(
                                                         fontFamily: 'Cairo',
                                                         color: AppColors
@@ -314,11 +322,15 @@ class ViewTheProductsTypes extends StatelessWidget {
                                                     width: screenWidth * 0.01,
                                                   ),
                                                   Text(
-                                                    (controller.theCoins
-                                                                .value ==
-                                                            2
-                                                        ? "${controller.theOldPrice.toStringAsFixed(2)}"
-                                                        : "${snapshot.data['data'][i]['old_price'].toString()}"),
+                                                    (int.parse((snapshot
+                                                                .data['data'][i]
+                                                                    [
+                                                                    'old_price']
+                                                                .toString())) *
+                                                            controller
+                                                                .theCountPrice
+                                                                .value)
+                                                        .toStringAsFixed(2),
                                                     style: TextStyle(
                                                         fontFamily: 'Cairo',
                                                         color: AppColors
@@ -356,7 +368,7 @@ class ViewTheProductsTypes extends StatelessWidget {
                                               MainAxisAlignment.start,
                                           children: [
                                             Text(
-                                              "${controller.theNameOfCoins.value}",
+                                              "${controller.theNAmeOfCoun.value}",
                                               style: TextStyle(
                                                   fontFamily: 'Cairo',
                                                   color: AppColors
@@ -369,9 +381,13 @@ class ViewTheProductsTypes extends StatelessWidget {
                                               width: screenWidth * 0.01,
                                             ),
                                             Text(
-                                              (controller.theCoins.value == 2
-                                                  ? "${controller.thePrice.toStringAsFixed(2)}"
-                                                  : "${snapshot.data['data'][i]['price_product'].toString()}"),
+                                              (int.parse((snapshot.data['data']
+                                                              [i]
+                                                              ['price_product']
+                                                          .toString())) *
+                                                      controller
+                                                          .theCountPrice.value)
+                                                  .toStringAsFixed(2),
                                               style: TextStyle(
                                                   fontFamily: 'Cairo',
                                                   color: AppColors
@@ -489,7 +505,7 @@ class ViewTheProductsTypes extends StatelessWidget {
                                                             ['price_product'])
                                                         .toString());
 
-                                                controller.theOldPrice =
+                                                /*   controller.theOldPrice =
                                                     controller.theOldNPrice /
                                                         12.1581.floor();
                                                 controller.thePrice =
@@ -497,7 +513,7 @@ class ViewTheProductsTypes extends StatelessWidget {
                                                         12.1581.floor();
                                                 controller.product.KoldPrice =
                                                     controller.theOldPrice
-                                                        .toString();
+                                                        .toString();*/
                                                 controller.product.KpricePro =
                                                     controller.thePrice
                                                         .toString();

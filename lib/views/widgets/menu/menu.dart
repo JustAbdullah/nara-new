@@ -8,6 +8,7 @@ import '../../screens/celebrities.dart';
 import '../../screens/home.dart';
 import '../../screens/showAccount.dart';
 import '../../screens/the_types.dart';
+import '../../screens/the_types_all.dart';
 
 class Menu extends StatelessWidget {
   const Menu({super.key});
@@ -111,7 +112,7 @@ class Menu extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(TheTypes());
+                    Get.to(TheTypesAll());
                   },
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,

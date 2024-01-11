@@ -8,11 +8,12 @@ import 'core/constant/color_primary.dart';
 import 'core/constant/stripe_keys.dart';
 import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
+import 'views/screens/the_types_all.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
- /* Stripe.publishableKey = ApiKeysStripe.Publishablekey;*/
+  /* Stripe.publishableKey = ApiKeysStripe.Publishablekey;*/
 
   await initialServices();
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: const MyApp()));

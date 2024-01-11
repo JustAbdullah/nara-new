@@ -2,14 +2,12 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nara_test/core/data/model/celeb.dart';
 import 'package:nara_test/views/screens/welcome.dart';
 
 import '../core/class/class/crud.dart';
-import '../core/constant/stripe_keys.dart';
 import '../core/data/model/brands.dart';
 import '../core/data/model/cart_shop.dart';
 import '../core/data/model/order.dart';
@@ -51,7 +49,9 @@ class HomeController extends GetxController {
   String? idorderAdd;
 
   String? id_of_orderAdd;
-  String? totalAdd;
+  String totalAdd = "";
+  String totalAddM = "";
+
   String? order_statusAdd;
   String? how_to_payAdd;
 
@@ -99,7 +99,7 @@ class HomeController extends GetxController {
   RxInt theSix = 1.obs;
   RxInt chooesSix = 1.obs;
   RxBool changeTheCountry = false.obs;
-  RxInt whatIsChoesAboutTheCountry = 1.obs;
+  RxInt whatIsChoesAboutTheCountry = 5.obs;
   RxBool isAreadyCreateAccount = false.obs;
 
   RxBool youDontEnterData = false.obs;
@@ -124,6 +124,11 @@ class HomeController extends GetxController {
   RxString Street = "".obs;
   RxString HomeNumber = "".obs;
   RxInt whatIsCountry = 0.obs;
+
+  RxString codeFromDataBase = "".obs;
+  RxString ratioFromDataBase = "".obs;
+  RxString amountFromDataBase = "".obs;
+
   RxInt isHaveRightAccess = 0.obs;
 
   RxBool WearningAboutAccountTheUserHave = false.obs;
@@ -158,14 +163,17 @@ class HomeController extends GetxController {
   RxBool waitToOpenAddTheShoppingCart = false.obs;
   int priceSm = 0;
   int num = 0;
+
+  double priceSm1 = 0;
+  double num1 = 0;
   RxInt quProduct = 1.obs;
 
   RxInt randomNumber = 1.obs;
   RxBool isTheEndOfShoppingCart = false.obs;
   RxBool isAddIntoTheCartShopping = false.obs;
   RxBool isAddIntoTheCartShoppingWaiting = false.obs;
-
   int totalPrice = 0;
+  int totalPriceNN = 0;
 
   RxBool isAddThetotalPriceToMemory = false.obs;
 
@@ -683,6 +691,8 @@ class HomeController extends GetxController {
   RemoveThequantityOfProducts() {
     if (quProduct.value != 1) {
       quProduct.value = quProduct.value - 1;
+      priceSm1 = priceSm1 - num1;
+
       priceSm = priceSm - num;
 
       update();
@@ -691,7 +701,9 @@ class HomeController extends GetxController {
 
   AddThequantityOfProducts() {
     quProduct.value = quProduct.value + 1;
+    priceSm1 = priceSm1 + num1;
     priceSm = priceSm + num;
+
     update();
   }
 
@@ -746,18 +758,31 @@ class HomeController extends GetxController {
     return responses;
   }
 
+  RxBool noDataColList = false.obs;
+
   getDataCollections(String idCleb) async {
     var responses = await crud.postRequest(
         AppLinksApi.getCollection, {'id_celebrities': idCleb.toString()});
-
+    if (responses['status'] == "success") {
+      noDataColList.value = false;
+    } else {
+      noDataColList.value = true;
+    }
     return responses;
   }
 
 ////////////
+  RxBool noDataBrandList = false.obs;
+
   getDataProductsBrands(String idBrands) async {
     var responses = await crud.postRequest(
         AppLinksApi.getBrandProducts, {'id_brand': idBrands.toString()});
 
+    if (responses['status'] == "success") {
+      noDataBrandList.value = false;
+    } else {
+      noDataBrandList.value = true;
+    }
     return responses;
   }
 
@@ -767,12 +792,15 @@ class HomeController extends GetxController {
     var formKeyData = formSign.currentState;
     if (formKeyData!.validate()) {
       loadingCreateAccount.value = true;
+      Random random = new Random();
+      randomNumber.value = random.nextInt(10000000);
       var response = await crud.postRequest(AppLinksApi.singUpUser, {
         'name_user': nameUSerNew.toString(),
         'email': emailUser.toString(),
         'phone': phone.toString(),
         'password': passwordUser.toString(),
         'type_of_six': chooes.toString(),
+        'code': randomNumber.toString(),
       });
 ///////
       if (response['status'] == "success") {
@@ -866,6 +894,9 @@ class HomeController extends GetxController {
       theResidenceArea.value = response['data'][0]['residence_area'].toString();
       Street.value = response['data'][0]['street'].toString();
       HomeNumber.value = response['data'][0]['home_number'].toString();
+      codeFromDataBase.value = response['data'][0]['code'].toString();
+      ratioFromDataBase.value = response['data'][0]['ratio'].toString();
+      amountFromDataBase.value = response['data'][0]['amount'].toString();
 
       whatIsCountry.value =
           int.parse(response['data'][0]['what_is_country'].toString());
@@ -878,14 +909,18 @@ class HomeController extends GetxController {
     return response;
   }
 
-  addToOrder(String idOfOrder, String total) async {
+  addToOrder(String idOfOrder, String total, String idUserCode) async {
     isLoadingAddIntoTheShoppingCart.value = true;
     var response = await crud.postRequest(AppLinksApi.createTheOrder, {
       'id_user': IDUserFromDataBase.value.toString(),
       'id_of_order': idOfOrder.toString(),
       'total': total.toString(),
+      'id_user_code': idUserCode.toString()
     });
     if (response['status'] == "success") {
+      condeController.clear();
+      isHaveCode.value = false;
+      priceTOtleNEw = 0;
       changeTheStatusOfShoppingCart();
       isAddThetotalPriceToMemory.value = false;
       indexShoppingCart = 0;
@@ -1059,7 +1094,7 @@ class HomeController extends GetxController {
     var response =
         await crud.postRequest(AppLinksApi.addintocompleteordersprocess, {
       'id_order': id_order.toString(),
-      'id_user': IDUserFromDataBase.value.toString(),
+      'id_user_id': IDUserFromDataBase.value.toString(),
       'id_of_order': id_of_order.toString(),
       'total': total.toString(),
       'how_to_pay': how_to_pay.toString(),
@@ -1299,4 +1334,244 @@ class HomeController extends GetxController {
   }
 */
 ////////////////////////////////////////////////////
+  RxDouble theOfCOunValue = 1.0.obs;
+  RxString theNAmeOfCoun = "IQD".obs;
+  RxInt theCoun = 5.obs;
+  RxDouble thePriceProductOld = 1.0.obs;
+  RxDouble thePriceProduct = 1.0.obs;
+  /////////////
+  RxDouble theCountPrice = 1.0.obs;
+
+  changeTheCounToSAR() {
+    // theOfCOunValue.value = 1.0;
+    theNAmeOfCoun.value = "SAR";
+    theCoun.value = 1;
+
+    theCountPrice.value = 0.0028;
+  }
+
+  changeTheCounToKWD() {
+    //   theOfCOunValue.value = 12.1581;
+    theNAmeOfCoun.value = "KWD";
+    theCoun.value = 2;
+    theCountPrice.value = 0.00023;
+  }
+
+  changeTheCounToBHD() {
+    // theOfCOunValue.value = 0.097 ;
+    theNAmeOfCoun.value = "BHD";
+    theCoun.value = 3;
+
+    theCountPrice.value = 0.00029;
+  }
+
+  changeTheCounToOman() {
+    // theOfCOunValue.value = 341.05;
+    theNAmeOfCoun.value = "OMR";
+    theCoun.value = 4;
+
+    theCountPrice.value = 0.0003;
+  }
+
+  changeTheCounToIRQ() {
+    // theOfCOunValue.value = 341.05;
+    theNAmeOfCoun.value = "IQD";
+    theCoun.value = 5;
+
+    theCountPrice.value = 1;
+  }
+
+  changeTheCounToIUAE() {
+    //   theOfCOunValue.value = 0.95 ;
+    theNAmeOfCoun.value = "AED";
+    theCoun.value = 6;
+    theCountPrice.value = 0.0028;
+  }
+
+  changeTheCounToQTR() {
+    // theOfCOunValue.value = 341.05;
+    theNAmeOfCoun.value = "QAR";
+    theCoun.value = 7;
+
+    theCountPrice.value = 0003;
+  }
+
+  changeTheCounToIjor() {
+    //  theOfCOunValue.value = 0.1862;
+    theNAmeOfCoun.value = "JOD";
+    theCoun.value = 8;
+    theCountPrice.value = 00005;
+  }
+
+  whatisTheCount() {}
+
+  getAllTheTypes() async {
+    var response = await crud.postRequest(AppLinksApi.getTheTypesAll, {});
+    return response;
+  }
+
+  RxBool isNoData = false.obs;
+  RxBool isNoSubData = false.obs;
+
+  String getIdMainType = "5";
+  String getNameMainType = "5";
+  String getNameMainTypeEn = "5";
+
+  getAllTheProdutsWithMainTypes(String theIdOfType) async {
+    var response =
+        await crud.postRequest(AppLinksApi.getAllProductsWithMainTypes, {
+      'id_type': theIdOfType.toString(),
+    });
+    if (response['status'] == "success") {
+      isNoData.value = false;
+    } else {
+      isNoData.value = true;
+    }
+
+    return response;
+  }
+
+  getAllTheProdutsWithMainSubTypes(String theIdOfType) async {
+    var response =
+        await crud.postRequest(AppLinksApi.getAllProductsWithMainSubTypes, {
+      'id_main_type': theIdOfType.toString(),
+    });
+    if (response['status'] == "success") {
+      isNoSubData.value = false;
+    } else {
+      isNoSubData.value = true;
+    }
+
+    return response;
+  }
+
+  RxBool isNoSubTheData = false.obs;
+  RxBool isSearchingType = false.obs;
+  String theTypeSearching = "";
+
+  searchingBySubType(String idSub) async {
+    var response =
+        await crud.postRequest(AppLinksApi.getAllProductsSearchingWitSubType, {
+      'id_subtype': idSub.toString(),
+    });
+    if (response['status'] == "success") {
+      isNoSubTheData.value = false;
+    } else {
+      isNoSubTheData.value = true;
+    }
+
+    return response;
+  }
+
+  RxString searcingText = "".obs;
+  RxBool isNoSeaechingTheData = false.obs;
+  RxBool isSearchingText = false.obs;
+
+  TextEditingController searchingText = TextEditingController();
+  searchingByText(String textSearhcing) async {
+    var response =
+        await crud.postRequest(AppLinksApi.getAllProductsSearchingAll, {
+      'name_product': textSearhcing.toString(),
+    });
+    if (response['status'] == "success") {
+      isNoSeaechingTheData.value = false;
+    } else {
+      isNoSeaechingTheData.value = true;
+    }
+
+    return response;
+  }
+
+  TextEditingController condeController = TextEditingController();
+  String codeText = "";
+  RxBool isHaveCode = false.obs;
+  RxBool checkTheCode = false.obs;
+
+  int theRatio = 0;
+  String theIdCodeUser = "1";
+
+  getTheCode(String theCode) async {
+    checkTheCode.value = true;
+    Future.delayed(Duration(seconds: 3), () async {
+      var response = await crud.postRequest(AppLinksApi.checkCode, {
+        'code': theCode.toString(),
+      });
+
+      if (response['status'] == "success") {
+        checkTheCode.value = false;
+        isHaveCode.value = true;
+        theIdCodeUser = response['data'][0]['id_user'].toString();
+        theRatio = int.parse(response['data'][0]['ratio'].toString());
+      } else {
+        checkTheCode.value = false;
+        isHaveCode.value = false;
+      }
+
+      return response;
+    });
+  }
+
+  int priceTOtleNEw = 0;
+
+//////////////////////////////.................../delete Account.........////////////////////////////////
+  RxBool wearingAbountDeleteAccount = false.obs;
+  RxBool waitDeleteAccount = false.obs;
+  deleteAllAccounts() {
+    waitDeleteAccount.value = true;
+    deleteOrderCompWhenDeleteAccount();
+    Future.delayed(Duration(seconds: 2), () async {
+      deleteOrderProductcWhenDeleteAccount();
+    });
+    Future.delayed(Duration(seconds: 2), () async {
+      deleteShopingWhenDeleteAccount();
+    });
+    Future.delayed(Duration(seconds: 2), () async {
+      deleteDeleteAccount();
+    });
+    Future.delayed(Duration(seconds: 1), () async {
+      wearingAbountDeleteAccount.value = false;
+      waitDeleteAccount.value = false;
+      Get.to(Welcome());
+    });
+  }
+
+  deleteOrderCompWhenDeleteAccount() async {
+    var response =
+        await crud.postRequest(AppLinksApi.deleteCompOrderWhenDeleteAccount, {
+      'id_user_id': IDUserFromDataBase.value.toString(),
+    });
+    if (response['status'] == "success") {
+    } else {}
+    return response;
+  }
+
+  deleteOrderProductcWhenDeleteAccount() async {
+    var response =
+        await crud.postRequest(AppLinksApi.deleteOrderWhenDeleteAccount, {
+      'id_user': IDUserFromDataBase.value.toString(),
+    });
+    if (response['status'] == "success") {
+    } else {}
+    return response;
+  }
+
+  deleteShopingWhenDeleteAccount() async {
+    var response = await crud
+        .postRequest(AppLinksApi.deleteShoppingCartWhenDeleteAccount, {
+      'id_user': IDUserFromDataBase.value.toString(),
+    });
+    if (response['status'] == "success") {
+    } else {}
+    return response;
+  }
+
+  deleteDeleteAccount() async {
+    var response =
+        await crud.postRequest(AppLinksApi.deleteSAccountsWhenDeleteAccount, {
+      'id_user': IDUserFromDataBase.value.toString(),
+    });
+    if (response['status'] == "success") {
+    } else {}
+    return response;
+  }
 }

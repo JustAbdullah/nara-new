@@ -3,18 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../../controllers/home_controller.dart';
-import '../../../../../core/constant/appcolors.dart';
-import '../../../../core/localization/changelanguage.dart';
+import '../../../controllers/home_controller.dart';
+import '../../../core/constant/appcolors.dart';
+import '../../../core/localization/changelanguage.dart';
 
-class ViewTheWidget extends StatefulWidget {
-  const ViewTheWidget({super.key});
+class ViewTheProductsMainTypesName extends StatelessWidget {
+  const ViewTheProductsMainTypesName({super.key});
 
-  @override
-  State<ViewTheWidget> createState() => _ViewTheWidgetState();
-}
-
-class _ViewTheWidgetState extends State<ViewTheWidget> {
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
@@ -23,11 +18,11 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
 
     HomeController homeController = Get.put(HomeController());
     return FutureBuilder(
-        future: homeController.getAllDataProducts(),
+        future: homeController
+            .searchingByText(homeController.searcingText.value.toString()),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
-            var data = snapshot.hasData;
-            return data == null
+            return homeController.isNoSeaechingTheData.value == true
                 ? Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,8 +38,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                         )
                       ])
                 : GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 6,
+                    itemCount: snapshot.data['data'].length,
                     itemBuilder: (context, i) {
                       return Padding(
                           padding:
@@ -267,7 +261,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                                   padding:
                                                       EdgeInsets.only(top: 4),
                                                   child: Text(
-                                                    "السعر قبل الخصم",
+                                                    "318".tr,
                                                     style: TextStyle(
                                                         fontFamily: 'Cairo',
                                                         color:
@@ -516,7 +510,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                               color: Color.fromARGB(
                                                       255, 212, 208, 208)
                                                   .withOpacity(0.7),
-                                              child: Text("يتم التحميل"),
+                                              child: Text("322".tr),
                                             ),
                                           )),
 
@@ -526,7 +520,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                       Container(
                                           width: screenWidth * 0.30,
                                           child: Text(
-                                            ("يتم التحميل"),
+                                            ("322".tr),
                                             style: TextStyle(
                                               fontFamily: 'Cairo',
                                               color: AppColors.balckgray,
@@ -545,7 +539,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                                   MainAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  "يتم التحميل",
+                                                  "322".tr,
                                                   style: TextStyle(
                                                       fontFamily: 'Cairo',
                                                       color:
@@ -560,7 +554,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                                   width: screenWidth * 0.01,
                                                 ),
                                                 Text(
-                                                  "يتم التحميل",
+                                                  "322".tr,
                                                   style: TextStyle(
                                                       fontFamily: 'Cairo',
                                                       color:
@@ -597,7 +591,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                             MainAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "يتم التحميل",
+                                            "322".tr,
                                             style: TextStyle(
                                                 fontFamily: 'Cairo',
                                                 color: AppColors
@@ -610,7 +604,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                             width: screenWidth * 0.01,
                                           ),
                                           Text(
-                                            "يتم التحميل",
+                                            "322".tr,
                                             style: TextStyle(
                                                 fontFamily: 'Cairo',
                                                 color: AppColors
@@ -640,7 +634,7 @@ class _ViewTheWidgetState extends State<ViewTheWidget> {
                                                                 screenWidth *
                                                                     0.015),
                                                     child: Text(
-                                                      "يتم التحميل",
+                                                      "322".tr,
                                                       style: TextStyle(
                                                         fontFamily: 'Cairo',
                                                         color: AppColors.white,

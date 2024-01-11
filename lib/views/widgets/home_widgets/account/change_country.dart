@@ -73,6 +73,7 @@ class ChangeCountry extends StatelessWidget {
                                               .value = 1;
                                           controller.changeTheCountry.value =
                                               false;
+                                          controller.changeTheCounToSAR();
                                         },
                                         child: Row(
                                           mainAxisAlignment:
@@ -131,6 +132,8 @@ class ChangeCountry extends StatelessWidget {
                                               .value = 2;
                                           controller.changeTheCountry.value =
                                               false;
+
+                                          controller.changeTheCounToKWD();
                                         },
                                         child: Row(
                                           mainAxisAlignment:
@@ -189,6 +192,7 @@ class ChangeCountry extends StatelessWidget {
                                               .value = 3;
                                           controller.changeTheCountry.value =
                                               false;
+                                          controller.changeTheCounToBHD();
                                         },
                                         child: Row(
                                           mainAxisAlignment:
@@ -243,6 +247,7 @@ class ChangeCountry extends StatelessWidget {
                                     Stack(children: [
                                       InkWell(
                                         onTap: () {
+                                          controller.changeTheCounToOman();
                                           controller.whatIsChoesAboutTheCountry
                                               .value = 4;
                                           controller.changeTheCountry.value =
@@ -305,6 +310,7 @@ class ChangeCountry extends StatelessWidget {
                                               .value = 5;
                                           controller.changeTheCountry.value =
                                               false;
+                                          controller.changeTheCounToIRQ();
                                         },
                                         child: Row(
                                           mainAxisAlignment:
@@ -363,6 +369,7 @@ class ChangeCountry extends StatelessWidget {
                                               .value = 6;
                                           controller.changeTheCountry.value =
                                               false;
+                                          controller.changeTheCounToIUAE();
                                         },
                                         child: Row(
                                           mainAxisAlignment:
@@ -417,6 +424,7 @@ class ChangeCountry extends StatelessWidget {
                                     Stack(children: [
                                       InkWell(
                                         onTap: () {
+                                          controller.changeTheCounToQTR();
                                           controller.whatIsChoesAboutTheCountry
                                               .value = 7;
                                           controller.changeTheCountry.value =
@@ -479,6 +487,8 @@ class ChangeCountry extends StatelessWidget {
                                               .value = 8;
                                           controller.changeTheCountry.value =
                                               false;
+
+                                          controller.changeTheCounToIjor();
                                         },
                                         child: Row(
                                           mainAxisAlignment:

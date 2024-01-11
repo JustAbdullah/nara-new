@@ -116,4 +116,34 @@ class AppLinksApi {
 
   static const usersProducts =
       "https://larra.xyz/php_nara/get_prdocuts_users.php";
+
+  static const getTheTypesAll = "https://larra.xyz/php_nara/get_the_types.php";
+
+  static const getAllProductsWithMainTypes =
+      "https://larra.xyz/php_nara/get_products_with_main_type.php";
+
+  static const getAllProductsWithMainSubTypes =
+      "https://larra.xyz/php_nara/get_sub_types_all.php";
+
+  static const getAllProductsSearchingWitSubType =
+      "https://larra.xyz/php_nara/search_with_subtype.php";
+
+  static const getAllProductsSearchingAll =
+      "https://larra.xyz/php_nara/search_products_all.php";
+
+  static const checkCode = "https://larra.xyz/php_nara/check_code.php";
+
+  ////////.................deleteAccounts.............................//////////
+
+  static const deleteCompOrderWhenDeleteAccount =
+      "https://larra.xyz/php_nara/delete_accounts/delete_from_comp_order.php";
+
+  static const deleteOrderWhenDeleteAccount =
+      "https://larra.xyz/php_nara/delete_accounts/delete_order_products_user.php";
+
+  static const deleteShoppingCartWhenDeleteAccount =
+      "https://larra.xyz/php_nara/delete_accounts/delete_shopping_cart_user.php";
+
+  static const deleteSAccountsWhenDeleteAccount =
+      "https://larra.xyz/php_nara/delete_accounts/delete_account.php";
 }

@@ -30,7 +30,7 @@ class TopHeader extends StatelessWidget {
                     "294".tr,
                     style: TextStyle(
                         fontFamily: 'Cairo',
-                        color: AppColors.yellow,
+                        color: AppColors.Pink,
                         fontSize: screenWidth * 0.052,
                         fontWeight: FontWeight.w700),
                     textAlign: TextAlign.center,

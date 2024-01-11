@@ -71,4 +71,5 @@ class ImagesPath {
 
   static const String logout = "$RootPath/icons8-log-out-100.png";
   static const String loadingTheApp = "$RootPath/loading.gif";
+  static const String deleteAccounts = "$RootPath/icons8-denied-90.png";
 }

@@ -12,6 +12,7 @@ import '../../../../core/constant/appcolors.dart';
 import '../../core/localization/changelanguage.dart';
 import '../widgets/home_widgets/account/change_country.dart';
 import '../widgets/menu/menu.dart';
+import '../widgets/textfiled/search_text_filed.dart';
 import '../widgets/textfiled/textformfiled_cut.dart';
 import 'package:flutter_paypal_checkout/flutter_paypal_checkout.dart';
 
@@ -315,7 +316,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                       ),
                                       SizedBox(
                                         width: change.isChange.value == true
-                                            ? screenWidth * 0.4
+                                            ? screenWidth * 0.37
                                             : screenWidth * 0.485,
                                       ),
                                       Image.asset(
@@ -677,7 +678,9 @@ class _showMyAccountState extends State<showMyAccount> {
                                     if (controller.isHaveAccount.value == 1) {
                                       controller.isNotHaveAnyAccount.value =
                                           true;
-                                    } else {}
+                                    } else {
+                                      controller.theListOFCoins.value = true;
+                                    }
                                   },
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -690,7 +693,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                         width: screenWidth * 0.02,
                                       ),
                                       Text(
-                                        "273".tr,
+                                        "303".tr,
                                         style: TextStyle(
                                             fontFamily: 'Cairo',
                                             color: AppColors
@@ -703,31 +706,22 @@ class _showMyAccountState extends State<showMyAccount> {
                                           width: change.isChange.value == true
                                               ? screenWidth * 0.21
                                               : screenWidth * 0.27),
-                                      InkWell(
-                                        onTap: () {
-                                          controller.theListOFCoins.value =
-                                              true;
-                                        },
-                                        child: Text(
-                                          "${controller.theNameOfCoins.value}",
-                                          style: TextStyle(
-                                              fontFamily: 'Cairo',
-                                              color: AppColors
-                                                  .blackNumberFourBlackMode,
-                                              fontSize: screenWidth * 0.040,
-                                              fontWeight: FontWeight.w500),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
                                       SizedBox(
                                         width: change.isChange.value == true
-                                            ? screenWidth * 0.01
-                                            : screenWidth * 0.03,
+                                            ? screenWidth * 0.09
+                                            : screenWidth * 0.12,
                                       ),
                                       InkWell(
                                           onTap: () {
-                                            controller.theListOFCoins.value =
-                                                true;
+                                            if (controller
+                                                    .isHaveAccount.value ==
+                                                1) {
+                                              controller.isNotHaveAnyAccount
+                                                  .value = true;
+                                            } else {
+                                              controller.theListOFCoins.value =
+                                                  true;
+                                            }
                                           },
                                           child: Image.asset(
                                             change.isChange.value == true
@@ -886,7 +880,15 @@ class _showMyAccountState extends State<showMyAccount> {
                                         width: screenWidth * 0.02,
                                       ),
                                       InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          if (controller.isHaveAccount.value ==
+                                              1) {
+                                            controller.isNotHaveAnyAccount
+                                                .value = true;
+                                          } else {
+                                            controller.logout();
+                                          }
+                                        },
                                         child: Text(
                                           "275".tr,
                                           style: TextStyle(
@@ -913,8 +915,92 @@ class _showMyAccountState extends State<showMyAccount> {
                                             } else if (controller
                                                     .isHaveRightAccess.value ==
                                                 2) {
-                                              Get.to(
-                                                  ManageTheProductsByTheUser());
+                                              controller.logout();
+                                            }
+                                          },
+                                          child: Image.asset(
+                                            change.isChange.value == true
+                                                ? "${ImagesPath.iconArrowEn}"
+                                                : "${ImagesPath.arrowIconLeft}",
+                                            width: screenWidth * 0.06,
+                                          )),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: screenHeight * 0.05,
+                                  ),
+                                  child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                        width: screenWidth,
+                                        height: screenHeight * 0.0002,
+                                        color: AppColors.balckgray,
+                                      )),
+                                ),
+                              ]),
+                              SizedBox(
+                                height: screenHeight * 0.03,
+                              ),
+                              Stack(children: [
+                                InkWell(
+                                  onTap: () {
+                                    if (controller.isHaveAccount.value == 1) {
+                                      controller.isNotHaveAnyAccount.value =
+                                          true;
+                                    } else {
+                                      controller.wearingAbountDeleteAccount
+                                          .value = true;
+                                    }
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Image.asset(
+                                        "${ImagesPath.deleteAccounts}",
+                                        width: screenWidth * 0.05,
+                                      ),
+                                      SizedBox(
+                                        width: screenWidth * 0.02,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          if (controller.isHaveAccount.value ==
+                                              1) {
+                                            controller.isNotHaveAnyAccount
+                                                .value = true;
+                                          } else {
+                                            controller
+                                                .wearingAbountDeleteAccount
+                                                .value = true;
+                                          }
+                                        },
+                                        child: Text(
+                                          "302".tr,
+                                          style: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              color: AppColors.WelcomeRed,
+                                              fontSize: screenWidth * 0.047,
+                                              fontWeight: FontWeight.w500),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                          width: change.isChange.value == true
+                                              ? screenWidth * 0.30
+                                              : screenWidth * 0.36),
+                                      InkWell(
+                                          onTap: () {
+                                            if (controller
+                                                    .isHaveAccount.value ==
+                                                1) {
+                                              controller.isNotHaveAnyAccount
+                                                  .value = true;
+                                            } else {
+                                              controller
+                                                  .wearingAbountDeleteAccount
+                                                  .value = true;
                                             }
                                           },
                                           child: Image.asset(
@@ -1010,6 +1096,106 @@ class _showMyAccountState extends State<showMyAccount> {
                                       fontSize: screenWidth * 0.037,
                                       fontWeight: FontWeight.w500),
                                   textAlign: TextAlign.center,
+                                ),
+                              )),
+                        ),
+                      ),
+                    ]),
+                  ),
+                )),
+
+            //////////////Wearing Abount delete Accout ,,,,,,,,,,,,,,//////////////////////
+
+            Visibility(
+                visible: controller.wearingAbountDeleteAccount.value,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: screenWidth * 0.60,
+                    height: screenHeight * 0.33,
+                    decoration: BoxDecoration(
+                        color: AppColors.WelcomeRed,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Stack(children: [
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: InkWell(
+                          onTap: () {
+                            controller.wearingAbountDeleteAccount.value = false;
+                          },
+                          child: Container(
+                            width: screenWidth * 0.10,
+                            height: screenHeight * 0.04,
+                            decoration: BoxDecoration(
+                                color: AppColors.balckgray,
+                                borderRadius: BorderRadius.circular(4)),
+                            child: Text(
+                              "X",
+                              style: TextStyle(
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.white,
+                                  fontSize: screenWidth * 0.050,
+                                  fontWeight: FontWeight.w500),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(top: screenHeight * 0.01),
+                          child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.04),
+                              child: Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Lottie.asset("${ImagesPath.warning}",
+                                      width: screenWidth * 0.3)))),
+                      Padding(
+                        padding: EdgeInsets.only(top: screenHeight * 0.12),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: screenWidth * 0.04),
+                          child: Align(
+                              alignment: Alignment.center,
+                              child: Center(
+                                child: Text(
+                                  "301".tr,
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: AppColors.white,
+                                      fontSize: screenWidth * 0.037,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: screenHeight * 0.25),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: screenWidth * 0.04),
+                          child: Align(
+                              alignment: Alignment.center,
+                              child: InkWell(
+                                onTap: () {
+                                  controller.deleteAllAccounts();
+                                },
+                                child: Container(
+                                  color: Colors.black,
+                                  width: screenWidth * 0.4,
+                                  height: screenHeight / 20,
+                                  child: Center(
+                                    child: Text(
+                                      "300".tr,
+                                      style: TextStyle(
+                                          fontFamily: 'Cairo',
+                                          color: AppColors.white,
+                                          fontSize: screenWidth * 0.037,
+                                          fontWeight: FontWeight.w500),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
                                 ),
                               )),
                         ),
@@ -1616,191 +1802,204 @@ class _showMyAccountState extends State<showMyAccount> {
                                   child: Padding(
                                       padding: EdgeInsets.only(
                                           top: screenHeight * 0.21),
-                                      child: Column(
-                                        children: [
-                                          TextFormFiledCus(
-                                            keyboardType: TextInputType.name,
-                                            autofillHints: [AutofillHints.name],
-                                            obscureText: false,
-                                            controllerData:
-                                                controller.residence_area,
-                                            value: (value) {
-                                              controller
-                                                      .residence_areaAddToDatabase =
-                                                  value.toString();
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: [
+                                            TextFormFiledCus(
+                                              keyboardType: TextInputType.name,
+                                              autofillHints: [
+                                                AutofillHints.name
+                                              ],
+                                              obscureText: false,
+                                              controllerData:
+                                                  controller.residence_area,
+                                              value: (value) {
+                                                controller
+                                                        .residence_areaAddToDatabase =
+                                                    value.toString();
 
-                                              SystemChrome
-                                                  .setEnabledSystemUIMode(
-                                                      SystemUiMode.manual,
-                                                      overlays: []);
-                                              return null;
-                                            },
-                                            onChanged: (val) {
-                                              controller
-                                                      .residence_areaAddToDatabase =
-                                                  val.toString();
-
-                                              SystemChrome
-                                                  .setEnabledSystemUIMode(
-                                                      SystemUiMode.manual,
-                                                      overlays: []);
-                                              return null;
-                                            },
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return "73".tr;
-                                              } else {
+                                                SystemChrome
+                                                    .setEnabledSystemUIMode(
+                                                        SystemUiMode.manual,
+                                                        overlays: []);
                                                 return null;
-                                              }
-                                            },
-                                            hintData: "74".tr,
-                                            iconData: Icons.location_city,
-                                            labelData: "74".tr,
-                                            fillColor: Colors.white,
-                                            iconColor: AppColors
-                                                .blackNumberFourBlackMode,
-                                            hintColor: AppColors.theMainOfColor,
-                                            fontColor: AppColors
-                                                .blackNumberFourBlackMode,
-                                            borderSideColor: Colors.white,
-                                          ),
-                                          SizedBox(
-                                            height: screenHeight * 0.03,
-                                          ),
-                                          TextFormFiledCus(
-                                            keyboardType: TextInputType.name,
-                                            autofillHints: [AutofillHints.name],
-                                            obscureText: false,
-                                            controllerData: controller.street,
-                                            value: (value) {
-                                              controller.streetAddToDatabase =
-                                                  value.toString();
+                                              },
+                                              onChanged: (val) {
+                                                controller
+                                                        .residence_areaAddToDatabase =
+                                                    val.toString();
 
-                                              SystemChrome
-                                                  .setEnabledSystemUIMode(
-                                                      SystemUiMode.manual,
-                                                      overlays: []);
-                                              return null;
-                                            },
-                                            onChanged: (val) {
-                                              controller.streetAddToDatabase =
-                                                  val.toString();
-
-                                              SystemChrome
-                                                  .setEnabledSystemUIMode(
-                                                      SystemUiMode.manual,
-                                                      overlays: []);
-                                              return null;
-                                            },
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return "75".tr;
-                                              } else {
+                                                SystemChrome
+                                                    .setEnabledSystemUIMode(
+                                                        SystemUiMode.manual,
+                                                        overlays: []);
                                                 return null;
-                                              }
-                                            },
-                                            hintData: "76".tr,
-                                            iconData: Icons.streetview,
-                                            labelData: "76".tr,
-                                            fillColor: Colors.white,
-                                            iconColor: AppColors
-                                                .blackNumberFourBlackMode,
-                                            hintColor: AppColors.theMainOfColor,
-                                            fontColor: AppColors
-                                                .blackNumberFourBlackMode,
-                                            borderSideColor: Colors.white,
-                                          ),
-                                          SizedBox(
-                                            height: screenHeight * 0.03,
-                                          ),
-                                          TextFormFiledCus(
-                                            keyboardType: TextInputType.number,
-                                            autofillHints: [AutofillHints.name],
-                                            obscureText: false,
-                                            controllerData:
-                                                controller.home_number,
-                                            value: (value) {
-                                              controller
-                                                      .home_numberAddToDatabase =
-                                                  value.toString();
-
-                                              SystemChrome
-                                                  .setEnabledSystemUIMode(
-                                                      SystemUiMode.manual,
-                                                      overlays: []);
-                                              return null;
-                                            },
-                                            onChanged: (val) {
-                                              controller
-                                                      .home_numberAddToDatabase =
-                                                  val.toString();
-
-                                              SystemChrome
-                                                  .setEnabledSystemUIMode(
-                                                      SystemUiMode.manual,
-                                                      overlays: []);
-                                              return null;
-                                            },
-                                            validator: (value) {
-                                              if (value!.isEmpty) {
-                                                return "75".tr;
-                                              } else {
-                                                return null;
-                                              }
-                                            },
-                                            hintData: "77".tr,
-                                            iconData: Icons.home,
-                                            labelData: "77".tr,
-                                            fillColor: Colors.white,
-                                            iconColor: AppColors
-                                                .blackNumberFourBlackMode,
-                                            hintColor: AppColors.theMainOfColor,
-                                            fontColor: AppColors
-                                                .blackNumberFourBlackMode,
-                                            borderSideColor: Colors.white,
-                                          ),
-                                          SizedBox(
-                                            height: screenHeight * 0.03,
-                                          ),
-                                          InkWell(
-                                            onTap: () {
-                                              controller.addTheAddressTheUser(
-                                                  controller
-                                                      .residence_areaAddToDatabase
-                                                      .toString(),
-                                                  controller.streetAddToDatabase
-                                                      .toString(),
-                                                  controller
-                                                      .home_numberAddToDatabase
-                                                      .toString());
-                                            },
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                  color: AppColors.WelcomeRed,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10)),
-                                              width: screenWidth * 0.65,
-                                              height: screenHeight / 20,
-                                              child: Center(
-                                                  child: Text(
-                                                "79".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: AppColors.white,
-                                                    fontSize:
-                                                        screenWidth * 0.048,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              )),
+                                              },
+                                              validator: (value) {
+                                                if (value!.isEmpty) {
+                                                  return "73".tr;
+                                                } else {
+                                                  return null;
+                                                }
+                                              },
+                                              hintData: "74".tr,
+                                              iconData: Icons.location_city,
+                                              labelData: "74".tr,
+                                              fillColor: Colors.white,
+                                              iconColor: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              hintColor:
+                                                  AppColors.theMainOfColor,
+                                              fontColor: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              borderSideColor: Colors.white,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(
+                                              height: screenHeight * 0.03,
+                                            ),
+                                            TextFormFiledCus(
+                                              keyboardType: TextInputType.name,
+                                              autofillHints: [
+                                                AutofillHints.name
+                                              ],
+                                              obscureText: false,
+                                              controllerData: controller.street,
+                                              value: (value) {
+                                                controller.streetAddToDatabase =
+                                                    value.toString();
+
+                                                SystemChrome
+                                                    .setEnabledSystemUIMode(
+                                                        SystemUiMode.manual,
+                                                        overlays: []);
+                                                return null;
+                                              },
+                                              onChanged: (val) {
+                                                controller.streetAddToDatabase =
+                                                    val.toString();
+
+                                                SystemChrome
+                                                    .setEnabledSystemUIMode(
+                                                        SystemUiMode.manual,
+                                                        overlays: []);
+                                                return null;
+                                              },
+                                              validator: (value) {
+                                                if (value!.isEmpty) {
+                                                  return "75".tr;
+                                                } else {
+                                                  return null;
+                                                }
+                                              },
+                                              hintData: "76".tr,
+                                              iconData: Icons.streetview,
+                                              labelData: "76".tr,
+                                              fillColor: Colors.white,
+                                              iconColor: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              hintColor:
+                                                  AppColors.theMainOfColor,
+                                              fontColor: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              borderSideColor: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              height: screenHeight * 0.03,
+                                            ),
+                                            TextFormFiledCus(
+                                              keyboardType:
+                                                  TextInputType.number,
+                                              autofillHints: [
+                                                AutofillHints.name
+                                              ],
+                                              obscureText: false,
+                                              controllerData:
+                                                  controller.home_number,
+                                              value: (value) {
+                                                controller
+                                                        .home_numberAddToDatabase =
+                                                    value.toString();
+
+                                                SystemChrome
+                                                    .setEnabledSystemUIMode(
+                                                        SystemUiMode.manual,
+                                                        overlays: []);
+                                                return null;
+                                              },
+                                              onChanged: (val) {
+                                                controller
+                                                        .home_numberAddToDatabase =
+                                                    val.toString();
+
+                                                SystemChrome
+                                                    .setEnabledSystemUIMode(
+                                                        SystemUiMode.manual,
+                                                        overlays: []);
+                                                return null;
+                                              },
+                                              validator: (value) {
+                                                if (value!.isEmpty) {
+                                                  return "75".tr;
+                                                } else {
+                                                  return null;
+                                                }
+                                              },
+                                              hintData: "77".tr,
+                                              iconData: Icons.home,
+                                              labelData: "77".tr,
+                                              fillColor: Colors.white,
+                                              iconColor: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              hintColor:
+                                                  AppColors.theMainOfColor,
+                                              fontColor: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              borderSideColor: Colors.white,
+                                            ),
+                                            SizedBox(
+                                              height: screenHeight * 0.03,
+                                            ),
+                                            InkWell(
+                                              onTap: () {
+                                                controller.addTheAddressTheUser(
+                                                    controller
+                                                        .residence_areaAddToDatabase
+                                                        .toString(),
+                                                    controller
+                                                        .streetAddToDatabase
+                                                        .toString(),
+                                                    controller
+                                                        .home_numberAddToDatabase
+                                                        .toString());
+                                              },
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                    color: AppColors.WelcomeRed,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
+                                                width: screenWidth * 0.65,
+                                                height: screenHeight / 20,
+                                                child: Center(
+                                                    child: Text(
+                                                  "79".tr,
+                                                  style: TextStyle(
+                                                      fontFamily: 'Cairo',
+                                                      color: AppColors.white,
+                                                      fontSize:
+                                                          screenWidth * 0.048,
+                                                      fontWeight:
+                                                          FontWeight.w500),
+                                                  textAlign: TextAlign.center,
+                                                )),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       )),
                                 )),
                           )),
-                      Visibility(
+                      /*  Visibility(
                           visible: controller.is_write_address.value == 1,
                           child: Padding(
                               padding:
@@ -1841,7 +2040,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                             textAlign: TextAlign.center,
                                           )),
                                         ),
-                                      )))))),
+                                      )))))),*/
                       Visibility(
                           visible: controller.loadingTheAddress.value,
                           child: Container(
@@ -1978,6 +2177,9 @@ class _showMyAccountState extends State<showMyAccount> {
                         ),
                         InkWell(
                           onTap: () {
+                            controller.priceTOtleNEw = 0;
+                            controller..totalPriceNN = 0;
+                            controller..totalPriceNN = 0;
                             controller.totalPrice = 0;
                             controller.isAddThetotalPriceToMemory.value = false;
                             controller.TheShoppingCartList.value = false;
@@ -1990,6 +2192,8 @@ class _showMyAccountState extends State<showMyAccount> {
                             children: [
                               InkWell(
                                 onTap: () {
+                                  controller.priceTOtleNEw = 0;
+                                  controller..totalPriceNN = 0;
                                   controller.totalPrice = 0;
                                   controller.isAddThetotalPriceToMemory.value =
                                       false;
@@ -2014,6 +2218,8 @@ class _showMyAccountState extends State<showMyAccount> {
                               ),
                               InkWell(
                                 onTap: () {
+                                  controller.priceTOtleNEw = 0;
+                                  controller..totalPriceNN = 0;
                                   controller.totalPrice = 0;
                                   controller.isAddThetotalPriceToMemory.value =
                                       false;
@@ -2131,6 +2337,11 @@ class _showMyAccountState extends State<showMyAccount> {
                                             false) {
                                           controller.indexShoppingCart += 1;
                                           setState(() {});
+
+                                          controller.priceTOtleNEw += int.parse(
+                                              snapshot.data['data'][i]['total']
+                                                  .toString());
+
                                           controller.totalPrice += int.parse(
                                               snapshot.data['data'][i]['total']
                                                   .toString());
@@ -2141,6 +2352,15 @@ class _showMyAccountState extends State<showMyAccount> {
                                           controller.isAddThetotalPriceToMemory
                                               .value = true;
                                         }
+
+                                        int count = 0;
+                                        if (count <=
+                                            snapshot.data['data'].length) {
+                                          controller.totalPriceNN += int.parse(
+                                              snapshot.data['data'][i]['total']
+                                                  .toString());
+                                          count = count + 1;
+                                        } else {}
                                       });
 
                                       return Padding(
@@ -2148,7 +2368,10 @@ class _showMyAccountState extends State<showMyAccount> {
                                             top: screenHeight * 0.01,
                                             bottom: screenHeight * 0.00),
                                         child: InkWell(
-                                          onTap: () {},
+                                          onTap: () {
+                                            controller.deleteFromShoppingCart(
+                                                "${snapshot.data['data'][i]['id_shoppingCart'].toString()}");
+                                          },
                                           child: AnimatedContainer(
                                             duration:
                                                 Duration(milliseconds: 1200),
@@ -2223,124 +2446,132 @@ class _showMyAccountState extends State<showMyAccount> {
                                                 Align(
                                                     alignment:
                                                         Alignment.topLeft,
-                                                    child: Container(
-                                                      child: Padding(
-                                                          padding: EdgeInsets.only(
-                                                              top:
-                                                                  screenHeight *
-                                                                      0.03,
-                                                              left:
-                                                                  screenWidth *
-                                                                      0.04,
-                                                              right:
-                                                                  screenWidth *
-                                                                      0.04),
-                                                          child:
-                                                              SingleChildScrollView(
-                                                            child: Column(
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .end,
-                                                                  children: [
-                                                                    InkWell(
-                                                                      onTap:
-                                                                          () {
-                                                                        controller
-                                                                            .deleteFromShoppingCart("${snapshot.data['data'][i]['id_shoppingCart'].toString()}");
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width: screenWidth *
-                                                                            0.19,
-                                                                        decoration: BoxDecoration(
-                                                                            color:
-                                                                                Colors.red,
-                                                                            borderRadius: BorderRadius.circular(0)),
+                                                    child: InkWell(
+                                                      onTap: () {
+                                                        controller
+                                                            .deleteFromShoppingCart(
+                                                                "${snapshot.data['data'][i]['id_shoppingCart'].toString()}");
+                                                      },
+                                                      child: Container(
+                                                        child: Padding(
+                                                            padding: EdgeInsets.only(
+                                                                top:
+                                                                    screenHeight *
+                                                                        0.03,
+                                                                left:
+                                                                    screenWidth *
+                                                                        0.04,
+                                                                right:
+                                                                    screenWidth *
+                                                                        0.04),
+                                                            child:
+                                                                SingleChildScrollView(
+                                                              child: Column(
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      InkWell(
+                                                                        onTap:
+                                                                            () {
+                                                                          controller
+                                                                              .deleteFromShoppingCart("${snapshot.data['data'][i]['id_shoppingCart'].toString()}");
+                                                                        },
                                                                         child:
-                                                                            Text(
-                                                                          "231"
-                                                                              .tr,
-                                                                          style: TextStyle(
-                                                                              fontFamily: 'Cairo',
-                                                                              color: Colors.white,
-                                                                              fontSize: screenWidth * 0.040,
-                                                                              fontWeight: FontWeight.w400),
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          maxLines:
-                                                                              3,
-                                                                          overflow:
-                                                                              TextOverflow.ellipsis,
+                                                                            Container(
+                                                                          width:
+                                                                              screenWidth * 0.19,
+                                                                          decoration: BoxDecoration(
+                                                                              color: Colors.red,
+                                                                              borderRadius: BorderRadius.circular(0)),
+                                                                          child:
+                                                                              Text(
+                                                                            "231".tr,
+                                                                            style: TextStyle(
+                                                                                fontFamily: 'Cairo',
+                                                                                color: Colors.white,
+                                                                                fontSize: screenWidth * 0.040,
+                                                                                fontWeight: FontWeight.w400),
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            maxLines:
+                                                                                3,
+                                                                            overflow:
+                                                                                TextOverflow.ellipsis,
+                                                                          ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                SizedBox(
-                                                                  height:
-                                                                      screenHeight *
-                                                                          0.02,
-                                                                ),
-                                                                Row(
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .end,
-                                                                  children: [
-                                                                    Text(
-                                                                      "SAR".tr,
-                                                                      style: TextStyle(
-                                                                          fontFamily:
-                                                                              'Cairo',
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontSize: screenWidth *
-                                                                              0.047,
-                                                                          fontWeight:
-                                                                              FontWeight.w500),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      maxLines:
-                                                                          3,
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                    ),
-                                                                    SizedBox(
-                                                                      width: screenWidth *
-                                                                          0.004,
-                                                                    ),
-                                                                    Text(
-                                                                      ("${controller.cartShop.totalPrice}"),
-                                                                      style: TextStyle(
-                                                                          fontFamily:
-                                                                              'Cairo',
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontSize: screenWidth *
-                                                                              0.047,
-                                                                          fontWeight:
-                                                                              FontWeight.w700),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .center,
-                                                                      maxLines:
-                                                                          3,
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                    ),
-                                                                  ],
-                                                                )
-                                                              ],
-                                                            ),
-                                                          )),
+                                                                    ],
+                                                                  ),
+                                                                  SizedBox(
+                                                                    height:
+                                                                        screenHeight *
+                                                                            0.02,
+                                                                  ),
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .end,
+                                                                    children: [
+                                                                      Text(
+                                                                        controller
+                                                                            .theNAmeOfCoun
+                                                                            .value,
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Cairo',
+                                                                            color: Colors
+                                                                                .black,
+                                                                            fontSize: screenWidth *
+                                                                                0.047,
+                                                                            fontWeight:
+                                                                                FontWeight.w500),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        maxLines:
+                                                                            3,
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis,
+                                                                      ),
+                                                                      SizedBox(
+                                                                        width: screenWidth *
+                                                                            0.004,
+                                                                      ),
+                                                                      Text(
+                                                                        (int.parse((snapshot.data['data'][i]['total'].toString())) *
+                                                                                controller.theCountPrice.value)
+                                                                            .toStringAsFixed(2),
+                                                                        style: TextStyle(
+                                                                            fontFamily:
+                                                                                'Cairo',
+                                                                            color: Colors
+                                                                                .black,
+                                                                            fontSize: screenWidth *
+                                                                                0.047,
+                                                                            fontWeight:
+                                                                                FontWeight.w700),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        maxLines:
+                                                                            3,
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis,
+                                                                      )
+                                                                    ],
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            )),
+                                                      ),
                                                     )),
                                                 SingleChildScrollView(
                                                   child: Column(children: [
-                                                    SizedBox(height: screenHeight*0.02,),
+                                                    SizedBox(
+                                                      height:
+                                                          screenHeight * 0.02,
+                                                    ),
                                                     Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -2490,7 +2721,152 @@ class _showMyAccountState extends State<showMyAccount> {
                             },
                           ),
                         ),
+                        SizedBox(
+                          height: screenHeight * 0.04,
+                        ),
 
+                        /*   Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: screenWidth * 0.09),
+                              child: TextFormFiledCustomSearch(
+                                labelData: "ادخل كود المسوق إذا وجُد",
+                                hintData:
+                                    "لديك شخص سوق لك هذا المنتج؟ادخل الكود",
+                                iconData: Icons.search,
+                                controllerData: controller.condeController,
+                                value: (value) {
+                                  controller.codeText = value.toString();
+                                  return value;
+                                },
+                                fillColor: AppColors.white,
+                                hintColor: AppColors.yellow,
+                                iconColor: AppColors.balckgray,
+                                borderSideColor: AppColors.white,
+                                onTap: () {},
+                                fontColor: AppColors.balckgray,
+                                obscureText: false,
+                                keyboardType: TextInputType.text,
+                                autofillHints: [AutofillHints.name],
+                                onChanged: (value) {
+                                  controller.codeText = value.toString();
+                                  return value;
+                                },
+                                validator: (p0) {},
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                controller
+                                    .getTheCode(controller.codeText.toString());
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: AppColors.yellow,
+                                    borderRadius: BorderRadius.circular(10)),
+                                width: screenWidth * 0.45,
+                                height: screenHeight / 20,
+                                child: Center(
+                                    child: Text(
+                                  "التحقق الان".tr,
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: AppColors.balckgray,
+                                      fontSize: screenWidth * 0.038,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                )),
+                              ),
+                            ),
+                          ],
+                        ),*/
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              width: screenWidth * 0.45,
+                              child: TextFormFiledCustomSearch(
+                                labelData: "316".tr,
+                                hintData: "317".tr,
+                                iconData: Icons.search,
+                                controllerData: controller.condeController,
+                                value: (value) {
+                                  controller.codeText = value.toString();
+                                  SystemChrome.setEnabledSystemUIMode(
+                                      SystemUiMode.manual,
+                                      overlays: []);
+                                  return value;
+                                },
+                                fillColor: AppColors.white,
+                                hintColor: AppColors.yellow,
+                                iconColor: AppColors.white,
+                                borderSideColor:
+                                    AppColors.Pink.withOpacity(0.2),
+                                onTap: () {},
+                                fontColor: AppColors.balckgray,
+                                obscureText: false,
+                                keyboardType: TextInputType.number,
+                                autofillHints: [AutofillHints.newPassword],
+                                onChanged: (value) {
+                                  controller.codeText = value.toString();
+                                  SystemChrome.setEnabledSystemUIMode(
+                                      SystemUiMode.manual,
+                                      overlays: []);
+                                  return value;
+                                },
+                                validator: (p0) {},
+                              ),
+                            ),
+                            SizedBox(
+                              width: screenWidth * 0.02,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                controller
+                                    .getTheCode(controller.codeText.toString());
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: AppColors.yellow,
+                                    borderRadius: BorderRadius.circular(0)),
+                                width: screenWidth * 0.25,
+                                height: screenHeight / 17,
+                                child: Center(
+                                    child: Text(
+                                  "313".tr,
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: AppColors.balckgray,
+                                      fontSize: screenWidth * 0.048,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                )),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: screenHeight * 0.01,
+                        ),
+                        GetX<HomeController>(
+                            builder: (scontroller) => Text(
+                                  controller.isHaveCode.value == true
+                                      ? "314".tr
+                                      : "315".tr,
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: controller.isHaveCode.value == true
+                                          ? Colors.green
+                                          : AppColors.WelcomeRed,
+                                      fontSize: screenWidth * 0.032,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                )),
                         SizedBox(
                           height: screenHeight * 0.04,
                         ),
@@ -2499,7 +2875,8 @@ class _showMyAccountState extends State<showMyAccount> {
                           onTap: () {
                             controller.addToOrder(
                                 controller.cartShop.idOfOrder.toString(),
-                                controller.totalPrice.toString());
+                                controller.priceTOtleNEw.toString(),
+                                controller.theIdCodeUser.toString());
                           },
                           child: Container(
                             decoration: BoxDecoration(
@@ -2525,6 +2902,46 @@ class _showMyAccountState extends State<showMyAccount> {
                         ////////////
                       ]),
                     ),
+
+                    Visibility(
+                        visible: controller.checkTheCode.value,
+                        child: Container(
+                          width: screenWidth,
+                          height: screenHeight,
+                          color: Colors.black26,
+                        )),
+                    Visibility(
+                        visible: controller.checkTheCode.value,
+                        child: Container(
+                          width: screenWidth,
+                          height: screenHeight,
+                          color: Colors.black26,
+                        )),
+                    Visibility(
+                        visible: controller.checkTheCode.value,
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              "312".tr,
+                              style: TextStyle(
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.white,
+                                  fontSize: screenWidth * 0.045,
+                                  fontWeight: FontWeight.w500),
+                              textAlign: TextAlign.center,
+                            ))),
+                    Visibility(
+                        visible: controller.checkTheCode.value,
+                        child: Padding(
+                          padding: EdgeInsets.only(top: screenHeight * 0.14),
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: Lottie.asset("${ImagesPath.loadingWait}",
+                                width: screenWidth * 0.21),
+                          ),
+                        )),
+
+                    //////////////////////////////////////////
                     Visibility(
                         visible:
                             controller.isLoadingAddIntoTheShoppingCart.value,
@@ -2671,7 +3088,7 @@ class _showMyAccountState extends State<showMyAccount> {
                     alignment: Alignment.center,
                     child: Container(
                         width: screenWidth * 0.85,
-                        height: screenHeight * 0.35,
+                        height: screenHeight * 0.45,
                         decoration: BoxDecoration(
                             color: AppColors.theMainColor,
                             borderRadius: BorderRadius.circular(15)),
@@ -2709,9 +3126,13 @@ class _showMyAccountState extends State<showMyAccount> {
                                   alignment: Alignment.topCenter,
                                   child: SingleChildScrollView(
                                     child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Text(
-                                          "277".tr,
+                                          "311".tr,
                                           style: TextStyle(
                                               fontFamily: 'Cairo',
                                               color: AppColors
@@ -2720,17 +3141,20 @@ class _showMyAccountState extends State<showMyAccount> {
                                               fontWeight: FontWeight.w700),
                                           textAlign: TextAlign.center,
                                         ),
+                                        SizedBox(
+                                          height: screenHeight * 0.04,
+                                        ),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
                                             Text(
-                                              "278".tr,
+                                              "310".tr,
                                               style: TextStyle(
                                                   fontFamily: 'Cairo',
                                                   color: AppColors
                                                       .blackNumberFourBlackMode,
-                                                  fontSize: screenWidth * 0.045,
+                                                  fontSize: screenWidth * 0.040,
                                                   fontWeight: FontWeight.w400),
                                               textAlign: TextAlign.center,
                                             ),
@@ -2738,18 +3162,19 @@ class _showMyAccountState extends State<showMyAccount> {
                                               width: screenWidth * 0.01,
                                             ),
                                             Text(
-                                              "${controller.theNameOfCoins.value}",
+                                              "${controller.nameUserFromDataBase.value}",
                                               style: TextStyle(
                                                   fontFamily: 'Cairo',
                                                   color: AppColors.yellow,
-                                                  fontSize: screenWidth * 0.048,
+                                                  fontSize: screenWidth * 0.040,
                                                   fontWeight: FontWeight.w700),
                                               textAlign: TextAlign.center,
                                             )
                                           ],
                                         ),
+                                        SizedBox(height: screenHeight * 0.006),
                                         Text(
-                                          "279".tr,
+                                          "309".tr,
                                           style: TextStyle(
                                               fontFamily: 'Cairo',
                                               color: AppColors
@@ -2758,61 +3183,115 @@ class _showMyAccountState extends State<showMyAccount> {
                                               fontWeight: FontWeight.w500),
                                           textAlign: TextAlign.center,
                                         ),
-                                        SizedBox(height: screenHeight * 0.02),
-                                        InkWell(
-                                          onTap: () {
-                                            controller.theCoins.value = 1;
-                                            controller.whatIsTheCoinsOFTheApp();
-                                          },
-                                          child: Container(
-                                            width: screenWidth * 0.32,
-                                            height: screenHeight * 0.04,
-                                            decoration: BoxDecoration(
-                                                color: AppColors.balckgray,
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            child: Center(
-                                              child: Text(
-                                                "280".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: Colors.white,
-                                                    fontSize:
-                                                        screenWidth * 0.041,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
+                                        SizedBox(height: screenHeight * 0.006),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "308".tr,
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.040,
+                                                  fontWeight: FontWeight.w400),
+                                              textAlign: TextAlign.center,
                                             ),
-                                          ),
+                                            SizedBox(
+                                              width: screenWidth * 0.01,
+                                            ),
+                                            Text(
+                                              "${controller.codeFromDataBase.value}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.balckgray,
+                                                  fontSize: screenWidth * 0.036,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
+                                            )
+                                          ],
                                         ),
-                                        SizedBox(height: screenHeight * 0.02),
-                                        InkWell(
-                                          onTap: () {
-                                            controller.theCoins.value = 2;
-                                            controller.whatIsTheCoinsOFTheApp();
-                                          },
-                                          child: Container(
-                                            width: screenWidth * 0.32,
-                                            height: screenHeight * 0.04,
-                                            decoration: BoxDecoration(
-                                                color: AppColors.balckgray,
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            child: Center(
-                                              child: Text(
-                                                "281".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: Colors.white,
-                                                    fontSize:
-                                                        screenWidth * 0.041,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
+                                        SizedBox(height: screenHeight * 0.006),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "307".tr,
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.040,
+                                                  fontWeight: FontWeight.w400),
+                                              textAlign: TextAlign.center,
                                             ),
-                                          ),
+                                            SizedBox(
+                                              width: screenWidth * 0.01,
+                                            ),
+                                            Text(
+                                              "${controller.ratioFromDataBase.value}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.WelcomeRed,
+                                                  fontSize: screenWidth * 0.036,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
+                                            )
+                                          ],
+                                        ),
+                                        SizedBox(height: screenHeight * 0.006),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "306".tr,
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.040,
+                                                  fontWeight: FontWeight.w400),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            SizedBox(
+                                              width: screenWidth * 0.01,
+                                            ),
+                                            Text(
+                                              "IQD",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: Colors.green,
+                                                  fontSize: screenWidth * 0.036,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            SizedBox(
+                                              width: screenWidth * 0.01,
+                                            ),
+                                            Text(
+                                              "${controller.amountFromDataBase.value}",
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: Colors.green,
+                                                  fontSize: screenWidth * 0.036,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: screenHeight * 0.04),
+                                        Text(
+                                          "305".tr,
+                                          style: TextStyle(
+                                              fontFamily: 'Cairo',
+                                              color: AppColors
+                                                  .blackNumberFourBlackMode,
+                                              fontSize: screenWidth * 0.040,
+                                              fontWeight: FontWeight.w700),
+                                          textAlign: TextAlign.center,
                                         ),
                                       ],
                                     ),
@@ -3118,7 +3597,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                         20)),
                                                         width: screenWidth,
                                                         height:
-                                                            screenHeight * 0.21,
+                                                            screenHeight * 0.18,
                                                         child:
                                                             SingleChildScrollView(
                                                           child: Column(
@@ -3202,7 +3681,9 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                           0.02,
                                                                     ),
                                                                     Text(
-                                                                      "SAR".tr,
+                                                                      controller
+                                                                          .theNAmeOfCoun
+                                                                          .value,
                                                                       style: TextStyle(
                                                                           fontFamily:
                                                                               'Cairo',
@@ -3230,7 +3711,9 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                           0.004,
                                                                     ),
                                                                     Text(
-                                                                      ("${controller.theOrder.total}"),
+                                                                      (int.parse((snapshot.data['data'][i]['total'].toString())) *
+                                                                              controller.theCountPrice.value)
+                                                                          .toStringAsFixed(2),
                                                                       style: TextStyle(
                                                                           fontFamily:
                                                                               'Cairo',
@@ -3329,6 +3812,11 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                       controller.getCompleteprocessOrder(controller
                                                                           .id_of_orderAdd
                                                                           .toString());
+
+                                                                      controller
+                                                                          .totalAdd = (int.parse((snapshot.data['data'][i]['total'].toString())) * controller.theCountPrice.value)
+                                                                              .toString()
+                                                                          as String;
                                                                       controller
                                                                           .OrderCompleteOrdersProcess
                                                                           .value = true;
@@ -3340,9 +3828,12 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                       controller
                                                                               .id_of_orderAdd =
                                                                           "${snapshot.data['data'][i]['id_of_order'].toString()}";
+
                                                                       controller
-                                                                              .totalAdd =
-                                                                          "${snapshot.data['data'][i]['total'].toString()}";
+                                                                          .totalAdd = (int.parse((snapshot.data['data'][i]['total'].toString())) * controller.theCountPrice.value)
+                                                                              .toString()
+                                                                          as String;
+
                                                                       controller
                                                                               .order_statusAdd =
                                                                           "${snapshot.data['data'][i]['order_status'].toString()}";
@@ -3357,9 +3848,15 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                   },
                                                                   child:
                                                                       Container(
+                                                                    alignment:
+                                                                        Alignment
+                                                                            .center,
                                                                     width:
                                                                         screenWidth *
-                                                                            0.3,
+                                                                            0.5,
+                                                                    height:
+                                                                        screenHeight /
+                                                                            21,
                                                                     decoration: BoxDecoration(
                                                                         color: Colors
                                                                             .black,
@@ -3409,524 +3906,7 @@ class _showMyAccountState extends State<showMyAccount> {
                           ),
                         ]),
                       ),
-                      /////////////////////Step Two///////////////////////////////
 
-                      Visibility(
-                          visible: controller.OrderCompleteOrdersProcess.value,
-                          child: Container(
-                            width: screenWidth,
-                            height: screenHeight,
-                            color: Colors.black12,
-                          )),
-                      Visibility(
-                          visible: controller.OrderCompleteOrdersProcess.value,
-                          child: Container(
-                            width: screenWidth,
-                            height: screenHeight,
-                            color: Colors.black12,
-                          )),
-                      Visibility(
-                          visible: controller.OrderCompleteOrdersProcess.value,
-                          child: Align(
-                              alignment: Alignment.center,
-                              child: Container(
-                                  width: screenWidth * 0.85,
-                                  height: screenHeight * 0.70,
-                                  decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  child: Stack(children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                            padding: EdgeInsets.only(
-                                                top: screenHeight * 0.02,
-                                                right: screenWidth * 0.02,
-                                                left: screenWidth * 0.02),
-                                            child: Align(
-                                              alignment: Alignment.topRight,
-                                              child: InkWell(
-                                                  onTap: () {
-                                                    controller
-                                                        .OrderCompleteOrdersProcess
-                                                        .value = false;
-                                                  },
-                                                  child: GetX<
-                                                      ChangeLanguageToLocale>(
-                                                    builder: (scontroller) =>
-                                                        scontroller.changeLangData ==
-                                                                1
-                                                            ? Image.asset(
-                                                                "${ImagesPath.arrowIconRight}",
-                                                                width:
-                                                                    screenWidth *
-                                                                        0.09,
-                                                              )
-                                                            : Image.asset(
-                                                                "${ImagesPath.arrowIconLeft}",
-                                                                width:
-                                                                    screenWidth *
-                                                                        0.09,
-                                                              ),
-                                                  )),
-                                            )),
-                                      ],
-                                    ),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                          top: screenHeight * 0.08,
-                                        ),
-                                        child: Align(
-                                          alignment: Alignment.topCenter,
-                                          child: InkWell(
-                                            onTap: () {
-                                              controller.OrderDetails.value =
-                                                  false;
-                                            },
-                                            child: Text(
-                                              "233".tr,
-                                              style: TextStyle(
-                                                  fontFamily: 'Cairo',
-                                                  color: const Color.fromARGB(
-                                                      255, 47, 47, 47),
-                                                  fontSize: screenWidth * 0.052,
-                                                  fontWeight: FontWeight.w700),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        )),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                            padding: EdgeInsets.only(
-                                                top: screenHeight * 0.02,
-                                                right: screenWidth * 0.12,
-                                                left: screenWidth * 0.12),
-                                            child: Align(
-                                              alignment: Alignment.topRight,
-                                              child: InkWell(
-                                                onTap: () {
-                                                  controller
-                                                      .OrderCompleteOrdersProcess
-                                                      .value = false;
-                                                },
-                                                child: Text(
-                                                  "234".tr,
-                                                  style: TextStyle(
-                                                      fontFamily: 'Cairo',
-                                                      color:
-                                                          const Color.fromARGB(
-                                                              255, 47, 47, 47),
-                                                      fontSize:
-                                                          screenWidth * 0.043,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                            )),
-                                      ],
-                                    ),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: screenHeight * 0.15,
-                                            right: screenWidth * 0.04,
-                                            left: screenWidth * 0.04),
-                                        child: Align(
-                                          alignment: Alignment.topRight,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "235".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.046,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              Text(
-                                                "${controller.CompleteProcessIdOfOrder.value}",
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.049,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ],
-                                          ),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: screenHeight * 0.2,
-                                            right: screenWidth * 0.04,
-                                            left: screenWidth * 0.04),
-                                        child: Align(
-                                          alignment: Alignment.topRight,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "236".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.046,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              Text(
-                                                "SAR",
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 54, 157, 57),
-                                                    fontSize:
-                                                        screenWidth * 0.049,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              Text(
-                                                "${controller.CompleteProcessTotal.value}",
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 54, 157, 57),
-                                                    fontSize:
-                                                        screenWidth * 0.049,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ],
-                                          ),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: screenHeight * 0.25,
-                                            right: screenWidth * 0.04,
-                                            left: screenWidth * 0.04),
-                                        child: Align(
-                                          alignment: Alignment.topRight,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "237".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.046,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              Text(
-                                                controller.CompleteProcessHowToPay
-                                                            .value ==
-                                                        1
-                                                    ? "238".tr
-                                                    : "239".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: AppColors.yellow,
-                                                    fontSize:
-                                                        screenWidth * 0.049,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ],
-                                          ),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: screenHeight * 0.3,
-                                            right: screenWidth * 0.04,
-                                            left: screenWidth * 0.04),
-                                        child: Align(
-                                          alignment: Alignment.topRight,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "240".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.046,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              Text(
-                                                controller.CompleteProcessPaymentProcess
-                                                            .value ==
-                                                        0
-                                                    ? "241".tr
-                                                    : "242".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.049,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ],
-                                          ),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                            top: screenHeight * 0.35,
-                                            right: screenWidth * 0.04,
-                                            left: screenWidth * 0.04),
-                                        child: Align(
-                                          alignment: Alignment.topRight,
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "243".tr,
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.046,
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                              SizedBox(
-                                                width: screenWidth * 0.01,
-                                              ),
-                                              Text(
-                                                controller.CompleteProcessDateOfArrival
-                                                            .value ==
-                                                        "n"
-                                                    ? "244".tr
-                                                    : "${controller.CompleteProcessDateOfArrival.value}",
-                                                style: TextStyle(
-                                                    fontFamily: 'Cairo',
-                                                    color: const Color.fromARGB(
-                                                        255, 47, 47, 47),
-                                                    fontSize:
-                                                        screenWidth * 0.049,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ],
-                                          ),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: screenHeight * 0.22,
-                                        ),
-                                        child: Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: InkWell(
-                                            onTap: () {
-                                              controller.OrderDetails.value =
-                                                  false;
-                                            },
-                                            child: Text(
-                                              "245".tr,
-                                              style: TextStyle(
-                                                  fontFamily: 'Cairo',
-                                                  color: const Color.fromARGB(
-                                                      255, 47, 47, 47),
-                                                  fontSize: screenWidth * 0.052,
-                                                  fontWeight: FontWeight.w700),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(
-                                          bottom: screenHeight * 0.11,
-                                        ),
-                                        child: Align(
-                                          alignment: Alignment.bottomCenter,
-                                          child: InkWell(
-                                            onTap: () {
-                                              controller.OrderDetails.value =
-                                                  false;
-                                            },
-                                            child: Text(
-                                              controller.CompleteProcessHowToPay
-                                                          .value ==
-                                                      1
-                                                  ? "246".tr
-                                                  : "247".tr,
-                                              style: TextStyle(
-                                                  height: screenHeight * 0.002,
-                                                  fontFamily: 'Cairo',
-                                                  color: const Color.fromARGB(
-                                                      255, 47, 47, 47),
-                                                  fontSize: screenWidth * 0.042,
-                                                  fontWeight: FontWeight.w500),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        )),
-                                    Visibility(
-                                      visible: controller
-                                              .CompleteProcessHowToPay.value ==
-                                          2,
-                                      child: Padding(
-                                          padding: EdgeInsets.only(
-                                            bottom: screenHeight * 0.05,
-                                          ),
-                                          child: Align(
-                                            alignment: Alignment.bottomCenter,
-                                            child: InkWell(
-                                              onTap: () {
-                                              
-                                                //////////////////////////////////////////////////////////////////THERE PAY BY PAYPALLLLLLLLLLLLLL////////////////////////////////////////////////////////////////
-                                              Navigator.of(context)
-                                                      .push(MaterialPageRoute(
-                                                    builder: (BuildContext
-                                                            context) =>
-                                                        PaypalCheckout(
-                                                      sandboxMode: true,
-                                                      clientId:
-                                                          "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
-                                                      secretKey:
-                                                          "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
-                                                      returnURL:
-                                                          "success.snippetcoder.com",
-                                                      cancelURL:
-                                                          "cancel.snippetcoder.com",
-                                                      transactions: [
-                                                        {
-                                                          "amount": {
-                                                            "total":
-                                                                '${int.parse(controller.totalAdd.toString())}',
-                                                            "currency": "USD",
-                                                            "details": {
-                                                              "subtotal":
-                                                                  '${int.parse(controller.totalAdd.toString())}',
-                                                              "shipping": '0',
-                                                              "shipping_discount":
-                                                                  0
-                                                            }
-                                                          },
-                                                          "description":
-                                                              "the number of order is 887987987 ",
-                                                          // "payment_options": {
-                                                          //   "allowed_payment_method":
-                                                          //       "INSTANT_FUNDING_SOURCE"
-                                                          // },
-                                                          /*  "item_list": {
-                                                    "items": [
-                                                      {
-                                                        "name": "Apple",
-                                                        "quantity": 4,
-                                                        "price":
-                                                            '${int.parse(controller.total.value)}',
-                                                        "currency": "USD"
-                                                      },
-                                                    ],
-                  
-                                                    // shipping address is not required though
-                                                    //   "shipping_address": {
-                                                    //     "recipient_name": "Raman Singh",
-                                                    //     "line1": "Delhi",
-                                                    //     "line2": "",
-                                                    //     "city": "Delhi",
-                                                    //     "country_code": "IN",
-                                                    //     "postal_code": "11001",
-                                                    //     "phone": "+00000000",
-                                                    //     "state": "Texas"
-                                                    //  },
-                                                  }*/
-                                                        }
-                                                      ],
-                                                      note:
-                                                          "Contact us for any questions on your order.",
-                                                      onSuccess:
-                                                          (Map params) async {
-                                                        print(
-                                                            "onSuccess: $params");
-                                                      },
-                                                      onError: (error) {
-                                                        print(
-                                                            "onError: $error");
-                                                        Navigator.pop(context);
-                                                      },
-                                                      onCancel: () {
-                                                        print('cancelled:');
-                                                      },
-                                                    ),
-                                                  ));
-                                              },
-                                              child: Container(
-                                                width: screenWidth * 0.4,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.red,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            5)),
-                                                child: Text(
-                                                  "248".tr,
-                                                  style: TextStyle(
-                                                      fontFamily: 'Cairo',
-                                                      color: Colors.white,
-                                                      fontSize:
-                                                          screenWidth * 0.042,
-                                                      fontWeight:
-                                                          FontWeight.w500),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                            ),
-                                          )),
-                                    ),
-                                  ])))),
                       /////////////////////Step Two///////////////////////////////
 
                       Visibility(
@@ -4060,7 +4040,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                       width: screenWidth * 0.01,
                                                     ),
                                                     Text(
-                                                      "${controller.CompleteProcessIdOfOrder.value}",
+                                                      "${controller.id_of_orderAdd}",
                                                       style: TextStyle(
                                                           fontFamily: 'Cairo',
                                                           color: const Color
@@ -4104,7 +4084,8 @@ class _showMyAccountState extends State<showMyAccount> {
                                                       width: screenWidth * 0.01,
                                                     ),
                                                     Text(
-                                                      "SAR",
+                                                      controller
+                                                          .theNAmeOfCoun.value,
                                                       style: TextStyle(
                                                           fontFamily: 'Cairo',
                                                           color: const Color
@@ -4122,7 +4103,8 @@ class _showMyAccountState extends State<showMyAccount> {
                                                       width: screenWidth * 0.01,
                                                     ),
                                                     Text(
-                                                      "${controller.CompleteProcessTotal.value}",
+                                                      controller.totalAdd
+                                                          .toString(),
                                                       style: TextStyle(
                                                           fontFamily: 'Cairo',
                                                           color: const Color
@@ -4130,7 +4112,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                               255, 54, 157, 57),
                                                           fontSize:
                                                               screenWidth *
-                                                                  0.049,
+                                                                  0.037,
                                                           fontWeight:
                                                               FontWeight.w700),
                                                       textAlign:
@@ -4170,11 +4152,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                             screenWidth * 0.01,
                                                       ),
                                                       Text(
-                                                        controller.CompleteProcessHowToPay
-                                                                    .value ==
-                                                                1
-                                                            ? "238".tr
-                                                            : "239".tr,
+                                                        "238".tr,
                                                         style: TextStyle(
                                                             fontFamily: 'Cairo',
                                                             color: AppColors
@@ -4341,11 +4319,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                           .value = false;
                                                     },
                                                     child: Text(
-                                                      controller.CompleteProcessHowToPay
-                                                                  .value ==
-                                                              1
-                                                          ? "246".tr
-                                                          : "247".tr,
+                                                      "246".tr,
                                                       style: TextStyle(
                                                           height: screenHeight *
                                                               0.002,
@@ -4363,129 +4337,6 @@ class _showMyAccountState extends State<showMyAccount> {
                                                     ),
                                                   ),
                                                 )),
-                                            Visibility(
-                                              visible: controller
-                                                      .CompleteProcessHowToPay
-                                                      .value ==
-                                                  2,
-                                              child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                    top: screenHeight * 0.02,
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        Alignment.bottomCenter,
-                                                    child: InkWell(
-                                                      onTap: () {
-
-                                                        //////////////////////////////////////////////////////////////////THERE PAY BY PAYPALLLLLLLLLLLLLL////////////////////////////////////////////////////////////////
-                                                    Navigator.of(context)
-                                                      .push(MaterialPageRoute(
-                                                    builder: (BuildContext
-                                                            context) =>
-                                                        PaypalCheckout(
-                                                      sandboxMode: true,
-                                                      clientId:
-                                                          "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
-                                                      secretKey:
-                                                          "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
-                                                      returnURL:
-                                                          "success.snippetcoder.com",
-                                                      cancelURL:
-                                                          "cancel.snippetcoder.com",
-                                                      transactions: [
-                                                        {
-                                                          "amount": {
-                                                            "total":
-                                                                '${int.parse(controller.totalAdd.toString())}',
-                                                            "currency": "USD",
-                                                            "details": {
-                                                              "subtotal":
-                                                                  '${int.parse(controller.totalAdd.toString())}',
-                                                              "shipping": '0',
-                                                              "shipping_discount":
-                                                                  0
-                                                            }
-                                                          },
-                                                          "description":
-                                                              "the number of order is 887987987 ",
-                                                          // "payment_options": {
-                                                          //   "allowed_payment_method":
-                                                          //       "INSTANT_FUNDING_SOURCE"
-                                                          // },
-                                                          /*  "item_list": {
-                                                    "items": [
-                                                      {
-                                                        "name": "Apple",
-                                                        "quantity": 4,
-                                                        "price":
-                                                            '${int.parse(controller.total.value)}',
-                                                        "currency": "USD"
-                                                      },
-                                                    ],
-                  
-                                                    // shipping address is not required though
-                                                    //   "shipping_address": {
-                                                    //     "recipient_name": "Raman Singh",
-                                                    //     "line1": "Delhi",
-                                                    //     "line2": "",
-                                                    //     "city": "Delhi",
-                                                    //     "country_code": "IN",
-                                                    //     "postal_code": "11001",
-                                                    //     "phone": "+00000000",
-                                                    //     "state": "Texas"
-                                                    //  },
-                                                  }*/
-                                                        }
-                                                      ],
-                                                      note:
-                                                          "Contact us for any questions on your order.",
-                                                      onSuccess:
-                                                          (Map params) async {
-                                                        print(
-                                                            "onSuccess: $params");
-                                                      },
-                                                      onError: (error) {
-                                                        print(
-                                                            "onError: $error");
-                                                        Navigator.pop(context);
-                                                      },
-                                                      onCancel: () {
-                                                        print('cancelled:');
-                                                      },
-                                                    ),
-                                                  ));
-                                                  
-                                                     },
-                                                      child: Container(
-                                                        width:
-                                                            screenWidth * 0.4,
-                                                        decoration: BoxDecoration(
-                                                            color: Colors.red,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        5)),
-                                                        child: Text(
-                                                          "248".tr,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Cairo',
-                                                              color:
-                                                                  Colors.white,
-                                                              fontSize:
-                                                                  screenWidth *
-                                                                      0.042,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  )),
-                                            ),
                                           ],
                                         ),
                                       ),
@@ -4798,119 +4649,8 @@ class _showMyAccountState extends State<showMyAccount> {
                                                         FontWeight.w500),
                                                 textAlign: TextAlign.center,
                                               ),
-                                             
                                               SizedBox(
                                                   height: screenHeight * 0.02),
-                                              InkWell(
-                                                onTap: () {
-                                                  Navigator.of(context)
-                                                      .push(MaterialPageRoute(
-                                                    builder: (BuildContext
-                                                            context) =>
-                                                        PaypalCheckout(
-                                                      sandboxMode: true,
-                                                      clientId:
-                                                          "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
-                                                      secretKey:
-                                                          "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
-                                                      returnURL:
-                                                          "success.snippetcoder.com",
-                                                      cancelURL:
-                                                          "cancel.snippetcoder.com",
-                                                      transactions: [
-                                                        {
-                                                          "amount": {
-                                                            "total":
-                                                                '${int.parse(controller.totalAdd.toString())}',
-                                                            "currency": "USD",
-                                                            "details": {
-                                                              "subtotal":
-                                                                  '${int.parse(controller.totalAdd.toString())}',
-                                                              "shipping": '0',
-                                                              "shipping_discount":
-                                                                  0
-                                                            }
-                                                          },
-                                                          "description":
-                                                              "the number of order is 887987987 ",
-                                                          // "payment_options": {
-                                                          //   "allowed_payment_method":
-                                                          //       "INSTANT_FUNDING_SOURCE"
-                                                          // },
-                                                          /*  "item_list": {
-                                                    "items": [
-                                                      {
-                                                        "name": "Apple",
-                                                        "quantity": 4,
-                                                        "price":
-                                                            '${int.parse(controller.total.value)}',
-                                                        "currency": "USD"
-                                                      },
-                                                    ],
-                  
-                                                    // shipping address is not required though
-                                                    //   "shipping_address": {
-                                                    //     "recipient_name": "Raman Singh",
-                                                    //     "line1": "Delhi",
-                                                    //     "line2": "",
-                                                    //     "city": "Delhi",
-                                                    //     "country_code": "IN",
-                                                    //     "postal_code": "11001",
-                                                    //     "phone": "+00000000",
-                                                    //     "state": "Texas"
-                                                    //  },
-                                                  }*/
-                                                        }
-                                                      ],
-                                                      note:
-                                                          "Contact us for any questions on your order.",
-                                                      onSuccess:
-                                                          (Map params) async {
-                                                        print(
-                                                            "onSuccess: $params");
-                                                      },
-                                                      onError: (error) {
-                                                        print(
-                                                            "onError: $error");
-                                                        Navigator.pop(context);
-                                                      },
-                                                      onCancel: () {
-                                                        print('cancelled:');
-                                                      },
-                                                    ),
-                                                  ));
-                                                  controller.howtoPay.value = 2;
-                                                },
-                                                child: AnimatedContainer(
-                                                  duration:
-                                                      Duration(seconds: 1),
-                                                  width: controller
-                                                              .howtoPay.value ==
-                                                          2
-                                                      ? screenWidth * 0.3
-                                                      : screenWidth * 0.27,
-                                                  decoration: BoxDecoration(
-                                                      color: controller.howtoPay
-                                                                  .value ==
-                                                              2
-                                                          ? Colors.amber
-                                                          : Colors.black,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              5)),
-                                                  child: Text(
-                                                    "257".tr,
-                                                    style: TextStyle(
-                                                        fontFamily: 'Cairo',
-                                                        color: Colors.white,
-                                                        fontSize:
-                                                            screenWidth * 0.044,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                    textAlign: TextAlign.center,
-                                                  ),
-                                                ),
-                                              ),
                                               SizedBox(
                                                   height: screenHeight * 0.02),
                                               InkWell(
@@ -4918,6 +4658,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                   controller.howtoPay.value = 3;
                                                 },
                                                 child: AnimatedContainer(
+                                                  alignment: Alignment.center,
                                                   duration:
                                                       Duration(seconds: 1),
                                                   width: controller
@@ -4925,6 +4666,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                           3
                                                       ? screenWidth * 0.3
                                                       : screenWidth * 0.27,
+                                                  height: screenHeight / 22,
                                                   decoration: BoxDecoration(
                                                       color: controller.howtoPay
                                                                   .value ==
@@ -5329,7 +5071,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                   Colors.black,
                                                               fontSize:
                                                                   screenWidth *
-                                                                      0.05,
+                                                                      0.034,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500),
@@ -5341,7 +5083,9 @@ class _showMyAccountState extends State<showMyAccount> {
                                                               0.02,
                                                         ),
                                                         Text(
-                                                          "SAR".tr,
+                                                          controller
+                                                              .theNAmeOfCoun
+                                                              .value,
                                                           style: TextStyle(
                                                               fontFamily:
                                                                   'Cairo',
@@ -5349,7 +5093,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                   Colors.black,
                                                               fontSize:
                                                                   screenWidth *
-                                                                      0.047,
+                                                                      0.040,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500),
@@ -5376,7 +5120,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                       42),
                                                               fontSize:
                                                                   screenWidth *
-                                                                      0.047,
+                                                                      0.037,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w700),
@@ -5826,7 +5570,7 @@ class _showMyAccountState extends State<showMyAccount> {
                                                                                       mainAxisAlignment: MainAxisAlignment.end,
                                                                                       children: [
                                                                                         Text(
-                                                                                          "SAR".tr,
+                                                                                          controller.theNAmeOfCoun.value,
                                                                                           style: TextStyle(fontFamily: 'Cairo', color: Colors.black, fontSize: screenWidth * 0.047, fontWeight: FontWeight.w500),
                                                                                           textAlign: TextAlign.center,
                                                                                           maxLines: 3,
@@ -5875,6 +5619,36 @@ class _showMyAccountState extends State<showMyAccount> {
 
             ///////////////////////////
             ChangeCountry(), Auth(),
+            Visibility(
+                visible: controller.waitDeleteAccount.value,
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight,
+                  color: Colors.black38,
+                )),
+            Visibility(
+                visible: controller.waitDeleteAccount.value,
+                child: Container(
+                  width: screenWidth,
+                  height: screenHeight,
+                  color: Colors.black38,
+                )),
+            Visibility(
+                visible: controller.waitDeleteAccount.value,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "304".tr,
+                    style: TextStyle(
+                        fontFamily: 'Cairo',
+                        color: Colors.white,
+                        fontSize: screenWidth * 0.047,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                )),
 
             //////////////////////////
           ],

@@ -815,8 +815,8 @@ class AuthWelcome extends StatelessWidget {
                                                     height: screenHeight * 0.01,
                                                   ),
                                                   TextFormFiledCus(
-                                                    keyboardType: TextInputType
-                                                        .emailAddress,
+                                                    keyboardType:
+                                                        TextInputType.text,
                                                     autofillHints: [
                                                       AutofillHints.email
                                                     ],

@@ -146,4 +146,6 @@ class AppLinksApi {
 
   static const deleteSAccountsWhenDeleteAccount =
       "https://larra.xyz/php_nara/delete_accounts/delete_account.php";
+
+      static const getNameOFCelebs = "https://larra.xyz/php_nara/get_name_clebs.php";
 }

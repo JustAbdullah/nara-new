@@ -134,8 +134,8 @@ class AppTranslation extends Translations {
 
           ////////////////////////////Celebs//////////////
           "111": "قائمة المشاهير",
-          "112": "معلومات حول هذا المشهور",
-          "113": "شاهد منتجات هذة الشخصية المشهوره",
+          "112": "معلومات حول هذا ",
+          "113": "شاهد منتجات هذة الشخصية ",
           ////////////////Brands//////////////////////
           "114": "قائمة الماركات",
           "114.1": "معلومات حول هذة الماركة",
@@ -182,7 +182,7 @@ class AppTranslation extends Translations {
           ///////////////////////////Brands /////////////////////
           "147": "ابحث عن ماركة ما",
           ///////////////////////////Brands /////////////////////
-          "148": "ابحث عن مشهور ما",
+          "148": "ابحث ",
           ///////////////////////////ManageTheProductsUsers /////////////////////
           //////////////Add Products////////////
 
@@ -521,9 +521,9 @@ class AppTranslation extends Translations {
           "109": "The product has been added to the cart",
           "110": "Hide", ////////////////////////////Celebs//////////////
           "111": "List of celebrities",
-          "112": "Information about this famou",
+          "112": "Information about this",
 
-          "113": "See the products of this famous personality",
+          "113": "See the products ",
           ////////////////Brands///
           //////////////////////
           "114": "List of brands",
@@ -568,7 +568,7 @@ class AppTranslation extends Translations {
           ///////////////////////////Brands /////////////////////
           "147": "Search for a brand",
           ///////////////////////////Brands /////////////////////
-          "148": "Find a famous person",
+          "148": "Search",
           ///////////////////////////ManageTheProductsUsers /////////////////////
           //////////////Add Products////////////
 

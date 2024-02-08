@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nara_test/controllers/home_controller.dart';
 import 'package:nara_test/views/screens/brands.dart';
 
 import '../../../core/constant/appcolors.dart';
 import '../../../core/constant/images_path.dart';
+import '../../../core/localization/changelanguage.dart';
 import '../../screens/celebrities.dart';
 import '../../screens/home.dart';
 import '../../screens/showAccount.dart';
@@ -18,6 +20,7 @@ class Menu extends StatelessWidget {
     final _size = MediaQuery.of(context).size;
     final screenHeight = _size.height;
     final screenWidth = _size.width;
+    HomeController homeController = Get.put(HomeController());
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
@@ -70,15 +73,28 @@ class Menu extends StatelessWidget {
                         "${ImagesPath.TheCelebsIcon}",
                         width: screenWidth * 0.07,
                       ),
-                      Text(
-                        "46".tr,
-                        style: TextStyle(
-                            fontFamily: 'Cairo',
-                            color: AppColors.balckgray,
-                            fontSize: screenWidth * 0.032,
-                            fontWeight: FontWeight.w500),
-                        textAlign: TextAlign.center,
-                      ),
+                      GetX<ChangeLanguageToLocale>(
+                          builder: (scontroller) => scontroller
+                                      .changeLangData ==
+                                  1
+                              ? Text(
+                                  homeController.nameOFClebsAr.value.toString(),
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: AppColors.balckgray,
+                                      fontSize: screenWidth * 0.032,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                )
+                              : Text(
+                                  homeController.nameOFClebsEn.value.toString(),
+                                  style: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      color: AppColors.balckgray,
+                                      fontSize: screenWidth * 0.032,
+                                      fontWeight: FontWeight.w500),
+                                  textAlign: TextAlign.center,
+                                )),
                     ],
                   ),
                 ),

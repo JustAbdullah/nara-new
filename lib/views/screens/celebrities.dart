@@ -6,6 +6,7 @@ import 'package:nara_test/views/widgets/celebrities/view_the_celeb.dart';
 import '../../../../core/constant/appcolors.dart';
 import '../../controllers/home_controller.dart';
 import '../../core/constant/images_path.dart';
+import '../../core/localization/changelanguage.dart';
 import '../widgets/celebrities/celebrities.details.dart';
 import '../widgets/celebrities/view_celeb_searching.dart';
 import '../widgets/menu/menu.dart';
@@ -32,15 +33,31 @@ class Celebrities extends StatelessWidget {
                           padding: EdgeInsets.only(top: screenWidth * 0.07),
                           child: Align(
                               alignment: Alignment.topCenter,
-                              child: Text(
-                                "111".tr,
-                                style: TextStyle(
-                                    fontFamily: 'Cairo',
-                                    color: AppColors.blackNumberFourBlackMode,
-                                    fontSize: screenWidth * 0.055,
-                                    fontWeight: FontWeight.w700),
-                                textAlign: TextAlign.center,
-                              ))),
+                              child: GetX<ChangeLanguageToLocale>(
+                                  builder: (scontroller) =>
+                                      scontroller.changeLangData == 1
+                                          ? Text(
+                                              controller.nameOFClebsAr.value
+                                                  .toString(),
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.055,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
+                                            )
+                                          : Text(
+                                              controller.nameOFClebsEn.value
+                                                  .toString(),
+                                              style: TextStyle(
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors
+                                                      .blackNumberFourBlackMode,
+                                                  fontSize: screenWidth * 0.055,
+                                                  fontWeight: FontWeight.w700),
+                                              textAlign: TextAlign.center,
+                                            )))),
                       Padding(
                           padding: EdgeInsets.only(top: screenHeight * 0.10),
                           child: Align(

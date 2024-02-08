@@ -527,6 +527,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
+    getCelebsName();
     searchingTheTypes = TextEditingController();
     searchingTheCelebs = TextEditingController();
     searchingTheBrands = TextEditingController();
@@ -1572,6 +1573,21 @@ class HomeController extends GetxController {
     });
     if (response['status'] == "success") {
     } else {}
+    return response;
+  }
+
+  RxString nameOFClebsAr = "".obs;
+  RxString nameOFClebsEn = "".obs;
+
+  //////////////////////////
+  getCelebsName() async {
+    var response = await crud.postRequest(AppLinksApi.getNameOFCelebs, {});
+
+    if (response['status'] == "success") {
+      nameOFClebsAr.value = response['data'][0]['name_cleb_ar'].toString();
+      nameOFClebsEn.value = response['data'][0]['name_cleb_en'].toString();
+    } else {}
+
     return response;
   }
 }

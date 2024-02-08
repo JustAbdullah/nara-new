@@ -6,6 +6,7 @@ import 'package:nara_test/views/screens/celebrities.dart';
 import 'package:nara_test/views/screens/the_types.dart';
 
 import '../../controllers/home_controller.dart';
+import '../../core/localization/changelanguage.dart';
 import '../widgets/home_widgets/view_widget_brands_home/view_brands_home.dart';
 import '../widgets/home_widgets/view_widget_products_home/details_products_widget.dart';
 import '../widgets/menu/menu.dart';
@@ -40,15 +41,29 @@ class Home extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "88".tr,
-                          style: TextStyle(
-                              fontFamily: 'Cairo',
-                              color: AppColors.balckgray,
-                              fontSize: screenWidth * 0.055,
-                              fontWeight: FontWeight.w500),
-                          textAlign: TextAlign.center,
-                        ),
+                        GetX<ChangeLanguageToLocale>(
+                            builder: (scontroller) =>
+                                scontroller.changeLangData == 1
+                                    ? Text(
+                                        homeController.nameOFClebsAr.value
+                                            .toString(),
+                                        style: TextStyle(
+                                            fontFamily: 'Cairo',
+                                            color: AppColors.balckgray,
+                                            fontSize: screenWidth * 0.055,
+                                            fontWeight: FontWeight.w500),
+                                        textAlign: TextAlign.center,
+                                      )
+                                    : Text(
+                                        homeController.nameOFClebsEn.value
+                                            .toString(),
+                                        style: TextStyle(
+                                            fontFamily: 'Cairo',
+                                            color: AppColors.balckgray,
+                                            fontSize: screenWidth * 0.055,
+                                            fontWeight: FontWeight.w500),
+                                        textAlign: TextAlign.center,
+                                      )),
                         InkWell(
                           onTap: () async {
                             Get.to(Celebrities());

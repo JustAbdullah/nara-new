@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:nara_test/core/services/appservices.dart';
+import 'package:nara_test/testin_auth.dart';
 import 'package:nara_test/views/screens/loading.dart';
 
 import 'core/constant/color_primary.dart';
@@ -9,6 +10,8 @@ import 'core/constant/stripe_keys.dart';
 import 'core/localization/changelanguage.dart';
 import 'core/localization/translation.dart';
 import 'views/screens/the_types_all.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +19,12 @@ void main() async {
   /* Stripe.publishableKey = ApiKeysStripe.Publishablekey;*/
 
   await initialServices();
+
+// ...
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MaterialApp(debugShowCheckedModeBanner: false, home: const MyApp()));
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -43,8 +52,8 @@ class MyApp extends StatelessWidget {
 
       locale: chagnelangcontroller.language,
       translations: AppTranslation(),
-      title: "متجر ناره",
-      home: Scaffold(body: Loading()),
+      title: "متجر نارا",
+      home: Scaffold(body: TestingAuth()),
       theme: ThemeData(primarySwatch: ModeColor.mode),
       builder: (context, child) {
         final mediaQueryData = MediaQuery.of(context);

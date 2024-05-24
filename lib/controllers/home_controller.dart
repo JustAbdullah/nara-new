@@ -6,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nara_test/core/data/model/celeb.dart';
 import 'package:nara_test/views/screens/welcome.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:nara_test/views/testin_after.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import '../core/class/class/crud.dart';
 import '../core/data/model/brands.dart';
 import '../core/data/model/cart_shop.dart';
@@ -1404,6 +1407,20 @@ class HomeController extends GetxController {
     theCountPrice.value = 00005;
   }
 
+  changeTheCounToDollar() {
+    //  theOfCOunValue.value = 0.1862;
+    theNAmeOfCoun.value = "USD";
+    theCoun.value = 9;
+    theCountPrice.value = 0.00076329486;
+  }
+
+  changeTheCounToEur() {
+    //  theOfCOunValue.value = 0.1862;
+    theNAmeOfCoun.value = "EUR";
+    theCoun.value = 10;
+    theCountPrice.value = 0.00070347315;
+  }
+
   whatisTheCount() {}
 
   getAllTheTypes() async {
@@ -1589,5 +1606,86 @@ class HomeController extends GetxController {
     } else {}
 
     return response;
+  }
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  Future<String?> signInWithGoogle() async {
+    try {
+      // بدء مؤشر التحميل
+      Get.dialog(Center(child: CircularProgressIndicator()),
+          barrierDismissible: false);
+
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount!.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+
+      final UserCredential authResult =
+          await _auth.signInWithCredential(credential);
+      final User? user = authResult.user;
+
+      if (user != null) {
+        assert(!user.isAnonymous);
+        assert(await user.getIdToken() != null);
+
+        final User? currentUser = _auth.currentUser;
+        assert(user.uid == currentUser!.uid);
+
+        print('signInWithGoogle succeeded: $user');
+
+        return '$user';
+      }
+
+      return null;
+    } catch (e) {
+      // إذا حدث خطأ، أغلق مؤشر التحميل وأظهر الخطأ
+      if (Get.isDialogOpen == true) Get.back();
+      Get.snackbar("Error", e.toString());
+    } finally {
+      // في نهاية العملية، أغلق مؤشر التحميل
+      if (Get.isDialogOpen == true) Get.back();
+      Get.offAll(TestingAfter());
+    }
+  }
+
+  Future<UserCredential?> signInWithFacebook() async {
+    try {
+      // بدء مؤشر التحميل
+      Get.dialog(Center(child: CircularProgressIndicator()),
+          barrierDismissible: false);
+
+      // Trigger the sign-in flow
+      final LoginResult result = await FacebookAuth.instance.login();
+
+      if (result.status == LoginStatus.success) {
+        // Create a credential from the access token
+        final OAuthCredential facebookAuthCredential =
+            FacebookAuthProvider.credential(result.accessToken!.token);
+
+        // Once signed in, return the UserCredential
+        final UserCredential authResult = await FirebaseAuth.instance
+            .signInWithCredential(facebookAuthCredential);
+
+        Get.offAll(TestingAfter());
+        print('signInWithFacebook succeeded: ${authResult.user}');
+
+        return authResult;
+      }
+    } catch (e) {
+      // إذا حدث خطأ، أغلق مؤشر التحميل وأظهر الخطأ
+      if (Get.isDialogOpen == true) Get.back();
+      Get.snackbar("Error", e.toString());
+    } finally {
+      // في نهاية العملية، أغلق مؤشر التحميل
+      if (Get.isDialogOpen == true) Get.back();
+      Get.offAll(TestingAfter());
+    }
   }
 }

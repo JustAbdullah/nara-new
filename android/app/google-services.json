@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "122637037444",
+    "project_id": "nara-39cb7",
+    "storage_bucket": "nara-39cb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122637037444:android:af5bc38f59d3a2ecf8f7d1",
+        "android_client_info": {
+          "package_name": "com.nara.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122637037444-vn4jjam7ca12p5tg87grul8gpfah8ke1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3L-k6pMX6i8tfuT2bsSb2TCVw3RV5df8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122637037444-vn4jjam7ca12p5tg87grul8gpfah8ke1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122637037444-ao2dl3uki6cuogrlukkip834rsl15ruo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.naraTest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
